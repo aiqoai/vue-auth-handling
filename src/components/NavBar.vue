@@ -17,7 +17,7 @@
 
         <el-dropdown trigger="click">
           <span class="el-dropdown-link">
-                    <el-badge :value="3" class="item">
+                    Message<el-badge :value="3" class="item">
                     </el-badge>
 
             <i class="el-icon-caret-bottom el-icon--right"></i>
@@ -63,6 +63,17 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  data(){
+    return {
+      activeIndex:"0"
+    }
+  },
+  methods:{
+    handleSelect(index){
+      console.log("selected: ",index)
+
+    }
+  },
 	computed: {
 		itemsInCart(){
 			let cart = this.$store.getters.cartProducts;
