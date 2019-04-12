@@ -1,13 +1,13 @@
 <template>
   <el-container>
-    <el-aside width="200px">Aside</el-aside>
+    <el-aside width="200px">Category</el-aside>
     <el-container>
       <el-header> <nav-bar></nav-bar>
       </el-header>
       <el-main>
 
         <div id="app">
-
+g
 
           <router-view/>
         </div>
