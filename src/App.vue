@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="200px">Aside</el-aside>
+    <el-aside width="200px">Aside  hello </el-aside>
     <el-container>
       <el-header> <nav-bar></nav-bar>
       </el-header>
@@ -10,6 +10,9 @@
 
 
           <router-view/>
+        </div>
+        <div>
+          <p>helloenbdksdb</p>
         </div>
       </el-main>
     </el-container>
