@@ -7,13 +7,13 @@
     </el-menu-item>
       <el-menu-item index="1"><router-link to="/home" class="nav-item">Home</router-link></el-menu-item>
 
-    <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Category</router-link></el-menu-item>
+    <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Catalogue</router-link></el-menu-item>
     <el-menu-item index="3"><router-link to="/build" class="nav-item">Build</router-link></el-menu-item>
     <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
     <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
     <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item>
 
-    <el-menu-item index="1"><router-link to="/dashboard" class="nav-item">Profile</router-link></el-menu-item>
+    <el-menu-item index="1"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
 
       <el-menu-item index="7">
 

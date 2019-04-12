@@ -12,6 +12,7 @@ import Home from '@/screen/Home'
 import Catelogue from '@/screen/Catalogue'
 import Build from '@/screen/Build'
 import Play from '@/screen/play'
+import Profile from '@/screen/Profile'
 
 Vue.use(Router)
 
@@ -91,9 +92,9 @@ let router = new Router({
         }
     },
     {
-        path: '/dashboard',
-        name: 'userboard',
-        component: UserBoard,
+        path: '/profile',
+        name: 'profile',
+        component: Profile,
         meta: { 
             requiresAuth: false
         }
