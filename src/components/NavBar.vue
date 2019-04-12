@@ -1,50 +1,15 @@
 <template>
-	<nav class="nav has-shadow" style='box-shadow: 0 1px 0 rgba(219,219,219,.3);'>
-	  <div >
-	    <router-link to="/" class="nav-item">
-	      <img src="../assets/logo-alt.png" alt="Bulma logo">
-	    </router-link>
-
-      <router-link to="/dashboard" class="nav-item is-tab" exact-active-class="is-active">
-        dashboard
-      </router-link>
-
-      <router-link to="/login"  >
-        login
-      </router-link>
-
-      <router-link to="/register" >
-        register
-      </router-link>
-
-      <router-link to="/products" >
-        products
-      </router-link>
-
-      <router-link to="/cart" >
-        cart
-      </router-link>
-
-
-
-
-      <router-link to="/admin" class="nav-item is-tab" exact-active-class="is-active">
-        admin
-      </router-link>
-
-
-      <router-link to='/cart' class="button is-info">
-	            <span class="icon">
-	              <i class="fa fa-shopping-cart"></i>
-	            </span>
-        <span>Checkout ({{itemsInCart}})</span>
-      </router-link>
-
-	  </div>
-
-
-
-	</nav>
+	  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+      background-color="#B3C0D1" text-color="#333" active-text-color="#00d1b2">
+    <el-menu-item><router-link to="/" class="nav-item">
+        <img src="../assets/logo.png" alt="Bulma logo">
+      </router-link>
+    </el-menu-item>
+    <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
+    <el-menu-item index="2"><router-link to="/products" class="nav-item">Build</router-link></el-menu-item>
+    <el-menu-item index="3"><router-link to="/cart" class="nav-item">Category</router-link></el-menu-item>
+    <el-menu-item index="4"><router-link to="/dashboard" class="nav-item">Gaming</router-link></el-menu-item>
+  </el-menu> 
 </template>
 
 <style >
