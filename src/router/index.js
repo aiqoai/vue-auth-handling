@@ -7,21 +7,63 @@ import UserBoard from '@/components/UserBoard'
 import Admin from '@/components/Admin'
 import Products from '@/components/Products'
 import Cart from '@/components/Cart'
+
+import Home from '@/screen/Home'
+import Catelogue from '@/screen/Catalogue'
+import Build from '@/screen/Build'
+import Play from '@/screen/play'
+
 Vue.use(Router)
 
 let router = new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'login',
-      component: Login,
+      path: '/home',
+      name: 'home',
+      component: Home,
       meta: {
-         guest: true,
+        guest: true,
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/catalogue',
+      name: 'catalogue',
+      component: Catelogue,
+      meta: {
+        guest: true,
         requiresAuth: false
       }
     },
 
+    {
+      path: '/build',
+      name: 'build',
+      component: Build,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/play',
+      name: 'play',
+      component: Play,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
     {
       path: '/products',
       name: 'products',
