@@ -1,12 +1,12 @@
 <template>
   <el-container>
-    <el-aside width="200px">Category</el-aside>
+<!--    <el-aside width="200px">Category</el-aside>-->
     <el-container>
       <el-header> <nav-bar></nav-bar>
       </el-header>
       <el-main>
 
-        <div id="app">
+        <div id="app" style="border: #00d1b2;width: 20px;">
 g
 
           <router-view/>
@@ -48,10 +48,10 @@ export default {
   }
 
   .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
+    /*background-color: #E9EEF3;*/
+    /*color: #333;*/
+    /*text-align: center;*/
+    /*line-height: 160px;*/
   }
 
   body > .el-container {
@@ -62,8 +62,8 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /*text-align: center;*/
+  /*color: #2c3e50;*/
+  /*margin-top: 60px;*/
 }
 </style>

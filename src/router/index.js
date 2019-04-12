@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import UserBoard from '@/components/UserBoard'
@@ -14,9 +14,14 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'login',
+      component: Login,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
     },
+
     {
       path: '/products',
       name: 'products',
@@ -33,14 +38,7 @@ let router = new Router({
         requiresAuth: false
       }
     },
-    {
-        path: '/login',
-        name: 'login',
-        component: Login,
-        meta: { 
-            guest: true
-        }
-    },
+
     {
         path: '/register',
         name: 'register',
@@ -71,36 +69,44 @@ let router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem('jwt') == null) {
-      next({
-        path: '/login',
-        params: { nextUrl: to.fullPath }
-      })
-    } else {
-      let user = JSON.parse(localStorage.getItem('user'))
-      if(to.matched.some(record => record.meta.is_admin)) {
-        if(user.is_admin == 1){
-            next()
-        }
-        else{
-            next({ name: 'userboard'})
-        }
-      }
-      else {
-      	next()
-      }
-    }
-  } else if(to.matched.some(record => record.meta.guest)) {
-	    if(localStorage.getItem('jwt') == null){
-	        next()
-	    }
-	    else{
-	        next({ name: 'userboard'})
-	    }
-    }else {
-    next() 
-  }
+  next()
+
+  // if(to.matched.some(record => record.meta.requiresAuth)) {
+  //   // console.log("requiresAuth: ",record.meta)
+  //   console.log(" JWT: ",localStorage.getItem('jwt') )
+  //
+  //   if (localStorage.getItem('jwt') == null)
+  //   {
+  //     next({
+  //       path: '/login',
+  //       params: { nextUrl: to.fullPath }
+  //     })
+  //   } else {
+  //     let user = JSON.parse(localStorage.getItem('user'))
+  //     if(to.matched.some(record => record.meta.is_admin)) {
+  //       if(user.is_admin == 1){
+  //           next()
+  //       }
+  //       else{
+  //           next({ name: 'userboard'})
+  //       }
+  //     }
+  //     else {
+  //     	next()
+  //     }
+  //   }
+  // }
+  // else if(to.matched.some(record => record.meta.guest)) {
+  //   // console.log("guest: ", record.meta.guest)
+	//     if(localStorage.getItem('jwt') == null){
+	//         next()
+	//     }
+	//     else{
+	//         next({ name: 'userboard'})
+	//     }
+  //   }else {
+  //   next()
+  // }
 })
 
 export default router

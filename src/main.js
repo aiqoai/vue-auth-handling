@@ -13,7 +13,7 @@ import store from './store/index.js'
 Vue.prototype.$http = Axios;
 
 Vue.config.productionTip = false
-Vue.use(ElementUI,{ size: 'small', zIndex: 3000 });
+Vue.use(ElementUI);//{ size: 'small', zIndex: 3000 }
 
 /* eslint-disable no-new */
 new Vue({

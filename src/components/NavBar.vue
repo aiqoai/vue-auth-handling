@@ -2,11 +2,19 @@
 	<nav class="nav has-shadow" style='box-shadow: 0 1px 0 rgba(219,219,219,.3);'>
 	  <div >
 	    <router-link to="/" class="nav-item">
-	      <img src="../assets/logo.png" alt="Bulma logo">
+	      <img src="../assets/logo-alt.png" alt="Bulma logo">
 	    </router-link>
+
+      <router-link to="/dashboard" class="nav-item is-tab" exact-active-class="is-active">
+        dashboard
+      </router-link>
 
       <router-link to="/login"  >
         login
+      </router-link>
+
+      <router-link to="/register" >
+        register
       </router-link>
 
       <router-link to="/products" >
@@ -17,13 +25,9 @@
         cart
       </router-link>
 
-      <router-link to="/register" >
-        register
-      </router-link>
 
-      <router-link to="/dashboard" class="nav-item is-tab" exact-active-class="is-active">
-        dashboard
-      </router-link>
+
+
       <router-link to="/admin" class="nav-item is-tab" exact-active-class="is-active">
         admin
       </router-link>
