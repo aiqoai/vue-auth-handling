@@ -19,7 +19,8 @@
     "jsonwebtoken": "^8.3.0",
     "sqlite3": "^4.0.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": ""
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
