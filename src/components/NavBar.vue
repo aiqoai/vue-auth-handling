@@ -6,9 +6,11 @@
       </router-link>
     </el-menu-item>
     <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
-    <el-menu-item index="2"><router-link to="/products" class="nav-item">Build</router-link></el-menu-item>
-    <el-menu-item index="3"><router-link to="/cart" class="nav-item">Category</router-link></el-menu-item>
+    <el-menu-item index="2"><router-link to="/cart" class="nav-item">Category</router-link></el-menu-item>
+    <el-menu-item index="3"><router-link to="/products" class="nav-item">Build</router-link></el-menu-item>
     <el-menu-item index="4"><router-link to="/dashboard" class="nav-item">Gaming</router-link></el-menu-item>
+    <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
+    <el-menu-item index="6"><router-link to="/login" class="nav-item">Sign Up</router-link></el-menu-item>
   </el-menu> 
 </template>
 
