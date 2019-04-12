@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as types from './mutation-types'
+import * as userStore from './userStore';
 
 Vue.use(Vuex)
 
@@ -9,6 +10,7 @@ const debug = process.env.NODE_ENV !== 'production'
 // initial state
 const state = {
   added: [],
+  ...userStore.state,
   all: [
     {
       id: 'cc919e21-ae5b-5e1f-d023-c40ee669520c',
@@ -46,7 +48,8 @@ const getters = {
 				quantity
 			}
 		})
-	}
+	},
+  ...userStore.getters,
 }
 
 // actions
@@ -55,7 +58,8 @@ const actions = {
 		commit(types.ADD_TO_CART, {
 			id: product.id
 		})
-	}
+	},
+  ...userStore.actions,
 }
 
 // mutations
@@ -72,7 +76,9 @@ const mutations = {
 	    } else {
 	      record.quantity++
 	    }
-	  }
+	  },
+
+  ...userStore.mutations
 }
 
 // one store for entire application
