@@ -1,16 +1,16 @@
 <template>
-  <el-container>
+  <el-container id="app">
 <!--    <el-aside width="200px">Category</el-aside>-->
     <el-container>
-      <el-header> <nav-bar></nav-bar>
+      <el-header>
+        <nav-bar></nav-bar>
       </el-header>
       <el-main>
 
-        <div id="app" style="border: #00d1b2;width: 20px;">
-g
-
+<!--        <div  >-->
           <router-view/>
-        </div>
+<!--        </div>-->
+
       </el-main>
     </el-container>
   </el-container>
@@ -21,15 +21,15 @@ g
 
 <script>
   import NavBar from './components/NavBar.vue'
-export default {
-  name: 'App',
-  components: {
-    NavBar
-  },
-  data () {
-    return {}
+  export default {
+    name: 'App',
+    components: {
+      NavBar
+    },
+    data () {
+      return {}
+    }
   }
-}
 </script>
 <style>
 

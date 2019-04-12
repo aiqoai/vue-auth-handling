@@ -17,7 +17,7 @@ let router = new Router({
       name: 'login',
       component: Login,
       meta: {
-        guest: true,
+         guest: true,
         requiresAuth: false
       }
     },
