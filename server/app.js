@@ -26,6 +26,8 @@ app.use(allowCrossDomain)
 
 
 router.post('/register', function(req, res) {
+  console.log(" register",req.body.name,
+    req.body.email )
   db.insert([
     req.body.name,
     req.body.email,
@@ -44,6 +46,9 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/register-admin', function(req, res) {
+
+  console.log(" register-admin: ",req.body.name,
+    req.body.email )
   db.insertAdmin([
     req.body.name,
     req.body.email,
@@ -64,6 +69,7 @@ router.post('/register-admin', function(req, res) {
 
 router.get('/me', function(req, res) {
   let token = req.headers['x-access-token'];
+  console.log(" me: ", token)
   if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
   
   jwt.verify(token, config.secret, function(err, decoded) {

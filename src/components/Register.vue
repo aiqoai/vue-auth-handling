@@ -70,7 +70,9 @@
                         localStorage.setItem('jwt',response.data.token)
                         
                         if (localStorage.getItem('jwt') != null){
+
                             this.$emit('loggedIn')
+
                             if(this.$route.params.nextUrl != null){
                                 this.$router.push(this.$route.params.nextUrl)
                             }

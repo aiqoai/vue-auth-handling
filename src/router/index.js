@@ -5,7 +5,8 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import UserBoard from '@/components/UserBoard'
 import Admin from '@/components/Admin'
-
+import Products from '@/components/Products'
+import Cart from '@/components/Cart'
 Vue.use(Router)
 
 let router = new Router({
@@ -15,6 +16,22 @@ let router = new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: Products,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: Cart,
+      meta: {
+        requiresAuth: false
+      }
     },
     {
         path: '/login',
@@ -28,7 +45,8 @@ let router = new Router({
         path: '/register',
         name: 'register',
         component: Register,
-        meta: { 
+        meta: {
+          requiresAuth: false,
             guest: true
         }
     },
@@ -37,7 +55,7 @@ let router = new Router({
         name: 'userboard',
         component: UserBoard,
         meta: { 
-            requiresAuth: true
+            requiresAuth: false
         }
     },
     {
@@ -45,7 +63,7 @@ let router = new Router({
         name: 'admin',
         component: Admin,
         meta: { 
-            requiresAuth: true,
+            requiresAuth: false,
             is_admin : true
         }
     },
