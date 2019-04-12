@@ -16,6 +16,7 @@
     "axios": "^0.18.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
+    "element-ui": "^2.7.2",
     "jsonwebtoken": "^8.3.0",
     "sqlite3": "^4.0.1",
     "vue": "^2.5.2",

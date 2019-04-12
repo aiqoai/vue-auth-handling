@@ -1,9 +1,22 @@
 <template>
-  <div id="app">
-    <nav-bar></nav-bar>
+  <el-container>
+    <el-aside width="200px">Aside</el-aside>
+    <el-container>
+      <el-header> <nav-bar></nav-bar>
+      </el-header>
+      <el-main>
 
-    <router-view/>
-  </div>
+        <div id="app">
+
+
+          <router-view/>
+        </div>
+      </el-main>
+    </el-container>
+  </el-container>
+
+
+
 </template>
 
 <script>
