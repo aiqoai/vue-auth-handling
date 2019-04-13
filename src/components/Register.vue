@@ -40,32 +40,39 @@
 </template>
 
 <script>
+  import {HTTP} from '../store/httpcommon'
     export default {
         props : ['nextUrl'],
         data(){
             return {
-                name : "",
-                email : "",
-                password : "",
-                password_confirmation : "",
-                is_admin : null
+                name : "george",
+                email : "1@1.com",
+                password : "1",
+                password_confirmation : "1",
+              is_admin : 0
             }
         },
         methods : {
             handleSubmit(e) {
+              console.log(" click")
                 e.preventDefault()
                 
                 if (this.password === this.password_confirmation && this.password.length > 0)
                 {
-                    let url = 'http://localhost:3000/register'
-                    if(this.is_admin != null || this.is_admin == 1) url = 'http://localhost:3000/register-admin'
-                    this.$http.post(url, {
+
+
+                    // let url = 'http://localhost:3000/register'
+                    //if(this.is_admin != null || this.is_admin == 1)//url = 'http://localhost:3000/register-admin'
+
+                    HTTP.post('/api/register', {
                         name: this.name,
                         email: this.email,
                         password: this.password,
                         is_admin: this.is_admin
                     })
                     .then(response => {
+
+                      console.log(" regisgter successeded", response.data);
                         localStorage.setItem('user',JSON.stringify(response.data.user))
                         localStorage.setItem('jwt',response.data.token)
                         
@@ -84,6 +91,9 @@
                     .catch(error => {
                         console.error(error);
                     });
+
+
+
                 } else {
                     this.password = ""
                     this.passwordConfirm = ""
