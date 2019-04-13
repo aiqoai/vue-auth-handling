@@ -31,13 +31,75 @@ const state = {
         'features tactile, clicky switches for speed and accuracy',
       price: 595
     }
-  ]
+  ],
+	  testCategories: [
+	    {
+	      id: '1',
+	      name: 'GRE',
+	      description: ['GRE learning cards'],
+	      image: ''
+	    },
+	    {
+	      id: '2',
+	      name: 'SAT',
+	      description: ['GRE learning cards'],
+	      image: ''
+	    },
+	    {
+	      id: '3',
+	      name: 'ASUAB',
+	      description: ['GRE learning cards'],
+	      image: ''
+	    },
+	    {
+	      id: '4',
+	      name: 'TOEFL',
+	      description: ['TOEFL learning cards'],
+	      image: ''
+	    },
+	    {
+	      id: '5',
+	      name: 'Locked',
+	      description: [''],
+	      image: 'https://image.flaticon.com/icons/svg/44/44594.svg'
+	    },
+	    {
+	      id: '6',
+	      name: 'Locked',
+	      description: [''],
+	      image: 'https://image.flaticon.com/icons/svg/44/44594.svg'
+	    },
+	    
+	  ],
+	  userCategories: [
+	    {
+	      id: '1',
+	      name: 'Mastered',
+	      description: ['I\'m good!'],
+	      image: 'https://images.fineartamerica.com/images-medium-large-5/tiger-growl-athena-mckinzie.jpg'
+	    },
+	    {
+	      id: '2',
+	      name: 'Hardest',
+	      description: ['Keep learning'],
+	      image: 'https://cdn.shopify.com/s/files/1/0900/0928/files/Wet_Cat_large.jpg?17494516074913132002'
+	    },
+	    {
+	      id: '3',
+	      name: 'Revisit',
+	      description: ['Need to revisit'],
+	      image: 'https://www.blogography.com/photos64/DavisonDay405.jpg'
+	    },
+	    
+	  ],
 }
 
 // getters
 const getters = {
 	allProducts: state => state.all, // would need action/mutation if data fetched async
 	getNumberOfProducts: state => (state.all) ? state.all.length : 0,
+	testCategories: state => state.testCategories,
+  userCategories: state => state.userCategories,
 	cartProducts: state => {
 		return state.added.map(({ id, quantity }) => {
 			const product = state.all.find(p => p.id === id)

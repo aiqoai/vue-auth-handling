@@ -7,6 +7,7 @@ import UserBoard from '@/components/UserBoard'
 import Admin from '@/components/Admin'
 import Products from '@/components/Products'
 import Cart from '@/components/Cart'
+import Carousel from '@/components/Carousel'
 
 import Home from '@/screen/Home'
 import Catelogue from '@/screen/Catalogue'
@@ -95,6 +96,14 @@ let router = new Router({
         path: '/profile',
         name: 'profile',
         component: Profile,
+        meta: { 
+            requiresAuth: false
+        }
+    },
+    {
+        path: '/carousel',
+        name: 'carousel',
+        component: Carousel,
         meta: { 
             requiresAuth: false
         }
