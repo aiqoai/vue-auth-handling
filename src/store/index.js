@@ -92,6 +92,32 @@ const state = {
 	    },
 	    
 	  ],
+		skillTest : [
+			 {
+				 id: '1',
+				 question: {
+					 value:'Click the Carrot',
+					 type: 'text'
+				 },
+				 options: [
+					 {
+						 value: 'http://befreshcorp.net/wp-content/uploads/2017/06/product-packshot-Carrot.jpg',
+						 answer: '1',
+						 type: 'image'
+					 },
+					 {
+						value: 'https://i.redd.it/l3pobli9f5m21.png',
+						answer: '0',
+						type: 'image'
+					},
+					{
+						value: 'https://target.scene7.com/is/image/Target/GUEST_f5d0cfc3-9d02-4ee0-a6c6-ed5dc09971d1?wid=488&hei=488&fmt=pjpeg',
+						answer: '0',
+						type: 'image'
+					}
+				 ]
+			 }
+		],
 }
 
 // getters
@@ -100,6 +126,7 @@ const getters = {
 	getNumberOfProducts: state => (state.all) ? state.all.length : 0,
 	testCategories: state => state.testCategories,
   userCategories: state => state.userCategories,
+	skillTest: state => state.skillTest,
 	cartProducts: state => {
 		return state.added.map(({ id, quantity }) => {
 			const product = state.all.find(p => p.id === id)

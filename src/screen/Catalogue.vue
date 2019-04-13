@@ -19,7 +19,7 @@
       </el-col>
     </el-row>
 
-    <h2 class="title">Test Prep</h2>
+    <h2 class="title">Categories by User</h2>
     <el-row :gutter="20">
       <el-col :span="6" v-for="cat in userCategories" :key="cat">
         <div class="grid-content bg-purple">
