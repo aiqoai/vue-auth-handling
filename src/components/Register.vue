@@ -59,6 +59,7 @@
                 
                 if (this.password === this.password_confirmation && this.password.length > 0)
                 {
+                  console.log(" sent http")
 
 
                     // let url = 'http://localhost:3000/register'
@@ -75,6 +76,9 @@
                       console.log(" regisgter successeded", response.data);
                         localStorage.setItem('user',JSON.stringify(response.data.user))
                         localStorage.setItem('jwt',response.data.token)
+                      console.log(" this.$route.params", this.$route.params)
+
+                      // this.$router.push('/profile')
                         
                         if (localStorage.getItem('jwt') != null){
 
