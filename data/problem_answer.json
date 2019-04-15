@@ -5,12 +5,50 @@
     "problem_id": "001",
     "problem_answer_created_at" : "2019-04-14 00:00:00",
     "problem_answer_updated_at" : "2019-04-14 00:01:00",
-    "problem_answer_created_by" : "001",
-    "problem_answer_updated_by" : "001",
+    "problem_answer_created_by" : "01010101",
+    "problem_answer_updated_by" : "01010101",
     "problem_answer_correct" : "false",
-    "problem_answer_value" : "B",
     "problem_answer_phase": "learning",
-    "problem_answer_retry" : "true",
-    "problem_answer_hint" : "true"
+    "problem_answer_retry" : "1",
+    "problem_answer_use_hint" : "true",
+    "problem": {
+      "problem_id": "001",
+      "problem_grade_level": "SAT",
+      "problem_category": "life science",
+      "problem_tittle": "word",
+      "problem_description": "please find the the explanation in the following options",
+      "problem_template":"default",
+      "problem_type": "options",
+      "problem_hint": " this is the place show why option d is correct",
+      "data_item": [
+        {
+          "key": "a",
+          "label": "This is the first option",
+          "answer": "no",
+          "value": "true"
+        },
+        {
+          "key": "b",
+          "label": "This is the second option",
+          "answer": "no",
+          "value": ""
+        },
+        {
+          "key": "c",
+          "label": "This is the third option",
+          "answer": "no",
+          "value": ""
+        },
+        {
+          "key": "d",
+          "label": "This is the forth option",
+          "answer": "yes",
+          "value": ""
+        }
+
+
+    ]
+
+  }
   }
 ]
