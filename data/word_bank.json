@@ -2,8 +2,8 @@
  {
    "id": "001",
    "word": "Accessible",
-   "category": "Cat-1",
-   "level": "Lvl-1",
+   "category": "life science",
+   "level": "1",
    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
    "owner": "aiqo",
