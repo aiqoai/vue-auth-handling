@@ -82,13 +82,13 @@
                         
                         if (localStorage.getItem('jwt') != null){
 
-                            this.$emit('loggedIn')
+                            // this.$emit('loggedIn')
 
                             if(this.$route.params.nextUrl != null){
                                 this.$router.push(this.$route.params.nextUrl)
                             }
                             else{
-                                this.$router.push('/')
+                                this.$router.push('/catalogue')
                             }
                         }
                     })

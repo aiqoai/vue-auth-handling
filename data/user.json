@@ -1,12 +1,17 @@
 [
+
   {
-    "user_id": "01010101",
-    "user_email": "1@1.com",
-    "user_name": "user1",
-    "user_password":"dsafjkldfslk",
-    "user_is_admin": "false",
-    "user"
-  }
+    "user_id": "001",
+    "first_name": "George",
+    "last_name": "Hu",
+    "gender": "",
+    "age": "",
+    "email": "1@1.com",
+    "phone": "",
+    "encrypted_password": "hglhelghdsql",
+    "is_admin": "0",
+    "current_grade": "6",
+    "school": {"name": "aiQo university","address": {"zipcode": "95054","street": "5201 Great Amercica Pkwy","city": "Santa Clara","country": "USA"}}
 
 
 ]

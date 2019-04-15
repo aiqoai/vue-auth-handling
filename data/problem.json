@@ -8,30 +8,35 @@
     "problem_template":"default",
     "problem_type": "options",
     "problem_hint": " this is the place show why option d is correct",
+    "uri":[{"audio": ""},{"image": ""}],
     "data_item": [
       {
         "key": "a",
         "label": "This is the first option",
         "answer": "no",
-        "value": ""
+        "value": "",
+        "uri":[{"audio": ""},{"image": ""}]
       },
       {
         "key": "b",
         "label": "This is the second option",
         "answer": "no",
-        "value": ""
+        "value": "",
+        "uri":[{"audio": ""},{"image": ""}]
       },
       {
         "key": "c",
         "label": "This is the third option",
         "answer": "no",
-        "value": ""
+        "value": "",
+        "uri":[{"audio": ""},{"image": ""}]
       },
       {
         "key": "d",
         "label": "This is the forth option",
         "answer": "yes",
-        "value": ""
+        "value": "",
+        "uri":[{"audio": ""},{"image": ""}]
       }
       
       
