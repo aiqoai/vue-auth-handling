@@ -1,5 +1,12 @@
 [
-
+  {
+    "user_id": "01010101",
+    "user_email": "1@1.com",
+    "user_name": "user1",
+    "user_password":"dsafjkldfslk",
+    "user_is_admin": "false",
+    "user"
+  }
 
 
 ]
