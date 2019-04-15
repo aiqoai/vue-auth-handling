@@ -2,7 +2,8 @@ import {fetchLoggedInUserData} from './Util';
 
 // initial state
 export const state = {
-    currentUser:fetchLoggedInUserData()
+    currentUser:{},//fetchLoggedInUserData()
+    currentProfile:{}
 };
 
 // getters

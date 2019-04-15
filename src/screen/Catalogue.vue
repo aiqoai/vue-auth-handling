@@ -2,39 +2,39 @@
   <div class="hello">
     <h1>Word Catalogue</h1>
     <h2 class="title">Test Prep</h2>
-    <el-row :gutter="20">
-      <el-col :span="6" v-for="cat in testCategories" :key="cat">
-        <div class="grid-content bg-purple">
-        <el-card class="cards box-card">
-          <div slot="header" class="clearfix">
-            <span>{{cat.name}}</span>
-            <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>
-          </div>
-          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
-          <div v-for="des in cat.description" :key="des" class="text item">
-            {{ des }}
-          </div>
-        </el-card>
-        </div>
-      </el-col>
+    <el-row :gutter="20">{{JSON.stringify(testCategories)}}
+<!--      <el-col :span="6" v-for="cat in testCategories" :key="cat">-->
+<!--        <div class="grid-content bg-purple">-->
+<!--        <el-card class="cards box-card">-->
+<!--          <div slot="header" class="clearfix">-->
+<!--            <span>{{cat.name}}</span>-->
+<!--            <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>-->
+<!--          </div>-->
+<!--          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">-->
+<!--          <div v-for="des in cat.description" :key="des" class="text item">-->
+<!--            {{ des }}-->
+<!--          </div>-->
+<!--        </el-card>-->
+<!--        </div>-->
+<!--      </el-col>-->
     </el-row>
 
     <h2 class="title">Categories by User</h2>
     <el-row :gutter="20">
-      <el-col :span="6" v-for="cat in userCategories" :key="cat">
-        <div class="grid-content bg-purple">
-        <el-card class="cards box-card">
-          <div slot="header" class="clearfix">
-            <span>{{cat.name}}</span>
-            <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>
-          </div>
-          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
-          <div v-for="des in cat.description" :key="des" class="text item">
-            {{ des }}
-          </div>
-        </el-card>
-        </div>
-      </el-col>
+<!--      <el-col :span="6" v-for="cat in userCategories" :key="cat">-->
+<!--        <div class="grid-content bg-purple">-->
+<!--        <el-card class="cards box-card">-->
+<!--          <div slot="header" class="clearfix">-->
+<!--            <span>{{cat.name}}</span>-->
+<!--            <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>-->
+<!--          </div>-->
+<!--          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">-->
+<!--          <div v-for="des in cat.description" :key="des" class="text item">-->
+<!--            {{ des }}-->
+<!--          </div>-->
+<!--        </el-card>-->
+<!--        </div>-->
+<!--      </el-col>-->
     </el-row>
   </div>
 </template>
@@ -44,13 +44,20 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'app',
-  computed: mapGetters({
-    testCategories: 'testCategories',
-    userCategories: 'userCategories'
-  }),
-  methods: mapActions([
-    
+  computed: {
+
+    ...mapGetters({
+                 testCategories: 'testCategories',
+                 userCategories: 'userCategories'
+               })
+  }
+,
+  methods: {
+
+  ...mapActions([
+
   ])
+  }
 }
 </script>
 
