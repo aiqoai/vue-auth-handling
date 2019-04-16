@@ -2,7 +2,6 @@
   <div class="hello">
   <h1>Learning Deck </h1>
     <h2>{{wordCatagory}}</h2>
-    {{JSON.stringify(wordList)}}
   <el-collapse accordion>
     <el-collapse-item v-for="w in wordList" :key="w.id" :title="w.word" :name="w.word">
       <el-row>
