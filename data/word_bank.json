@@ -7,7 +7,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -36,7 +36,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -65,7 +65,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -94,7 +94,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -123,7 +123,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -152,7 +152,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -181,7 +181,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -210,7 +210,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -239,7 +239,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -268,7 +268,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -297,7 +297,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -326,7 +326,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -355,7 +355,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -384,7 +384,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -413,7 +413,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -442,7 +442,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -471,7 +471,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -500,7 +500,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -529,7 +529,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -558,7 +558,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -587,7 +587,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -616,7 +616,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -645,7 +645,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -674,7 +674,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -703,7 +703,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -732,7 +732,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
@@ -761,7 +761,7 @@
     "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
     "owner": "aiqo",
     "pronunciation": "Acce-ssi-ble",
-    "root": [{"latin":"acce"},{"greek":"ac"}],
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
     "part_of_speech":[
       {
         "type": "adj",
