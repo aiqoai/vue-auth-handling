@@ -2,6 +2,7 @@
   <div class="hello">
   <h1>Learning Deck </h1>
     <h2>{{wordCatagory}}</h2>
+    {{JSON.stringify(wordList)}}
   <el-collapse accordion>
     <el-collapse-item v-for="w in wordList" :key="w.id" :title="w.word" :name="w.word">
       <el-row>
@@ -24,7 +25,7 @@
 
 
   <el-carousel :interval="4000" type="card" height="600px" >
-    <el-carousel-item v-for="w in wordList" :key="w.id" :trigger="click">
+    <el-carousel-item v-for="w in wordList" :key="w.id">
       <h3 class="center">{{ w.word }}
         <el-button type="primary" icon="el-icon-edit" circle @click.prevent="playSound(w.sound_url)" ></el-button>
       </h3>
@@ -42,12 +43,6 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  // props: {
-  //   selected: {
-  //       type: String,
-  //       default: 'GRE'
-  //   }
-  // },
   data () {
     return {
       msg: 'learning',
