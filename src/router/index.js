@@ -12,7 +12,7 @@ import Carousel from '@/components/Carousel'
 import Home from '@/screen/Home'
 import Catelogue from '@/screen/Catalogue'
 import Build from '@/screen/Build'
-import Play from '@/screen/play'
+import Play from '@/screen/Play'
 import Profile from '@/screen/Profile'
 
 import Learning from '@/screen/wordlearn/learning'

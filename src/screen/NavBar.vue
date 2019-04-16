@@ -1,7 +1,7 @@
 <template>
 	  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
-      background-color="#B3C0D1" text-color="#333" active-text-color="#00d1b2">
-    <el-menu-item index="0"><router-link to="/" class="nav-item">
+      background-color="#B3C0D1" text-color="#333" active-text-color="#064672">
+    <el-menu-item><router-link to="/" class="nav-item">
         <img src="../assets/logo-alt.png" alt="Bulma logo">
       </router-link>
     </el-menu-item>
@@ -39,11 +39,13 @@
 
       </el-menu-item>
 
+
+
   </el-menu>
 
 </template>
 
-<style >
+<style scoped>
 .nav {
 	height: auto;
 	margin-bottom: 2rem;
@@ -55,7 +57,7 @@
 
 .active-bottom-border {
 	border-bottom: 3px solid #00d1b2;
-    color: #00d1b2;
+    color: #064672;
     padding-bottom: calc(.75rem - 8px);
 }
 </style>
@@ -73,7 +75,7 @@ export default {
     handleSelect(index){
       console.log("selected: ",index)
       if(index=='1'){
-        this.$router.push('/home');
+        this.$router.push('/');
       }
       else if(index=='2'){
         this.$router.push('/catalogue');
@@ -89,6 +91,9 @@ export default {
       }
       else if(index=='6'){
         this.$router.push('/register');
+      }
+      else if(index=='7'){
+        this.$router.push('/profile');
       }
       else{
         this.$router.push('/');
