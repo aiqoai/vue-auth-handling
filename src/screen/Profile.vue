@@ -2,19 +2,27 @@
   <div>
     <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
     <button @click="logout">Logout</button>
+    <div>{{profile.name}}</div>
   </div>
 
 
 </template>
 
 <script>
+<<<<<<< HEAD
+  import {HTTP} from '../store/httpcommon'
+=======
   import {mapGetters} from 'vuex'
   import {} from '../store/userStore'
+>>>>>>> 85d4dd7ea344bf96bdd976aa8105b7121a41cc89
 export default {
   data () {
-    return {
-      msg: 'The commoners'
-    }
+
+  },
+  mounted: function(){
+    HTTP.get('/api/profile').then(response => {
+      console.log(response.data)
+    })
   },
   computed:{
     ...mapGetters({

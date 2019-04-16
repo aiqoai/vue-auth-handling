@@ -55,8 +55,8 @@
 
 .active-bottom-border {
 	border-bottom: 3px solid #00d1b2;
-    color: #00d1b2;
-    padding-bottom: calc(.75rem - 8px);
+  color: #00d1b2;
+  padding-bottom: calc(.75rem - 8px);
 }
 </style>
 

@@ -16,7 +16,7 @@ export const HTTP = axios.create(defaultOptions);
 
   // Set the AUTH token for any request
       HTTP.interceptors.request.use(function (config) {
-          const token = localStorage.getItem('token');
+          const token = localStorage.getItem('jwt');
           config.headers.Authorization =  token ? `Bearer ${token}` : '';
           return config;
         });
