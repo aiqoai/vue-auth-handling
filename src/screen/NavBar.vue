@@ -90,14 +90,8 @@ export default {
       else if(index=='6'){
         this.$router.push('/register');
       }
-<<<<<<< HEAD
       else if(index=='7')
         this.$router.push('/profile');
-=======
-      else if(index=='7'){
-        this.$router.push('/profile');
-      }
->>>>>>> dev
       else{
         this.$router.push('/');
       }
