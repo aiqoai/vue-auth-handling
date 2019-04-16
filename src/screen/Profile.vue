@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
+    <h1>User  Board </h1>
+<!--    <div>:::{{JSON.stringify(currentUser)}}</div>-->
     <button @click="logout">Logout</button>
-    <div>{{profile.name}}</div>
+<!--    <div>{{profile.name}}</div>-->
   </div>
 
 
@@ -20,9 +21,9 @@ export default {
 
   },
   mounted: function(){
-    HTTP.get('/api/profile').then(response => {
-      console.log(response.data)
-    })
+    // HTTP.get('/api/profile').then(response => {
+    //   console.log("return from profile ",response.data)
+    // })
   },
   computed:{
     ...mapGetters({

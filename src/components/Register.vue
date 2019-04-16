@@ -31,6 +31,8 @@
             </div>
 
             <div>
+               <label>{{err_notice}}</label>
+              <br/>
                 <button type="submit" @click="handleSubmit">
                     Register
                 </button>
@@ -47,6 +49,7 @@
         props : ['nextUrl'],
         data(){
             return {
+                err_notice:"",
                 name : "george",
                 email : "1@1.com",
                 password : "1",
@@ -64,6 +67,7 @@
           ]),
             handleSubmit(e) {
               console.log(" click")
+              this.err_notice="";
                 e.preventDefault()
 
                 if (this.password === this.password_confirmation && this.password.length > 0)
@@ -90,7 +94,7 @@
 
                       // this.$router.push('/profile')
 
-                        if (localStorage.getItem('jwt') != null){
+                        // if (localStorage.getItem('jwt') != null){
 
                             // this.$emit('loggedIn')
 
@@ -98,12 +102,21 @@
                                 this.$router.push(this.$route.params.nextUrl)
                             }
                             else{
-                                this.$router.push('/profile')
+                                this.$router.push('/login')
                             }
-                        }
+                        // }
                     })
                     .catch(error => {
-                        console.error(error);
+                      if(error.response.status==409)
+                        {
+                          this.err_notice=error.response.data.message
+                          console.error(error.response.data);
+
+                        }
+                      console.error(error.response.statusText);
+
+
+
                     });
 
 
