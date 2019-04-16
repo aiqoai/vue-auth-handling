@@ -7,12 +7,21 @@
 </template>
 
 <script>
+<<<<<<< HEAD
   import {HTTP} from '../store/httpcommon'
   import {mapGetters} from 'vuex'
   import {} from '../store/userStore'
   let data = {
     profile: {name: "jim"}
   }
+=======
+
+  import {HTTP} from '../store/httpcommon'
+
+  import {mapGetters} from 'vuex'
+  import {} from '../store/userStore'
+
+>>>>>>> dev
 export default {
     data(){
       return data
