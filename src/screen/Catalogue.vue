@@ -2,61 +2,74 @@
   <div class="hello">
     <h1>Word Catalogue</h1>
     <h2 class="title">Test Prep</h2>
-    <el-row :gutter="20">{{JSON.stringify(testCategories)}}
-<!--      <el-col :span="6" v-for="cat in testCategories" :key="cat">-->
-<!--        <div class="grid-content bg-purple">-->
-<!--        <el-card class="cards box-card">-->
-<!--          <div slot="header" class="clearfix">-->
-<!--            <span>{{cat.name}}</span>-->
-<!--            <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>-->
-<!--          </div>-->
-<!--          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">-->
-<!--          <div v-for="des in cat.description" :key="des" class="text item">-->
-<!--            {{ des }}-->
-<!--          </div>-->
-<!--        </el-card>-->
-<!--        </div>-->
-<!--      </el-col>-->
+    <el-row :gutter="20">
+      <el-col :span="6" v-for="cat in testCategories" :key="cat.id">
+        <div class="grid-content bg-purple">
+        <el-card class="cards box-card">
+          <div slot="header" class="clearfix">
+            <span>{{cat.name}}</span>
+            <div style="float:right" >
+            <el-button type="primary" plain v-on:click="populateWordList(cat.name, '/learning')">Learn</el-button>
+            <el-button type="primary" plain v-on:click="populateWordList(cat.name, '/practice')">Practice</el-button>
+            </div>
+          </div>
+          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
+          <div v-for="des in cat.description" :key="des" class="text item">
+            {{ des }}
+          </div>
+        </el-card>
+        </div>
+      </el-col>
     </el-row>
 
     <h2 class="title">Categories by User</h2>
     <el-row :gutter="20">
-<!--      <el-col :span="6" v-for="cat in userCategories" :key="cat">-->
-<!--        <div class="grid-content bg-purple">-->
-<!--        <el-card class="cards box-card">-->
-<!--          <div slot="header" class="clearfix">-->
-<!--            <span>{{cat.name}}</span>-->
-<!--            <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>-->
-<!--          </div>-->
-<!--          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">-->
-<!--          <div v-for="des in cat.description" :key="des" class="text item">-->
-<!--            {{ des }}-->
-<!--          </div>-->
-<!--        </el-card>-->
-<!--        </div>-->
-<!--      </el-col>-->
+      <el-col :span="6" v-for="cat in userCategories" :key="cat.id">
+        <div class="grid-content bg-purple">
+        <el-card class="cards box-card">
+          <div slot="header" class="clearfix">
+            <span>{{cat.name}}</span>
+            <div style="float:right" >
+            <el-button type="primary" plain v-on:click="populateWordList(cat.name, '/learning')">Learn</el-button>
+            <el-button type="primary" plain v-on:click="populateWordList(cat.name, '/practice')">Practice</el-button>
+            </div>
+          </div>
+          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
+          <div v-for="des in cat.description" :key="des" class="text item">
+            {{ des }}
+          </div>
+        </el-card>
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
+// import {setWordList} from '../store/wordList'
 
 export default {
   name: 'app',
-  computed: {
 
+  computed: {
     ...mapGetters({
                  testCategories: 'testCategories',
                  userCategories: 'userCategories'
                })
-  }
-,
+  },
   methods: {
+    ...mapMutations([
+      'setWordList'
+    ]),
+    ...mapActions([
 
-  ...mapActions([
-
-  ])
+    ]),
+    populateWordList(name, path) {
+      console.log(name, path);
+      this.setWordList(name);
+      this.$router.push(path);
+    }
   }
 }
 </script>
