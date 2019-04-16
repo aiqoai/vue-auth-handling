@@ -73,7 +73,7 @@ export default {
     handleSelect(index){
       console.log("selected: ",index)
       if(index=='1'){
-        this.$router.push('/home');
+        this.$router.push('/');
       }
       else if(index=='2'){
         this.$router.push('/catalogue');
@@ -89,6 +89,9 @@ export default {
       }
       else if(index=='6'){
         this.$router.push('/register');
+      }
+      else if(index=='7'){
+        this.$router.push('/profile');
       }
       else{
         this.$router.push('/');
