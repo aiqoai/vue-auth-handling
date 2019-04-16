@@ -17,9 +17,9 @@ export const actions = {};
 
 // mutations
 export const mutations = {
-    setWordList (state, payload, wordList){
-        console.log("[Word] setWordList : ", payload, wordList);
-        state.wordCatagory = payload;
-        state.wordList = wordList;   
+    setWordList (state, payload){
+        console.log("[Word] setWordList : ", payload);
+        state.wordCatagory = payload.wordCatagory;
+        state.wordList = payload.wordList;   
     }
 };

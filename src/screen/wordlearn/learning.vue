@@ -14,8 +14,8 @@
       </el-col>
       <el-col :span="4">
         <div class="grid-content">
-          <el-button type="warning" icon="el-icon-message" circle></el-button>
-          <el-button type="primary" icon="el-icon-edit" circle></el-button>
+          <el-button type="warning" icon="el-icon-message" circle @click.prevent="switchView()"></el-button>
+          <el-button type="primary" icon="el-icon-edit" circle @click.prevent="playSound(w.sound_url)" ></el-button>
           <el-button type="success" icon="el-icon-star-off" circle></el-button>
         </div>
       </el-col>
@@ -25,9 +25,9 @@
 
 
   <el-carousel :interval="4000" type="card" height="600px" >
-    <el-carousel-item v-for="w in wordList" :key="w.id" :trigger="click">
+    <el-carousel-item v-for="w in wordList" :key="w.id">
       <h3 class="center">{{ w.word }}
-        <el-button type="primary" icon="el-icon-edit" circle ></el-button>
+        <el-button type="primary" icon="el-icon-edit" circle @click.prevent="playSound(w.sound_url)" ></el-button>
       </h3>
       <h3 class="center"><img :src="w.picture_url" class="image"></h3>
       <div class="center"><div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">

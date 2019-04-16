@@ -98,7 +98,10 @@ export default {
       console.log(name, path);
       HTTP.get('/api/word/query_words').then(response => {
           console.log("Received from server: ", response.data);
-          this.setWordList(name, response.data);
+          this.setWordList({
+            wordList: response.data.data,
+            wordCategory: name
+          });
           this.$router.push(path);
         })
     }
