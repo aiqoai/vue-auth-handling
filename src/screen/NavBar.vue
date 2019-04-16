@@ -5,17 +5,16 @@
         <img src="../assets/logo-alt.png" alt="Bulma logo">
       </router-link>
     </el-menu-item>
-      <el-menu-item index="1"><router-link to="/home" class="nav-item">Home</router-link></el-menu-item>
-
+    <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
     <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Catalogue</router-link></el-menu-item>
     <el-menu-item index="3"><router-link to="/build" class="nav-item">Build</router-link></el-menu-item>
     <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
     <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
     <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item>
 
-    <el-menu-item index="1"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
+    <el-menu-item index="7"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
 
-      <el-menu-item index="7">
+      <el-menu-item index="8">
 
         <el-dropdown trigger="click">
           <span class="el-dropdown-link">
@@ -75,7 +74,30 @@ export default {
   methods:{
     handleSelect(index){
       console.log("selected: ",index)
-
+      if(index=='1'){
+        this.$router.push('/');
+      }
+      else if(index=='2'){
+        this.$router.push('/catalogue');
+      }
+      else if(index=='3'){
+        this.$router.push('/build');
+      }
+      else if(index=='4'){
+        this.$router.push('/play');
+      }
+      else if(index=='5'){
+        this.$router.push('/login');
+      }
+      else if(index=='6'){
+        this.$router.push('/register');
+      }
+      else if(index=='7'){
+        this.$router.push('/profile');
+      }
+      else{
+        this.$router.push('/');
+      }
     }
   },
 	computed: {

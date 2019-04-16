@@ -1,24 +1,22 @@
-
-
 <template>
   <div >
     <el-row>
             <el-col :span="24"><div class="grid-content headerimg">
                   <img src="../assets/hearderimg.png"width="100%">
-            </div></el-col>   
+            </div></el-col>
       </el-row>
-      
+
       <el-row>
            <el-col :span="24">
                <div class="grid-content headerimg">
                     <div class="img1">
                          <img src="../assets/home1.png"width="100%">
                     </div>
-                  
+
                  </div>
                   <el-col><el-button type="danger" round>Learn More</el-button></el-col>
-                 
-            </el-col>  
+
+            </el-col>
       </el-row>
 
         <el-row>
@@ -27,18 +25,18 @@
                     <div class="img2">
                           <img src="../assets/home2.png"width="100%">
                     </div>
-                 
+
                  </div>
-            </el-col>  
+            </el-col>
       </el-row>
-      
+
       <el-row>
-          
+
               <el-col :span="24"><div class="grid-content bg-purple-light"><p>©2019 aiQo.ai. All rights reserved.</p> </div></el-col>
-         
-               
+
+
       </el-row>
-      
+
   </div>
 </template>
 
@@ -46,12 +44,21 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'app',
-  computed: mapGetters({
-    skillTest: 'skillTest'
-  }),
-  methods: mapActions([
-    
-  ]),
+  computed: {
+    ...mapGetters({
+      testCategories: 'testCategories'
+               })
+
+  }
+
+,
+  methods: {
+    ...mapActions([
+
+               ])
+
+  }
+,
   data () {
     return {
       msg: 'This is your home page'
@@ -63,12 +70,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
      h1{font-family: 'Poppins', sans-serif;}
-   
+
     p{text-align: center;
      padding-top: 50px;
 padding-bottom: 20px;
 font-family: 'Poppins', sans-serif;}
-  
+
 .el-button{margin-left: 1200px;
 margin-top: -200px;
 position: absolute;
@@ -76,7 +83,7 @@ z-index: 2;
 
 }
 .img1,.img2{
-     
+
      z-index: -1;
 }
 
@@ -95,6 +102,6 @@ z-index: 2;
   }
   .grid-content {
     border-radius: 4px;
-    
+
   }
 </style>

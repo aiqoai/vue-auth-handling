@@ -1,20 +1,43 @@
 <template>
   <div>
-    <h1>User  Board</h1>
+    <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
     <button @click="logout">Logout</button>
+    <div>{{profile.name}}</div>
   </div>
 
 
 </template>
 
 <script>
+
+  import {HTTP} from '../store/httpcommon'
+
+  import {mapGetters} from 'vuex'
+  import {} from '../store/userStore'
+
 export default {
   data () {
-    return {
-      msg: 'The commoners'
-    }
+
+  },
+  mounted: function(){
+    HTTP.get('/api/profile').then(response => {
+      console.log(response.data)
+    })
+  },
+  computed:{
+    ...mapGetters({
+        currentUser: 'currentUser',
+      }
+
+    ),
+    // user:{
+    //   // get(){
+    //   //   return this.currentUser
+    //   // }
+    // }
   },
   methods:{
+
     logout(e){
       e.preventDefault();
       console.log(" logout")

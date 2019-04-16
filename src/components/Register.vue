@@ -41,6 +41,8 @@
 
 <script>
   import {HTTP} from '../store/httpcommon'
+  import{mapMutations} from 'vuex'
+  import {setCurrentUserData} from '../store/userStore'
     export default {
         props : ['nextUrl'],
         data(){
@@ -52,11 +54,18 @@
               is_admin : 0
             }
         },
+      computed:{
+
+      },
+
         methods : {
+          ...mapMutations([
+            'setCurrentUserData'
+          ]),
             handleSubmit(e) {
               console.log(" click")
                 e.preventDefault()
-                
+
                 if (this.password === this.password_confirmation && this.password.length > 0)
                 {
                   console.log(" sent http")
@@ -65,7 +74,7 @@
                     // let url = 'http://localhost:3000/register'
                     //if(this.is_admin != null || this.is_admin == 1)//url = 'http://localhost:3000/register-admin'
 
-                    HTTP.post('/api/register', {
+                    HTTP.post('/api/user/register', {
                         name: this.name,
                         email: this.email,
                         password: this.password,
@@ -73,13 +82,14 @@
                     })
                     .then(response => {
 
-                      console.log(" regisgter successeded", response.data);
+                      console.log(" Registration Succeeded", response.data);
                         localStorage.setItem('user',JSON.stringify(response.data.user))
-                        localStorage.setItem('jwt',response.data.token)
+                        // localStorage.setItem('jwt',response.data.token)
                       console.log(" this.$route.params", this.$route.params)
+                      this.setCurrentUserData(response.data.data)
 
                       // this.$router.push('/profile')
-                        
+
                         if (localStorage.getItem('jwt') != null){
 
                             // this.$emit('loggedIn')
@@ -88,7 +98,7 @@
                                 this.$router.push(this.$route.params.nextUrl)
                             }
                             else{
-                                this.$router.push('/catalogue')
+                                this.$router.push('/profile')
                             }
                         }
                     })
@@ -98,10 +108,11 @@
 
 
 
+
                 } else {
                     this.password = ""
                     this.passwordConfirm = ""
-                    
+
                     return alert('Passwords do not match')
                 }
             }
