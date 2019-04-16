@@ -2,17 +2,22 @@
   <div>
     <h1>User  Board</h1>
     <button @click="logout">Logout</button>
+    <div>{{profile.name}}</div>
   </div>
 
 
 </template>
 
 <script>
+  import {HTTP} from '../store/httpcommon'
 export default {
   data () {
-    return {
-      msg: 'The commoners'
-    }
+
+  },
+  mounted: function(){
+    HTTP.get('/api/profile').then(response => {
+      console.log(response.data)
+    })
   },
   methods:{
     logout(e){
