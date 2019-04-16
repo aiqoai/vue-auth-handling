@@ -1,19 +1,44 @@
+
+
 <template>
   <div >
-    <h1>Home</h1>
-    <h2>{{msg}}</h2>
     <el-row>
-      <el-col :span="5"><div class="grid-content"></div></el-col>
-      <el-col :span="14">
-        <el-carousel arrow="always" :autoplay="false">
-        <el-carousel-item v-for="i in skillTest.length" :key="i">
-            <h3>{{ i }}
-            </h3>
-          </el-carousel-item>
-        </el-carousel>  
-      </el-col>
-      <el-col :span="5"><div class="grid-content"></div></el-col>
-    </el-row>
+            <el-col :span="24"><div class="grid-content headerimg">
+                  <img src="../assets/hearderimg.png"width="100%">
+            </div></el-col>   
+      </el-row>
+      
+      <el-row>
+           <el-col :span="24">
+               <div class="grid-content headerimg">
+                    <div class="img1">
+                         <img src="../assets/home1.png"width="100%">
+                    </div>
+                  
+                 </div>
+                  <el-col><el-button type="danger" round>Learn More</el-button></el-col>
+                 
+            </el-col>  
+      </el-row>
+
+        <el-row>
+           <el-col :span="24">
+               <div class="grid-content">
+                    <div class="img2">
+                          <img src="../assets/home2.png"width="100%">
+                    </div>
+                 
+                 </div>
+            </el-col>  
+      </el-row>
+      
+      <el-row>
+          
+              <el-col :span="24"><div class="grid-content bg-purple-light"><p>©2019 aiQo.ai. All rights reserved.</p> </div></el-col>
+         
+               
+      </el-row>
+      
   </div>
 </template>
 
@@ -37,28 +62,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .el-row {
-    height: 600px;
-  }
+     h1{font-family: 'Poppins', sans-serif;}
+   
+    p{text-align: center;
+     padding-top: 50px;
+padding-bottom: 20px;
+font-family: 'Poppins', sans-serif;}
+  
+.el-button{margin-left: 1200px;
+margin-top: -200px;
+position: absolute;
+z-index: 2;
 
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
+}
+.img1,.img2{
+     
+     z-index: -1;
+}
 
   .el-col {
-    border-radius: 4px;
+    border-radius: 2px;
+
   }
   .bg-purple-dark {
     background: #99a9bf;
@@ -71,6 +95,6 @@ export default {
   }
   .grid-content {
     border-radius: 4px;
-    min-height: 36px;
+    
   }
 </style>
