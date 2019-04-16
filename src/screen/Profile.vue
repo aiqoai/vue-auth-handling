@@ -9,12 +9,12 @@
 </template>
 
 <script>
-<<<<<<< HEAD
+
   import {HTTP} from '../store/httpcommon'
-=======
+
   import {mapGetters} from 'vuex'
   import {} from '../store/userStore'
->>>>>>> 85d4dd7ea344bf96bdd976aa8105b7121a41cc89
+
 export default {
   data () {
 
