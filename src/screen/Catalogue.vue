@@ -6,20 +6,20 @@
         <el-row>
             <el-col :span="8" >
                 <el-card :body-style="{ padding: '0px' }">
-                <img src="../assets/SAT.png"width="100%">
+                <img src="../assets/SAT.png" width="100%">
                 <div style="padding: 14px;">
                   <span>SAT words set</span>
                   <div class="bottom clearfix">
                     <time class="time">{{ currentDate }}</time>
                     <el-button type="text" class="button" v-on:click="populateWordList('SAT', '/learning')">Learn vocabularies</el-button>
-                    </div>
+                  </div>
                 </div>
                 </el-card>
             </el-col>
 
             <el-col :span="8" >
                 <el-card :body-style="{ padding: '0px' }">
-                <img src="../assets/GRE.png"width="100%">
+                <img src="../assets/GRE.png" width="100%">
                 <div style="padding: 14px;">
                   <span>GRE words set</span>
                   <div class="bottom clearfix">
@@ -32,7 +32,7 @@
 
                <el-col :span="8" >
                 <el-card :body-style="{ padding: '0px' }">
-                <img src="../assets/TOEFL.png"width="100%">
+                <img src="../assets/TOEFL.png" width="100%">
                 <div style="padding: 14px;">
                   <span>TOEFL words set</span>
                   <div class="bottom clearfix">
@@ -51,12 +51,12 @@
         <el-card class="cards box-card">
           <div slot="header" class="clearfix">
             <span>{{cat.name}}</span>
-            <div style="float:right" >
-            <el-button type="primary" plain v-on:click="populateWordList(cat.name, '/learning')">Learn</el-button>
-            <el-button type="primary" plain v-on:click="populateWordList(cat.name, '/practice')">Practice</el-button>
+            <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
+            <div class="bottom clearfix">
+              <time class="time">{{ currentDate }}</time>
+              <el-button type="text" class="button" v-on:click="populateWordList('SAT', '/learning')">Learn vocabularies</el-button>
             </div>
           </div>
-          <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
           <div v-for="des in cat.description" :key="des" class="text item">
             {{ des }}
           </div>
@@ -68,16 +68,23 @@
 </template>
 
 <script>
+import {HTTP} from '../store/httpcommon'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 // import {setWordList} from '../store/wordList'
 
 export default {
-  name: 'app',
-
+  name: 'catalogue',
+  data () {
+    return {
+      currentDate: new Date().toLocaleDateString()
+    }
+  },
   computed: {
     ...mapGetters({
                  testCategories: 'testCategories',
-                 userCategories: 'userCategories'
+                 userCategories: 'userCategories',
+                 testname:'testname',
+                 currentUser:'currentUser'
                })
   },
   methods: {
@@ -89,8 +96,11 @@ export default {
     ]),
     populateWordList(name, path) {
       console.log(name, path);
-      this.setWordList(name);
-      this.$router.push(path);
+      HTTP.get('/api/word/query_words').then(response => {
+          console.log("Received from server: ", response.data);
+          this.setWordList(name, response.data);
+          this.$router.push(path);
+        })
     }
   }
 }

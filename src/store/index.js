@@ -10,7 +10,8 @@ const debug = process.env.NODE_ENV !== 'production'
 
 // initial state
 const state = {
-  added: [],
+	added: [],
+	...wordList.state,
   ...userStore.state,
 		all: 
 	[
