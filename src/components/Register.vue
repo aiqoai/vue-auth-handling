@@ -98,7 +98,7 @@
                                 this.$router.push(this.$route.params.nextUrl)
                             }
                             else{
-                                this.$router.push('/profile')
+                                this.$router.push('/login')
                             }
                         }
                     })
