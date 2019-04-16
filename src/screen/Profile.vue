@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>User  Board</h1>
+    <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
     <button @click="logout">Logout</button>
     <div>{{profile.name}}</div>
   </div>
@@ -9,7 +9,12 @@
 </template>
 
 <script>
+<<<<<<< HEAD
   import {HTTP} from '../store/httpcommon'
+=======
+  import {mapGetters} from 'vuex'
+  import {} from '../store/userStore'
+>>>>>>> 85d4dd7ea344bf96bdd976aa8105b7121a41cc89
 export default {
   data () {
 
@@ -19,7 +24,20 @@ export default {
       console.log(response.data)
     })
   },
+  computed:{
+    ...mapGetters({
+        currentUser: 'currentUser',
+      }
+
+    ),
+    // user:{
+    //   // get(){
+    //   //   return this.currentUser
+    //   // }
+    // }
+  },
   methods:{
+
     logout(e){
       e.preventDefault();
       console.log(" logout")

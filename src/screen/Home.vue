@@ -4,12 +4,12 @@
     <h2>{{msg}}</h2>
     <el-row>
       <el-col :span="5"><div class="grid-content"></div></el-col>
-      <el-col :span="14">
+      <el-col :span="14">{{JSON.stringify(testCategories)}}
         <el-carousel arrow="always" :autoplay="false">
-        <el-carousel-item v-for="i in skillTest.length" :key="i">
-            <h3>{{ i }}
-            </h3>
-          </el-carousel-item>
+<!--        <el-carousel-item v-for="i in skillTest.length" :key="i">-->
+<!--            <h3>{{ i }}-->
+<!--            </h3>-->
+<!--          </el-carousel-item>-->
         </el-carousel>  
       </el-col>
       <el-col :span="5"><div class="grid-content"></div></el-col>
@@ -21,12 +21,21 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'app',
-  computed: mapGetters({
-    skillTest: 'skillTest'
-  }),
-  methods: mapActions([
-    
-  ]),
+  computed: {
+    ...mapGetters({
+      testCategories: 'testCategories'
+               })
+
+  }
+
+,
+  methods: {
+    ...mapActions([
+
+               ])
+
+  }
+,
   data () {
     return {
       msg: 'This is your home page'
