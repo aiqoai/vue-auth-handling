@@ -167,7 +167,7 @@ export default {
     populateWordList(name, path) {
       console.log(name, path);
       if (true) {
-      HTTP.get('/api/word/query_words').then(response => {
+      HTTP.post('/api/word/query_words').then(response => {
           console.log("Received from server: ", response.data);
           this.setWordList({
             wordList: response.data.data,
