@@ -59,7 +59,7 @@ height: 30px;}
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 30px 2px;
+  margin: 50%;
   cursor: pointer;
 }
 </style>
