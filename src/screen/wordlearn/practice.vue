@@ -7,7 +7,8 @@
       <el-pagination
         background
         layout="prev, pager, next"
-        :total="1000">
+        :page-count="10"
+      >
       </el-pagination>
     </div>
   </div>
