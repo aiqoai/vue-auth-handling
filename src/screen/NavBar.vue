@@ -1,7 +1,7 @@
 <template>
 	  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
-      background-color="#B3C0D1" text-color="#333" active-text-color="#00d1b2">
-    <el-menu-item index="0"><router-link to="/" class="nav-item">
+      background-color="#B3C0D1" text-color="#333" active-text-color="#064672">
+    <el-menu-item><router-link to="/" class="nav-item">
         <img src="../assets/logo-alt.png" alt="Bulma logo">
       </router-link>
     </el-menu-item>
@@ -39,11 +39,13 @@
 
       </el-menu-item>
 
+
+
   </el-menu>
 
 </template>
 
-<style >
+<style scoped>
 .nav {
 	height: auto;
 	margin-bottom: 2rem;
@@ -55,8 +57,8 @@
 
 .active-bottom-border {
 	border-bottom: 3px solid #00d1b2;
-  color: #00d1b2;
-  padding-bottom: calc(.75rem - 8px);
+    color: #064672;
+    padding-bottom: calc(.75rem - 8px);
 }
 </style>
 

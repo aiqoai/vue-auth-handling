@@ -15,6 +15,9 @@ import Build from '@/screen/Build'
 import Play from '@/screen/Play'
 import Profile from '@/screen/Profile'
 
+import Learning from '@/screen/wordlearn/learning'
+import Practice from '@/screen/wordlearn/practice'
+
 Vue.use(Router)
 
 let router = new Router({
@@ -116,6 +119,24 @@ let router = new Router({
             requiresAuth: false,
             is_admin : true
         }
+    },
+    {
+      path: '/learning',
+      name: 'learning',
+      component: Learning,
+      // props: (route) => ({ selected: route.query.selected }),
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/practice',
+      name: 'practice',
+      component: Practice,
+      props: true,
+      meta: { 
+          requiresAuth: false
+      }
     },
   ]
 })

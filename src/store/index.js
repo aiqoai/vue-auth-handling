@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as types from './mutation-types'
 import * as userStore from './userStore';
+import * as wordList from './wordList'
 
 Vue.use(Vuex)
 
@@ -9,9 +10,11 @@ const debug = process.env.NODE_ENV !== 'production'
 
 // initial state
 const state = {
-  added: [],
+	added: [],
+	...wordList.state,
   ...userStore.state,
-  all: [
+		all: 
+	[
     {
       id: 'cc919e21-ae5b-5e1f-d023-c40ee669520c',
       name: 'COBOL 101 vintage',
@@ -138,7 +141,8 @@ const getters = {
 			}
 		})
 	},
-  ...userStore.getters,
+	...userStore.getters,
+	...wordList.getters
 }
 
 // actions
@@ -148,7 +152,8 @@ const actions = {
 			id: product.id
 		})
 	},
-  ...userStore.actions,
+	...userStore.actions,
+	...wordList.actions
 }
 
 // mutations
@@ -167,7 +172,8 @@ const mutations = {
 	    }
 	  },
 
-  ...userStore.mutations
+	...userStore.mutations,
+	...wordList.mutations
 }
 
 // one store for entire application
