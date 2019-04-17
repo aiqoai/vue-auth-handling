@@ -2,44 +2,46 @@
   <div>
     <div>
       <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
-      <table>
-        <tr>
-          <td>Name:</td>
-          <td>{{profile.name}}</td>
-          <td><input v-model="form_name"></td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td>{{profile.email}}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>About Me:</td>
-          <td>{{profile.description}}</td>
-          <td><input v-model="form_description"></td>
-        </tr>
-        <tr>
-        <tr>
-          <td>Current Level:</td>
-          <td>{{profile.current_level}}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Current Category:</td>
-          <td>{{profile.current_category}}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Member Since: </td>
-          <td>{{profile.registration_datetime}}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td><button @click="update">Update</button></td>
-        </tr>
-      </table>
+      <template v-if="profile">
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td>{{profile.name}}</td>
+            <td><input v-model="form_name"></td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{profile.email}}</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>About Me:</td>
+            <td>{{profile.description}}</td>
+            <td><input v-model="form_description"></td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Current Level:</td>
+            <td>{{profile.current_level}}</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Current Category:</td>
+            <td>{{profile.current_category}}</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Member Since: </td>
+            <td>{{profile.registration_datetime}}</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><button @click="update">Update</button></td>
+          </tr>
+        </table>
+      </template>
       <button @click="logout">Logout</button>
     </div>
   </div>
@@ -50,7 +52,7 @@
   import {mapGetters} from 'vuex'
   import {} from '../store/userStore'
   let data = {
-    profile: {name: "jim"},
+    profile: null,
     form_name: "",
     form_description: ""
   }
