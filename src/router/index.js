@@ -125,6 +125,7 @@ let router = new Router({
       path: '/learning',
       name: 'learning',
       component: Learning,
+      props: (route) => ({ wordset: route.query.wordset, level: route.query.level }),
       meta: { 
           requiresAuth: false
       }

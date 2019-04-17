@@ -131,16 +131,8 @@
 
 </template>
 
-
-
-
-
-
 <script>
-import {HTTP} from '../store/httpcommon'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-import * as wdata from '../../data/word_bank.json';
-// import {setWordList} from '../store/wordList'
 
 export default {
   name: 'catalogue',
@@ -151,38 +143,20 @@ export default {
   },
   computed: {
     ...mapGetters({
-                 testCategories: 'testCategories',
-                 userCategories: 'userCategories',
-                 testname:'testname',
-                 currentUser:'currentUser'
-               })
+      currentUser:'currentUser'
+    })
   },
   methods: {
     ...mapMutations([
-      'setWordList'
+      'setWordCategory'
     ]),
     ...mapActions([
 
     ]),
     populateWordList(name, path) {
       console.log(name, path);
-      if (false) {
-      HTTP.get('/api/word/query_words').then(response => {
-          console.log("Received from server: ", response.data);
-          this.setWordList({
-            wordList: response.data.data,
-            wordCategory: name
-          });
-          this.$router.push(path);
-        })
-      }
-      else{
-        this.setWordList({
-            wordList: wdata,
-            wordCategory: name
-          });
-        this.$router.push(path);
-      }
+      this.setWordCategory(name);
+      this.$router.push(path);
     }
   }
 }
