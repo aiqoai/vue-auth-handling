@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // const fetchClient = () => {
   const defaultOptions = {
-    baseURL: `http://127.0.0.1:4000/`,//process.env.APP_API_PATH,
+    baseURL: process.env.APP_API_PATH,
     //method: 'get',
     headers: {
       'Content-Type': 'application/json',
