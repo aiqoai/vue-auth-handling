@@ -3,6 +3,7 @@ FROM node:10.15.0
 
 # install simple http server for serving static content
 RUN npm install -g http-server
+ENV APP_API_PATH 'http://172.31.16.37:4000/'
 
 # make the 'app' folder the current working directory
 WORKDIR /app
