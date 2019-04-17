@@ -1,25 +1,92 @@
 <template>
-    <div>
-        <h4>Login</h4>
-        <form>
-            <label for="email" >E-Mail Address</label>
-            <div>
-                <input id="email" type="email" v-model="email" required autofocus>
+
+    <el-row :gutter="24">
+        <el-col :span="8" :offset="8" >
+            <div class=headerimg>
+                <img src="../assets/login.png" width="100%">
             </div>
-            <div>
-                <label for="password" >Password</label>
-                <div>
-                    <input id="password" type="password" v-model="password" required>
+              <el-card class="box-card">
+                <div class="login-content" style="text-align: center;">
+                    <h2>Login</h2>
+
                 </div>
-            </div>
-            <div>
-                <button type="submit" @click="handleSubmit">
-                    Login
-                </button>
-            </div>
-        </form>
-    </div>
+                
+                <form>
+                    <h3 for="email" >E-Mail Address</h3>
+                    <div>
+                        <input id="email" type="email" v-model="email" required autofocus>
+                    </div>
+                    <div>
+                        <h3 for="password" >Password</h3>
+                        <div>
+                            <input id="password" type="password" v-model="password" required>
+                        </div>
+                    </div>
+                    <el-row>
+                        <el-col :span="12">
+                            <button class="button" type="submit" @click="handleSubmit" >
+                                Login 
+                            </button>
+                        </el-col>
+                         <el-col :span="12">
+                            <button class="button2" type="submit" @click="handleSubmit" >
+                                Signup
+                            </button>
+                        </el-col>
+                    </el-row>
+                </form>
+
+                </el-card>
+        </el-col>
+    </el-row>
 </template>
+<style>
+    .headerimg{
+        margin-left: 0px;
+    }
+    h2{
+    font-size:30px;
+    color: #1A708E;
+}
+ h3{
+    font-size:18px;
+    color: #1A708E;
+}
+
+input{width:100%;
+height: 30px;}
+.button{
+
+     background-color: #EF843C;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 30px 2px;
+  cursor: pointer;
+}
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button2{
+
+     background-color: #06597D;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 30px 2px;
+  cursor: pointer;
+}
+
+</style>
+
 <!--<script>-->
 <!--  export default {-->
 <!--        data(){-->

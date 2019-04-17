@@ -1,41 +1,57 @@
 <template>
     <div>
-        <h4>Register</h4>
-        <form>
-            <label for="name">Name</label>
-            <div>
-                <input id="name" type="text" v-model="name" required autofocus>
-            </div>
+     <el-row :gutter="24">
+          <el-col :span="8" :offset="8" >
+               <img src="../assets/login.png"width=100%>
 
-            <label for="email" >E-Mail Address</label>
-            <div>
-                <input id="email" type="email" v-model="email" required>
-            </div>
-             
-            <label for="password">Password</label>
-            <div>
-                <input id="password" type="password" v-model="password" required>
-            </div>
-            
-            <label for="password-confirm">Confirm Password</label>
-            <div>
-                <input id="password-confirm" type="password" v-model="password_confirmation" required>
-            </div>
-            
-            <label for="password-confirm">Is this an administrator account?</label>
-            <div>
-                <select v-model="is_admin">
-                    <option value=1>Yes</option>
-                    <option value=0>No</option>
-                </select>
-            </div>
+               <el-card class="box-card">
+                    <div class="header"style="text-align: center;">
+                         <h2>Create Account</h2>
+                    </div>
 
-            <div>
-                <button type="submit" @click="handleSubmit">
-                    Register
-                </button>
-            </div>
+                    <form>
+                           <h3 for="name">Name</h3>
+                           <div>
+                               <input id="name" type="text" v-model="name" required autofocus>
+                           </div>
+
+                           <h3 for="email" >E-Mail Address</h3>
+                           <div>
+                               <input id="email" type="email" v-model="email" required>
+                           </div>
+                            
+                           <h3 for="password">Password</h3>
+                           <div>
+                               <input id="password" type="password" v-model="password" required>
+                           </div>
+                           
+                           <h3 for="password-confirm">Confirm Password</h3>
+                           <div>
+                               <input id="password-confirm" type="password" v-model="password_confirmation" required>
+                           </div>
+                           
+                           <label for="password-confirm">Is this an administrator account?</label>
+                           <div>
+                               <select v-model="is_admin">
+                                   <option value=1>Yes</option>
+                                   <option value=0>No</option>
+                               </select>
+                           </div>
+
+                           <div>
+                              <label>{{err_notice}}</label>
+                             <br/>
+                               <button type="submit" @click="handleSubmit">
+                                   Register
+                               </button>
+                           </div>
         </form>
+
+               </el-card>
+          </el-col>
+     </el-row>
+
+       
     </div>
 </template>
 
@@ -47,6 +63,7 @@
         props : ['nextUrl'],
         data(){
             return {
+                err_notice:"",
                 name : "george",
                 email : "1@1.com",
                 password : "1",
@@ -64,6 +81,7 @@
           ]),
             handleSubmit(e) {
               console.log(" click")
+              this.err_notice="";
                 e.preventDefault()
 
                 if (this.password === this.password_confirmation && this.password.length > 0)
@@ -90,7 +108,7 @@
 
                       // this.$router.push('/profile')
 
-                        if (localStorage.getItem('jwt') != null){
+                        // if (localStorage.getItem('jwt') != null){
 
                             // this.$emit('loggedIn')
 
@@ -100,10 +118,19 @@
                             else{
                                 this.$router.push('/login')
                             }
-                        }
+                        // }
                     })
                     .catch(error => {
-                        console.error(error);
+                      if(error.response.status==409)
+                        {
+                          this.err_notice=error.response.data.message
+                          console.error(error.response.data);
+
+                        }
+                      console.error(error.response.statusText);
+
+
+
                     });
 
 

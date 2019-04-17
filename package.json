@@ -1,8 +1,8 @@
 {
-  "name": "vue-router-auth",
+  "name": "aiqolearn",
   "version": "1.0.0",
-  "description": "A simple example of authentication with vue router",
-  "author": "chiefoleka <valentinenwakibeya@gmail.com>",
+  "description": "aiQo learn apps with EdBot",
+  "author": "George Hu <george.hu@aiqo.ai>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

@@ -26,7 +26,7 @@
 
                                       <div class="bottom clearfix">
                                       
-                                        <el-button type="primary" round  class="button" v-on:click="populateWordList('SAT', '/learning')">Learn vocabularies</el-button>
+                                        <el-button type="primary" round  class="button" v-on:click="populateWordList('SAT', '/topic')">Learn vocabularies</el-button>
                                       </div>
                                 </div>
                         </el-card>
@@ -39,7 +39,7 @@
                   <h3>GRE words set</h3>
                   <div class="bottom clearfix">
                     
-                    <el-button type="primary" round   class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                    <el-button type="primary" round   class="button" v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
                   </div>
                 </div>
                 </el-card>
@@ -52,7 +52,7 @@
                   <h3>TOEFL words set</h3>
                   <div class="bottom clearfix">
                     
-                    <el-button type="primary" round class="button" v-on:click="populateWordList('TOEFL', '/learning')">Learn vocabularies</el-button>
+                    <el-button type="primary" round class="button" v-on:click="populateWordList('TOEFL', '/topic')">Learn vocabularies</el-button>
                   </div>
                 </div>
                 </el-card>
@@ -71,7 +71,7 @@
                       <p>Word set by Linda</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -84,7 +84,7 @@
                       <p>Word set by Brent</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -97,7 +97,7 @@
                       <p>Word set by Brent</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button"v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button"v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -110,12 +110,17 @@
                     <p>Word set by Danile</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
         </el-col>
     </el-row>
+
+<h2 class="title-2">Practice and Test</h2>
+
+
+
     
     <el-container>
        <el-footer style="height: 150px;margin-top: 60px;">
@@ -134,7 +139,7 @@
 <script>
 import {HTTP} from '../store/httpcommon'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-import * as wdata from '../../data/word_bank.json';
+// import * as wdata from '../../data/word_bank.json';
 // import {setWordList} from '../store/wordList'
 
 export default {
@@ -161,7 +166,7 @@ export default {
     ]),
     populateWordList(name, path) {
       console.log(name, path);
-      if (false) {
+      if (true) {
       HTTP.get('/api/word/query_words').then(response => {
           console.log("Received from server: ", response.data);
           this.setWordList({

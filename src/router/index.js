@@ -125,7 +125,14 @@ let router = new Router({
       path: '/learning',
       name: 'learning',
       component: Learning,
-      // props: (route) => ({ selected: route.query.selected }),
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/topic',
+      name: 'topic',
+      component: Topic,
       meta: { 
           requiresAuth: false
       }
