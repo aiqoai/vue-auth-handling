@@ -1,26 +1,148 @@
 <template>
 <div class="hello">
-    <h1>Learning Deck </h1>
+     <el-row :gutter="24">
+          <el-col :span="14" :offset="4">
+               <img src="../../assets/S1.png"width="100%" style="text-align: center;">
+          </el-col>
+
+     </el-row>
+       
+
+
+    <h1>SAT Vocabulary Sets </h1>
     <h2>{{wordCatagory}}</h2>
-    <el-row>
-    <el-button type="primary" v-on:click="redirectToLearn(1)" >Level 1</el-button>
+
+
+
+
+    <el-row :gutter="20">
+               <el-col :span="16">
+                    <button class="set-button" type="submit" v-on:click="redirectToLearn(1)">Set-1</button>
+               </el-col>
+              
+              <el-col :span="8">
+               <button class="pr-button" type="submit" v-on:click="redirectToLearn(1)">Practice</button>
+                <button class="te-button" type="submit" v-on:click="redirectToLearn(1)">Test</button>
+              </el-col>
+
     </el-row>
 
-    <el-row>
-    <el-button type="primary" v-on:click="redirectToLearn(2)">Level 2</el-button>
-    </el-row>
+<hr>
 
-    <el-row>
-    <el-button type="primary" v-on:click="redirectToLearn(3)">Level 3</el-button>
-    </el-row>
+     <el-row :gutter="20">
+          <el-col :span="16">
+                    <button class="set-button" type="submit" v-on:click="redirectToLearn(1)">Set-2</button>
+               </el-col>
+              
+              <el-col :span="8">
+               <button class="pr-button" type="submit" v-on:click="redirectToLearn(1)">Practice</button>
+                <button class="te-button" type="submit" v-on:click="redirectToLearn(1)">Test</button>
+              </el-col>
+     </el-row>
+<hr>
 
-    <el-row>
-    <el-button type="primary" v-on:click="redirectToLearn(4)">Practice</el-button>
-    <el-button type="primary" v-on:click="redirectToLearn(5)">Test</el-button>
-    </el-row>
+     <el-row :gutter="20">
+          <el-col :span="16">
+                    <button class="set-button" type="submit" v-on:click="redirectToLearn(1)">Set-3</button>
+               </el-col>
+              
+              <el-col :span="8">
+               <button class="pr-button" type="submit" v-on:click="redirectToLearn(1)">Practice</button>
+                <button class="te-button" type="submit" v-on:click="redirectToLearn(1)">Test</button>
+              </el-col>
+     </el-row>
+
+<hr>
+
+<el-container>
+ 
+  <el-footer>©2019 aiQo.ai. All rights reserved.</el-footer>
+</el-container>
+
 
 </div>
 </template>
+
+
+<style> 
+
+h1{font-size: 30px;
+color:#06597D;}
+
+.set-button{
+     border-radius: 12px;
+     background-color: #06597D;
+     border: none;
+     color: white;
+     padding: 15px 120px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+     -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+     font-size: 20px;
+      font-weight: bold;
+
+}
+.set-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.pr-button{
+     border-radius: 12px;
+     background-color: #EC5F64;
+     border: none;
+     color: white;
+     padding: 15px 70px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+     -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+     font-size: 20px;
+      font-weight: bold;
+}
+
+.pr-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.te-button{
+     border-radius: 12px;
+     background-color: #FF8800;
+     border: none;
+     color: white;
+     padding: 15px 70px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 20px;
+     margin: 4px 2px;
+     cursor: pointer;
+     -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+     font-size: 20px;
+      font-weight: bold;
+}
+
+.te-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.el-footer {
+    background-color: #FFFFFF;
+    color: #333;
+    text-align: center;
+    line-height: 100px;
+    margin-top: 150px;
+  }
+
+</style>
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
