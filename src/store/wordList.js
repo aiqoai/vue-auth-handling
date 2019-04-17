@@ -13,10 +13,17 @@ export const getters = {
 };
 
 // actions
-export const actions = {};
+export const actions = {
+
+};
 
 // mutations
 export const mutations = {
+    markFavorite(state, word) {
+        console.log("markFavorite", state.wordList[0].favorite);
+        word.favorite = !word.favorite;
+        console.log("markFavorite", state.wordList[0].favorite);
+    },
     setWordList (state, payload){
         console.log("[Word] setWordList : ", payload);
         state.wordCatagory = payload.wordCatagory;

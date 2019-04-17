@@ -134,6 +134,7 @@
 <script>
 import {HTTP} from '../store/httpcommon'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
+import * as wdata from '../../data/word_bank.json';
 // import {setWordList} from '../store/wordList'
 
 export default {
@@ -160,6 +161,7 @@ export default {
     ]),
     populateWordList(name, path) {
       console.log(name, path);
+      if (false) {
       HTTP.get('/api/word/query_words').then(response => {
           console.log("Received from server: ", response.data);
           this.setWordList({
@@ -168,6 +170,14 @@ export default {
           });
           this.$router.push(path);
         })
+      }
+      else{
+        this.setWordList({
+            wordList: wdata,
+            wordCategory: name
+          });
+        this.$router.push(path);
+      }
     }
   }
 }
