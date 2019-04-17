@@ -8,6 +8,8 @@ import axios from 'axios';
     //method: 'get',
     headers: {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
   };
 
