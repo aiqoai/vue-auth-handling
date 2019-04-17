@@ -1,8 +1,47 @@
 <template>
   <div>
-    <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
-    <button @click="logout">Logout</button>
-    <div>{{profile}}</div>
+    <div>
+      <h1>User  Board :::{{JSON.stringify(currentUser)}}</h1>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>{{profile.name}}</td>
+          <td><input v-model="form_name"></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{profile.email}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>About Me:</td>
+          <td>{{profile.description}}</td>
+          <td><input v-model="form_description"></td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Current Level:</td>
+          <td>{{profile.current_level}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Current Category:</td>
+          <td>{{profile.current_category}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Member Since: </td>
+          <td>{{profile.registration_datetime}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><button @click="update">Update</button></td>
+        </tr>
+      </table>
+      <button @click="logout">Logout</button>
+    </div>
   </div>
 </template>
 
@@ -11,7 +50,9 @@
   import {mapGetters} from 'vuex'
   import {} from '../store/userStore'
   let data = {
-    profile: {name: "jim"}
+    profile: {name: "jim"},
+    form_name: "",
+    form_description: ""
   }
 export default {
     data(){
@@ -47,6 +88,26 @@ export default {
       localStorage.removeItem("user");
       localStorage.removeItem("jwt");
       this.$router.push('/login')
+    },
+
+    update(e){
+      if(this.form_name != ''){
+        data.profile.name = data.form_name;
+
+      }
+      if(this.form_description != ''){
+        data.profile.description = data.form_description;
+      }
+      HTTP.patch('/api/profile', data.profile).then(res => {
+        if(this.$route.params.nextUrl != null){
+          this.$router.push(this.$route.params.nextUrl)
+        }
+        else{
+          this.$router.push('/profile')
+        }
+      }).catch(error => {
+        console.error(error);
+      });
     }
 
   }

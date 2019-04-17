@@ -112,7 +112,7 @@
                   this.$router.push(this.$route.params.nextUrl)
                 }
                 else{
-                  this.$router.push('/catalogue')
+                  this.$router.push('/profile')
                 }
               }
             })
