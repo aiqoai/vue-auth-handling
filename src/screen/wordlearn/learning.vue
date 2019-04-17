@@ -13,10 +13,12 @@
       </el-col>
       <el-col :span="4">
         <div class="grid-content">
-          <el-button type="warning" icon="el-icon-message" circle @click.prevent="switchView(w)"></el-button>
-          <el-button type="primary" icon="el-icon-edit" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-          <el-button type="success" icon="el-icon-star-off" circle></el-button>
-        </div>
+          <!-- {{JSON.stringify(String(w.favorite))}} -->
+          <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
+          <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
+          <el-button type="success" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click.prevent="favorite(w)"></el-button>
+          <el-button type="success" v-else icon="el-icon-star-off" circle @click.prevent="favorite(w)"></el-button>
+          </div>
       </el-col>
       </el-row>
     </el-collapse-item>
@@ -24,10 +26,11 @@
 
   <div v-if="selectedWord">
     <div class="grid-content">
-      <el-button type="warning" icon="el-icon-message" circle @click.prevent="switchView('')"></el-button>
-      <el-button type="primary" icon="el-icon-edit" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
-      <el-button type="success" icon="el-icon-star-off" circle></el-button>
-    </div>
+      <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
+      <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
+      <el-button type="success" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click.prevent="favorite(selectedWord)"></el-button>
+      <el-button type="success" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click.prevent="favorite(selectedWord)"></el-button>
+       </div>
     <h2>{{selectedWord.word}}</h2> 
     <!-- <div class="play" @click.prevent="playSound(w.sound_url)"></div>{{selectedWord.pronunciation}} -->
     <img :src="selectedWord.picture_url" class="image">
@@ -60,7 +63,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   data () {
@@ -70,6 +73,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'markFavorite'
+    ]),
     playSound (sound) {
       if(sound) {
         var audio = new Audio(sound);
@@ -80,19 +86,30 @@ export default {
       console.log("Switching View");
       this.selectedWord = w;
       console.log(this.selectedWord);
+    },
+    favorite(w) {
+      if (w) {
+        console.log("Before status: ", w.favorite);
+        this.markFavorite(w);
+        console.log("After status: ", w.favorite);
+      }
     }
   },
 
-  
   computed: {
-
     ...mapGetters({
-                 testCategories: 'testCategories',
-                 userCategories: 'userCategories',
-                 wordList: 'wordList',
-                 wordCatagory: 'wordCatagory'
-               })
-   
+      testCategories: 'testCategories',
+      userCategories: 'userCategories',
+      wordList: 'wordList',
+      wordCatagory: 'wordCatagory'
+    }),
+    favClass: function(word) {
+      if(word.favorite == true)
+      {
+        return "el-icon-star-on";
+      }
+      else return "el-icon-star-off"
+    }
   }
 }
 </script>
@@ -111,19 +128,19 @@ export default {
   width: 200px;
 }
 
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
 
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
+.el-carousel__item:nth-child(2n+1) {
+  background-color: #d3dce6;
+}
 
-  .play {
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-left: 12px solid #000;
-    border-bottom: 8px solid transparent;
-  }
+.play {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 12px solid #000;
+  border-bottom: 8px solid transparent;
+}
 </style>
