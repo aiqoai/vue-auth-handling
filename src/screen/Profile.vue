@@ -44,19 +44,13 @@
       </template>
       <button @click="logout">Logout</button>
     </div>
-=======
-    <h1>User  Board </h1>
-<!--    <div>:::{{JSON.stringify(currentUser)}}</div>-->
-    <button @click="logout">Logout</button>
-<!--    <div>{{profile.name}}</div>-->
->>>>>>> cb95261fb882b934069fa4b117079de79333fc52
   </div>
 </template>
 
 <script>
   import {HTTP} from '../store/httpcommon'
   import {mapGetters} from 'vuex'
-  import {} from '../store/userStore'
+  import Store from '../store/userStore'
   let data = {
     profile: null,
     form_name: "",

@@ -129,14 +129,14 @@ let router = new Router({
           requiresAuth: false
       }
     },
-    {
-      path: '/topic',
-      name: 'topic',
-      component: Topic,
-      meta: { 
-          requiresAuth: false
-      }
-    },
+    // {
+    //   path: '/topic',
+    //   name: 'topic',
+    //   component: Topic,
+    //   meta: {
+    //       requiresAuth: false
+    //   }
+    // },
     {
       path: '/practice',
       name: 'practice',
