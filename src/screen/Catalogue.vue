@@ -1,30 +1,45 @@
 <template>
+
   <div class="hello">
-    <h1>Word Catalogue</h1>
-    <h2 class="title">Test Prep</h2>
+    <el-row>
+        <el-col :span="24">
+             <div class="title-1" style="text-align: center;">
+                <h1>
+                    Word Catalogues
+                </h1>
+            </div>
+        </el-col>
+    </el-row>
+    
+             <div class="title-1" style="text-align: left;">
+                <h2 class="title">Test Preparation</h2>
+            </div>
+       
 
         <el-row>
-            <el-col :span="8" >
-                <el-card :body-style="{ padding: '0px' }">
-                <img src="../assets/SAT.png" width="100%">
-                <div style="padding: 14px;">
-                  <span>SAT words set</span>
-                  <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-button type="text" class="button" v-on:click="populateWordList('SAT', '/learning')">Learn vocabularies</el-button>
-                  </div>
-                </div>
-                </el-card>
-            </el-col>
+            
+                <el-col :span="8" >
+                        <el-card :body-style="{ padding: '0px' }">
+                                <img src="../assets/SAT.png" width="100%">
+                                <div style="padding: 14px;">
+                                      <h3>SAT words set</h3>
 
+                                      <div class="bottom clearfix">
+                                      
+                                        <el-button type="primary" round  class="button" v-on:click="populateWordList('SAT', '/learning')">Learn vocabularies</el-button>
+                                      </div>
+                                </div>
+                        </el-card>
+                </el-col>
+                
             <el-col :span="8" >
                 <el-card :body-style="{ padding: '0px' }">
                 <img src="../assets/GRE.png" width="100%">
                 <div style="padding: 14px;">
-                  <span>GRE words set</span>
+                  <h3>GRE words set</h3>
                   <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-button type="text" class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                    
+                    <el-button type="primary" round   class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
                   </div>
                 </div>
                 </el-card>
@@ -34,38 +49,87 @@
                 <el-card :body-style="{ padding: '0px' }">
                 <img src="../assets/TOEFL.png" width="100%">
                 <div style="padding: 14px;">
-                  <span>TOEFL words set</span>
+                  <h3>TOEFL words set</h3>
                   <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-button type="text" class="button" v-on:click="populateWordList('TOEFL', '/learning')">Learn vocabularies</el-button>
+                    
+                    <el-button type="primary" round class="button" v-on:click="populateWordList('TOEFL', '/learning')">Learn vocabularies</el-button>
                   </div>
                 </div>
                 </el-card>
             </el-col>
         </el-row>
 
-    <h2 class="title">Categories by User</h2>
-    <el-row :gutter="20">
-      <el-col :span="6" v-for="cat in userCategories" :key="cat.id">
-        <div class="grid-content bg-purple">
-        <el-card class="cards box-card">
-          <div slot="header" class="clearfix">
-            <span>{{cat.name}}</span>
-            <img v-show="cat.image" :src="cat.image" aspect-ratio="1" class="image">
-            <div class="bottom clearfix">
-              <time class="time">{{ currentDate }}</time>
-              <el-button type="text" class="button" v-on:click="populateWordList('SAT', '/learning')">Learn vocabularies</el-button>
-            </div>
-          </div>
-          <div v-for="des in cat.description" :key="des" class="text item">
-            {{ des }}
-          </div>
-        </el-card>
-        </div>
-      </el-col>
+
+
+    <h2 class="title-2">Category by User</h2>
+    
+    <el-row>
+           <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat5.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Linda</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+           <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat2.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Brent</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+         <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat3.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Brent</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button"v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+          <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat6.png" width="100%">
+                    <div style="padding: 14px;">
+                    <p>Word set by Danile</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/learning')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
     </el-row>
+    
+    <el-container>
+       <el-footer style="height: 150px;margin-top: 60px;">
+        <p style="padding-top:30px;"class="infor">©2019 aiQo.ai. All rights reserved.</p>
+    </el-footer> 
+ </el-container>
   </div>
+
 </template>
+
+
+
+
+
 
 <script>
 import {HTTP} from '../store/httpcommon'
@@ -112,11 +176,38 @@ export default {
 <style >
 
 /* This is fixed for viewing. Neeeded to be changed. */
+
+h1{font-size: 30px;
+color:#06597D;}
+
+h2{
+    font-size: 25px;
+    color: #1A708E;
+}
+h3{font-size: 18px;
+color:#06597D;
+
+}
+.title-2{margin-top: 50px;
+
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
 .cards {
   height: 400px;
 }
 /*End*/
-
+.el-card{
+    margin-right: 20px;
+}
 
 .image {
     width: 100%;
@@ -149,5 +240,7 @@ export default {
     padding: 10px 0;
     background-color: #f9fafc;
   }
+
+
 </style>
 
