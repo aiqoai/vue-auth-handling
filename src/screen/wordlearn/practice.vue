@@ -29,17 +29,11 @@
       </el-card>
       <div v-else>
         <h2>Contratulation!</h2>
-        <h3>You have finished the {{this.category}} at level {{this.level}}!</h3>
       </div>
       <el-row v-if="currProb && currentPage < totalPages">
         <el-button icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"></el-button>
         <el-button icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"></el-button>
       </el-row>
-      <!-- <el-pagination style="margin: auto;" background layout="prev, next" @current-change="handleCurrentChange" 
-      v-on:next-click="handleNextClick" :page-count="11">
-      </el-pagination> -->
-
-
   </div>
 </template>
 
@@ -120,27 +114,9 @@ export default {
    
   },
   mounted () {
-    this.category = "SAT";
-    this.level = 3;
-    // this.category = this.$route.query.wordset;
-    // this.level = this.$route.query.level;
-    // console.log(this.category, this.level);
-    // if (!this.problems || this.problems.length == 0) {
-    //   this.getProblems();
-    // }
+    this.category = this.$route.query.wordset;
+    this.level = this.$route.query.level;
     this.currProb = this.problems[0];
-  },
-  getProblems() {
-    this.getProblems();
-    // if (false) {
-    //   HTTP.get('/api/problem/query_problems').then(response => {
-    //     console.log("Received from server: ", response.data);
-    //     this.setProblems(response.data.data);
-    //   })
-    // }
-    // else {
-    //   this.setProblems(pdata);
-    // }
   }
 }
 </script>

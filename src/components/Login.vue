@@ -22,12 +22,18 @@
                             <input id="password" type="password" v-model="password" required>
                         </div>
                     </div>
-                    <div>
-                        <button class="button" type="submit" @click="handleSubmit" >
-                            Login
-                        </button>
-
-                    </div>
+                    <el-row>
+                        <el-col :span="12">
+                            <button class="button" type="submit" @click="handleSubmit" >
+                                Login 
+                            </button>
+                        </el-col>
+                         <el-col :span="12">
+                            <button class="button2" type="submit" @click="handleSubmit" >
+                                Signup
+                            </button>
+                        </el-col>
+                    </el-row>
                 </form>
 
                 </el-card>
@@ -54,14 +60,31 @@ height: 30px;}
      background-color: #EF843C;
   border: none;
   color: white;
-  padding: 15px 100px;
+  padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 50%;
+  margin: 30px 2px;
   cursor: pointer;
 }
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button2{
+
+     background-color: #06597D;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 30px 2px;
+  cursor: pointer;
+}
+
 </style>
 
 <!--<script>-->

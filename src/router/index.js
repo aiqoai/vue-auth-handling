@@ -122,24 +122,25 @@ let router = new Router({
         }
     },
     {
-      path: '/learning',
+      path: '/learning/:wordset/:level',
       name: 'learning',
       component: Learning,
-      props: (route) => ({ wordset: route.query.wordset, level: route.query.level }),
+      props: true,
       meta: { 
           requiresAuth: false
       }
     },
     {
-      path: '/topic',
+      path: '/topic/:wordset',
       name: 'topic',
       component: Topic,
+      props: true,
       meta: { 
           requiresAuth: false
       }
     },
     {
-      path: '/practice',
+      path: '/practice/:wordset/:level',
       name: 'practice',
       component: Practice,
       props: true,
