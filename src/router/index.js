@@ -141,7 +141,7 @@ let router = new Router({
       }
     },
     {
-      path: '/practice/:wordset/:level',
+      path: '/practice/:topic_id',
       name: 'practice',
       component: Practice,
       props: true,

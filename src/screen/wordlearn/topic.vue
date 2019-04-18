@@ -194,19 +194,24 @@ export default {
 
       console.log(level);
       console.log("reditecting to practice"); 
-      if (true) {
-      HTTP.post('/api/problem/query_problems').then(response => {
-          console.log("Received from server: ", response.data);
-          this.setProblems(
-            response.data.data,
-          );
-          this.$router.push(path);
-        })
-      }
-      else{
-        this.setProblems(pdata);
-        this.$router.push(path);
-      }
+      // if (true) {
+      // HTTP.post('/api/problem/query_problems').then(response => {
+      //     console.log("Received from server: ", response.data);
+      //     this.setProblems(
+      //       response.data.data,
+      //     );
+      //     this.$router.push(path);
+      //   })
+      // }
+      // else{
+      //   this.setProblems(pdata);
+      //   this.$router.push(path);
+      // }
+      // this.$router.push(path);
+      var route_parames={ name: 'practice', params: { topic_id: 'GRE' }};
+      this.$router.push(route_parames)
+
+
     },
     redirectToTest(level) {
       /* Need to decouple for problems and words */

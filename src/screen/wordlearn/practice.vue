@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>This is practice</h1>
-    <h2>{{msg}}</h2>
+    <h2>{{msg}}</h2>::::::{{this.$route.params.topic_id}}
       <el-progress :percentage="(currentPage / totalPages) * 100" color="green"></el-progress>
       <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
         <div slot="header" class="clearfix">
@@ -53,6 +53,27 @@ export default {
       showHint: false
     }
   },
+
+  created() {
+
+    this.loading = true;
+
+    if(this.$route.params.hasOwnProperty('topic_id') && this.$route.params.user_id) {
+      let query = {'topic_id': this.$route.params.topic_id};
+
+      console.log(" created topic_id: ", query);
+    }
+
+  },
+  watch: {
+    '$route.params.topic_id': function(topic_id) {
+      // this.loading = true;
+      console.log("[Profile] watch: ", topic_id);
+
+    }
+  },
+
+
   methods: {
     playSound (sound) {
       if(sound) {
