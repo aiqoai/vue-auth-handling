@@ -3,7 +3,7 @@
   <h1 v-show="!selectedWord">Learning Deck </h1>
   <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
   <el-collapse accordion v-show="!selectedWord">
-    <el-collapse-item v-for="w in wordList" :key="w.id" :title="w.word" :name="w.word">
+    <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w.word">
       <el-row>
       <el-col :span="20">
         <div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">
@@ -15,8 +15,8 @@
         <div class="grid-content">
           <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
           <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-          <el-button type="success" :key="updateFavorite + w.id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
-          <el-button type="success" :key="updateFavorite + w.id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
+          <el-button type="success" :key="updateFavorite + w._id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
+          <el-button type="success" :key="updateFavorite + w._id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
           </div>
       </el-col>
       </el-row>
@@ -27,8 +27,13 @@
     <div class="grid-content">
       <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
       <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord.id + 'on'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord + 'off'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite + selectedWord._id + 'on'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite + selectedWord._id + 'off'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+
+      <div style="float:right;">
+        <el-button type="success" plain icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
+        <el-button type="success" plain icon="el-icon-arrow-right" @click="getNext">Next Word</el-button>
+      </div>
        </div>
     <h2>{{selectedWord.word}}</h2> 
     <img :src="selectedWord.picture_url" class="image">
@@ -37,7 +42,7 @@
     <div v-for="t in p.translation" :key="t.zh">{{t.zh}}</div>
     <li v-for="s in p.sentence" :key="s">{{s}}</li>
     <div v-if="p.synonyms">Synonyms: <label v-for="syn in p.synonyms" :key="syn">{{syn}}</label> </div>
-    <div v-if="p.encoding">Encoding: <label v-for="enc in p.encoding" :key="enc">{{enc}}</label> </div>
+    <div v-if="p.encoding">Encoding: <label v-for="enc in p.encoding" :key="enc" style="white-space: pre-line">{{enc}}</label> </div>
     </div>
     <strong v-if="selectedWord.root">Roots</strong>
     <div v-for="r in selectedWord.root" :key="r.type">
@@ -70,6 +75,24 @@ export default {
       'setWordList',
       'setWordCategory'
     ]),
+    getNext() {
+      let id = this.wordList.indexOf(this.selectedWord);
+      if (id || id == 0) {
+        id += 1;
+        if (this.wordList[id]) {
+          this.selectedWord = this.wordList[id];
+        }
+      }
+    },
+    getPrev() {
+      let idx = this.wordList.indexOf(this.selectedWord);
+      if (idx || idx == 0) {
+        idx -= 1;
+        if (idx > -1 && this.wordList[idx]) {
+          this.selectedWord = this.wordList[idx];
+        }
+      }
+    },
     playSound (sound) {
       if(sound) {
         var audio = new Audio(sound);
@@ -91,9 +114,9 @@ export default {
             "is_active": star
         }
         console.log(fav);
-        HTTP.post('/api/favorite', fav).then(response => {
+        HTTP.put('/api/favorite', fav).then(response => {
           console.log("Received from server: ", response.statusText);
-          if (response.statusText == "OK") {
+          if (response) {
             this.markFavorite(w);
             // Update the favorite icon. Two hacks:
             this.updateFavorite += 1;

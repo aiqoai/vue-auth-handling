@@ -34,6 +34,12 @@
       </el-card>
       <div v-else>
         <h2>Contratulation!</h2>
+        <table>
+          <tr v-for="summ in summary" :key="summ.id">
+            <td></td>
+            <td>{{summ.text}}</td>
+          </tr>
+        </table>
         <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catelogue</el-button>
       </div>
       <el-row v-if="currProb && currentPage < totalPages">
@@ -62,7 +68,8 @@ export default {
       query: {
         wordset: '',
         level: ''
-      }
+      },
+      summary: []
     }
   },
   methods: {
@@ -70,6 +77,35 @@ export default {
       'setProblems',
       'setWordCategory'
     ]),
+    submitAnswers() {
+      let answers = [];
+      this.summary = [];
+      this.problems.forEach(p => {
+        let fromSet = this.answerSet[p._id];
+        let selected = p.data_item.forEach(d => { return d.key == fromSet.answer });
+        let ans = {
+          "problem_id" : p._id,
+          "problem_answer_phase": "learning",
+          "problem_answer_retry": fromSet.retry ? true : false,
+          "problem_answer_correct": selected && selected.answer? selected.answer.toLowerCase() == "yes" : '',
+          "problem_answer_use_hint": fromSet.hint? true : false,
+          "answer":{
+            "key": fromSet.answer? fromSet.answer : '', 
+            "value": selected && selected.value? selected.value : ''
+          }
+        };
+        if (!ans.problem_answer_correct) {
+          let s = {
+            'id': ans.problem_id,
+            'text': p.problem_title,
+            'retry': ans.problem_answer_retry,
+            'hint': ans.problem_answer_use_hint
+          };
+          this.summary.push(s);
+        }
+        answers.push(ans);
+      });
+    },
     playSound (sound) {
       if(sound) {
         var audio = new Audio(sound);
@@ -80,16 +116,18 @@ export default {
       this.handleCurrentChange(this.currentPage - 1);
     },
     handleNextClick () {
-      
       console.log("Next");
       this.handleCurrentChange(this.currentPage + 1)
+      if (this.currentPage == this.totalPages) {
+        this.submitAnswers()
+      }
     },
     handleHintClick() {
       this.showHint = !this.showHint;
-      if (!this.answerSet[this.currProb.problem_title]) {
-        this.answerSet[this.currProb.problem_title] = {};
+      if (!this.answerSet[this.currProb._id]) {
+        this.answerSet[this.currProb._id] = {};
       }
-      this.answerSet[this.currProb.problem_title].hint = true;
+      this.answerSet[this.currProb._id].hint = true;
       console.log(this.answerSet);
     },
     handleCurrentChange(curr) {
@@ -99,9 +137,9 @@ export default {
       if (curr < this.totalPages) {
         this.currProb = this.problems[curr];
         this.currAnswer = ''; 
-        if (this.answerSet[this.currProb.problem_title]){
-          if (this.answerSet[this.currProb.problem_title].answer) {
-            this.currAnswer = this.answerSet[this.currProb.problem_title].answer;
+        if (this.answerSet[this.currProb._id]){
+          if (this.answerSet[this.currProb._id].answer) {
+            this.currAnswer = this.answerSet[this.currProb._id].answer;
           }
         }
       }
@@ -109,18 +147,21 @@ export default {
     },
     handleRadioChange (data) {
       console.log("handleRadioChange")
-      if (!this.answerSet[this.currProb.problem_title]) {
-        this.answerSet[this.currProb.problem_title] = {};
+      if (!this.answerSet[this.currProb._id]) {
+        this.answerSet[this.currProb._id] = {};
       }
-      this.answerSet[this.currProb.problem_title].answer = data;
+      if (this.answerSet[this.currProb._id].answer !== undefined) {
+        this.answerSet[this.currProb._id].retry = true;
+      }
+      this.answerSet[this.currProb._id].answer = data;
       console.log(this.answerSet);
       this.activateNext();
     },
     activateNext() {
-      if (!this.answerSet[this.currProb.problem_title] || !this.answerSet[this.currProb.problem_title].answer) {
+      if (!this.answerSet[this.currProb._id] || !this.answerSet[this.currProb._id].answer) {
         return;
       }
-      var data = this.answerSet[this.currProb.problem_title].answer;
+      var data = this.answerSet[this.currProb._id].answer;
       var act = this.activePage;
       this.activePage = this.currentPage;
       console.log("activateNext", this.currProb);
