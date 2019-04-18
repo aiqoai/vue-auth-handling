@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>This is practice</h1>
-    <h2>{{msg}}</h2>::::::{{this.$route.params.topic_id}}
+    <h2>{{msg}}</h2>::::::{{this.$route.params.topic_id}}:::{{this.$route.params.set_id}}
       <el-progress :percentage="(currentPage / totalPages) * 100" color="green"></el-progress>
       <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
         <div slot="header" class="clearfix">
@@ -59,9 +59,9 @@ export default {
     this.loading = true;
 
     if(this.$route.params.hasOwnProperty('topic_id') && this.$route.params.user_id) {
-      let query = {'topic_id': this.$route.params.topic_id};
+      let query = {'topic_id': this.$route.params.topic_id,'set_id':this.$route.params.set_id};
 
-      console.log(" created topic_id: ", query);
+      console.log(" >>>>>created topic_id: ", query);
     }
 
   },

@@ -141,7 +141,7 @@ let router = new Router({
       }
     },
     {
-      path: '/practice/:topic_id',
+      path: '/practice/:topic_id/:set_id',
       name: 'practice',
       component: Practice,
       props: true,

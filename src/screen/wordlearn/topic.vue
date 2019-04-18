@@ -208,7 +208,7 @@ export default {
       //   this.$router.push(path);
       // }
       // this.$router.push(path);
-      var route_parames={ name: 'practice', params: { topic_id: 'GRE' }};
+      var route_parames={ name: 'practice', params: { topic_id: 'GRE',set_id:'lifescience' }};
       this.$router.push(route_parames)
 
 
