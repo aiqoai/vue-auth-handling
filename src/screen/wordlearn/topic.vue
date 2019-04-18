@@ -6,7 +6,7 @@
           </el-col>
      </el-row>
     <h1>{{wordCatagory}} Vocabulary Sets </h1>
-    <h2>{{wordCatagory}}</h2>
+   
     <el-row :gutter="20">
                <el-col :span="16">
                     <button class="set-button" type="submit" v-on:click="redirectToLearn(1)">Set-1</button>

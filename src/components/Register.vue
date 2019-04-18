@@ -1,10 +1,11 @@
 <template>
     <div>
      <el-row :gutter="24">
-          <el-col :span="8" :offset="8" >
-               <img src="../assets/login.png"width=100%>
-
-               <el-card class="box-card">
+          <el-col :span="12" >
+               <img class="avatar" src="../assets/login.png"width=80%>
+          </el-col>
+          <el-col :span="12">
+               <el-card class="box-card-2">
                     <div class="header"style="text-align: center;">
                          <h2>Create Account</h2>
                     </div>
@@ -41,7 +42,7 @@
                            <div>
                               <label>{{err_notice}}</label>
                              <br/>
-                               <button type="submit" @click="handleSubmit">
+                               <button class="button" type="submit" @click="handleSubmit">
                                    Register
                                </button>
                            </div>
@@ -54,6 +55,31 @@
        
     </div>
 </template>
+<style>
+     .avatar{
+          margin-left: 20%;
+          margin-top: 20%;
+     }
+     .box-card-2{
+          width: 70%;
+     }
+     .button{
+border-radius: 10px;
+     background-color: #EF843C;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 30px 2px;
+  cursor: pointer;
+}
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
 
 <script>
   import {HTTP} from '../store/httpcommon'
