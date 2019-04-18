@@ -15,8 +15,8 @@
         <div class="grid-content">
           <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
           <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-          <el-button type="success" :key="updateFavorite" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
-          <el-button type="success" :key="updateFavorite" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
+          <el-button type="success" :key="updateFavorite + w.id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
+          <el-button type="success" :key="updateFavorite + w.id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
           </div>
       </el-col>
       </el-row>
@@ -27,8 +27,8 @@
     <div class="grid-content">
       <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
       <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
-      <el-button type="success" :key="updateFavorite" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
-      <el-button type="success" :key="updateFavorite" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite + selectedWord.id + 'on'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite + selectedWord + 'off'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
        </div>
     <h2>{{selectedWord.word}}</h2> 
     <img :src="selectedWord.picture_url" class="image">
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import {HTTP} from '../../store/httpcommon';
 import { mapGetters, mapActions, mapMutations } from 'vuex';
 import Vue from 'vue';
 
@@ -56,12 +57,18 @@ export default {
     return {
       msg: 'learning',
       selectedWord: '',
+      query: {
+        'wordset': '',
+        'level': ''
+      },
       updateFavorite: 0
     }
   },
   methods: {
     ...mapMutations([
-      'markFavorite'
+      'markFavorite',
+      'setWordList',
+      'setWordCategory'
     ]),
     playSound (sound) {
       if(sound) {
@@ -76,11 +83,34 @@ export default {
     },
     favorite(w) {
       if (w) {
-        console.log("Before status: ", w.favorite);
         this.markFavorite(w);
-        console.log("After status: ", w.favorite);
       }
+      // Update the favorite icon. Two hacks:
       this.updateFavorite += 1;
+      // this.$forceUpdate();
+    }
+  },
+
+  created() {
+    this.loading = true;
+
+    if(this.$route.params.hasOwnProperty('wordset') && this.$route.params.wordset) {
+      this.query.wordset = this.$route.params.wordset;
+    }
+    if(this.$route.params.hasOwnProperty('level') && this.$route.params.level) {
+      this.query.level = this.$route.params.level;
+    }
+    this.loading = false;
+    console.log("Query", this.query);
+
+    if (!this.problems || this.problems.length == 0) {
+      HTTP.post('/api/word/query_words', {
+        category: this.query.wordset,
+        level: String(this.query.level)
+      }).then(response => {
+        console.log("Received from server: ", response.data);
+        this.setWordList(response.data.data);
+      })
     }
   },
 
@@ -92,11 +122,12 @@ export default {
       wordCatagory: 'wordCatagory'
     }),
     favClass: function(word) {
+      /* Not used */
       if(word.favorite == true)
       {
         return "el-icon-star-on";
       }
-      else return "el-icon-star-off"
+      else return "el-icon-star-off";
     }
   }
 }
