@@ -13,11 +13,10 @@
       </el-col>
       <el-col :span="4">
         <div class="grid-content">
-          <!-- {{JSON.stringify(String(w.favorite))}} -->
           <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
           <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-          <el-button type="success" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click.prevent="favorite(w)"></el-button>
-          <el-button type="success" v-else icon="el-icon-star-off" circle @click.prevent="favorite(w)"></el-button>
+          <el-button type="success" :key="updateFavorite" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
+          <el-button type="success" :key="updateFavorite" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
           </div>
       </el-col>
       </el-row>
@@ -28,11 +27,10 @@
     <div class="grid-content">
       <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
       <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
-      <el-button type="success" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click.prevent="favorite(selectedWord)"></el-button>
-      <el-button type="success" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click.prevent="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
        </div>
     <h2>{{selectedWord.word}}</h2> 
-    <!-- <div class="play" @click.prevent="playSound(w.sound_url)"></div>{{selectedWord.pronunciation}} -->
     <img :src="selectedWord.picture_url" class="image">
     <div v-for="p in selectedWord.part_of_speech" :key="p.type">
     <div>{{p.type}}</div> <strong>{{p.definition}}</strong>
@@ -46,30 +44,19 @@
       {{r.type}} : {{r.root}}
     </div>
   </div>
-
-  <!-- <el-carousel :interval="4000" type="card" height="600px" >
-    <el-carousel-item v-for="w in wordList" :key="w.id">
-      <h3 class="center">{{ w.word }}
-        <el-button type="primary" icon="el-icon-edit" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-      </h3>
-      <h3 class="center"><img :src="w.picture_url" class="image"></h3>
-      <div class="center"><div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">
-          <strong>{{pos.type}}</strong>
-          {{pos.definition}}
-        </div></div>
-    </el-carousel-item>
-  </el-carousel> -->
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex';
+import Vue from 'vue';
 
 export default {
   data () {
     return {
       msg: 'learning',
-      selectedWord: ''
+      selectedWord: '',
+      updateFavorite: 0
     }
   },
   methods: {
@@ -93,6 +80,7 @@ export default {
         this.markFavorite(w);
         console.log("After status: ", w.favorite);
       }
+      this.updateFavorite += 1;
     }
   },
 
