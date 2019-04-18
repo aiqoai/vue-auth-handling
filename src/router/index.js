@@ -17,7 +17,7 @@ import Profile from '@/screen/Profile'
 
 import Learning from '@/screen/wordlearn/learning'
 import Practice from '@/screen/wordlearn/practice'
-import Topic from '@/screen/wordlearn/topic'
+import Favorite from "../screen/Favorite";
 
 Vue.use(Router)
 
@@ -101,7 +101,7 @@ let router = new Router({
         name: 'profile',
         component: Profile,
         meta: { 
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -146,6 +146,15 @@ let router = new Router({
       props: true,
       meta: { 
           requiresAuth: false
+      }
+    },
+    {
+      path: '/favorite',
+      name: 'favorite',
+      component: Favorite,
+      props: true,
+      meta: {
+        requiresAuth: true
       }
     },
   ]
