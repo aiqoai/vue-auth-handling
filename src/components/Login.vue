@@ -23,16 +23,16 @@
                         </div>
                     </div>
                     <el-row>
-                        <el-col :span="12">
-                            <button class="button" type="submit" @click="handleSubmit" >
+                        <el-col :span="24">
+                            <button class="button1" type="submit" @click="handleSubmit" >
                                 Login 
                             </button>
                         </el-col>
-                         <el-col :span="12">
+                       <!--   <el-col :span="12">
                             <button class="button2" type="submit" @click="handleSubmit" >
                                 Signup
                             </button>
-                        </el-col>
+                        </el-col> -->
                     </el-row>
                 </form>
 
@@ -55,12 +55,12 @@
 
 input{width:100%;
 height: 30px;}
-.button{
-
+.button1{
+border-radius: 10px;
      background-color: #EF843C;
   border: none;
   color: white;
-  padding: 15px 80px;
+  padding: 15px 90px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -68,11 +68,11 @@ height: 30px;}
   margin: 30px 2px;
   cursor: pointer;
 }
-.button:hover {
+.button1:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .button2{
-
+border-radius: 10px;
      background-color: #06597D;
   border: none;
   color: white;
@@ -84,7 +84,9 @@ height: 30px;}
   margin: 30px 2px;
   cursor: pointer;
 }
-
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
 </style>
 
 <!--<script>-->

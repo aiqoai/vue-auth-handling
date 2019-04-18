@@ -1,17 +1,17 @@
 <template>
 	  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
     background-color="#B3C0D1" text-color="#333" active-text-color="#064672">
-      <el-menu-item><router-link to="/" class="nav-item"><img src="../assets/logo-alt.png" alt="Bulma logo"></router-link></el-menu-item>
-      <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
-      <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Catalogue</router-link></el-menu-item>
-      <el-menu-item index="3"><router-link to="/build" class="nav-item">Build</router-link></el-menu-item>
-      <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
-      <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
-      <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item>
-      <el-menu-item index="7"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
-      <el-menu-item index="8"><router-link to="/favorite" class="nav-item">Favorite</router-link></el-menu-item>
-
-
+        
+                <el-menu-item><router-link to="/" class="nav-item"><img src="../assets/logo-alt.png" alt="Bulma logo"></router-link></el-menu-item>
+                <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
+                <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Catalogue</router-link></el-menu-item>
+                <el-menu-item index="3"><router-link to="/build" class="nav-item">Build</router-link></el-menu-item>
+                <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
+               <!--  <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
+                <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item> -->
+                <el-menu-item index="7"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
+                <el-menu-item index="8"><router-link to="/favorite" class="nav-item">Favorite</router-link></el-menu-item>
+           
       <el-menu-item index="9">
 
         <el-dropdown trigger="click">
@@ -33,10 +33,19 @@
           </el-dropdown-menu>
         </el-dropdown>
 
-
-
       </el-menu-item>
+     <router-link to="/login" class="nav-item">
+       <button class="button" type="submit" @click="handleSubmit" >
+            Login               
+         </button>
+    </router-link>    
 
+    <router-link to="/register" class="nav-item">
+          <button class="button" type="submit" @click="handleSubmit" >
+              Sign Up
+             
+        </button>
+     </router-link>
 
 
   </el-menu>
@@ -57,6 +66,34 @@
 	border-bottom: 3px solid #00d1b2;
     color: #064672;
     padding-bottom: calc(.75rem - 8px);
+}
+
+.button {
+    border-radius: 10px;
+  background-color: #06597D;
+  
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 8px 18px;
+}
+
+.button:hover{
+       border-radius: 10px;
+  background-color: #74B2E8;
+  
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  /*cursor: pointer;*/
+  padding: 8px 18px;
 }
 </style>
 

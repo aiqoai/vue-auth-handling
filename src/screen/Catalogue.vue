@@ -101,11 +101,68 @@
                 </el-card>
         </el-col>
     </el-row>
-<h2 class="title-2">Practice and Test</h2>
-    <el-container>
-       <el-footer style="height: 150px;margin-top: 60px;">
-        <p style="padding-top:30px;" class="infor">©2019 aiQo.ai. All rights reserved.</p>
-    </el-footer> 
+
+    <el-row>
+           <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat1.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Linda</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+        <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat4.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Linda</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+            <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat7.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Linda</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+             <el-col :span="6">
+            <el-card :body-style="{ padding: '0px' }">
+                <img src="../assets/usercreat8.png" width="100%">
+                    <div style="padding: 14px;">
+                      <p>Word set by Linda</p>
+                      <div class="bottom clearfix">
+                        
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                      </div>
+                    </div>
+                </el-card>
+        </el-col>
+
+
+    </el-row>
+
+
+
+       <el-container>
+  <el-footer>©2019 aiQo.ai. All rights reserved.</el-footer>
+
  </el-container>
   </div>
 </template>
@@ -210,6 +267,14 @@ color:#06597D;
     padding: 10px 0;
     background-color: #f9fafc;
   }
+  .el-footer {
+    background-color: #FFFFFF;
+    color: #333;
+    text-align: center;
+    line-height: 100px;
+    margin-top: 150px;
+  }
+
 
 
 </style>

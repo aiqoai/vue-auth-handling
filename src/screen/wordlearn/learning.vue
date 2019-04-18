@@ -30,7 +30,7 @@
       <el-button type="success" :key="updateFavorite + selectedWord.id + 'on'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
       <el-button type="success" :key="updateFavorite + selectedWord + 'off'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
        </div>
-    <h2>{{selectedWord.word}}</h2> 
+   <!--  <h2>{{selectedWord.word}}</h2>  -->
     <img :src="selectedWord.picture_url" class="image">
     <div v-for="p in selectedWord.part_of_speech" :key="p.type">
     <div>{{p.type}}</div> <strong>{{p.definition}}</strong>
