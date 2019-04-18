@@ -83,11 +83,24 @@ export default {
     },
     favorite(w) {
       if (w) {
-        this.markFavorite(w);
+        let star = w.favorite ? false : true;
+        // The following object is in accordance with the backend seed_data/favourite.JSON file. 
+        // If that changes, change it too.
+        let fav = {
+            "word_id": w._id,
+            "is_active": star
+        }
+        console.log(fav);
+        HTTP.post('/api/favorite', fav).then(response => {
+          console.log("Received from server: ", response.statusText);
+          if (response.statusText == "OK") {
+            this.markFavorite(w);
+            // Update the favorite icon. Two hacks:
+            this.updateFavorite += 1;
+            // this.$forceUpdate();
+          }
+        })
       }
-      // Update the favorite icon. Two hacks:
-      this.updateFavorite += 1;
-      // this.$forceUpdate();
     }
   },
 
