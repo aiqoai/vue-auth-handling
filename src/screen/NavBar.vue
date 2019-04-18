@@ -1,20 +1,18 @@
 <template>
 	  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
-      background-color="#B3C0D1" text-color="#333" active-text-color="#064672">
-    <el-menu-item><router-link to="/" class="nav-item">
-        <img src="../assets/logo-alt.png" alt="Bulma logo">
-      </router-link>
-    </el-menu-item>
-    <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
-    <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Catalogue</router-link></el-menu-item>
-    <el-menu-item index="3"><router-link to="/build" class="nav-item">Build</router-link></el-menu-item>
-    <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
-    <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
-    <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item>
+    background-color="#B3C0D1" text-color="#333" active-text-color="#064672">
+      <el-menu-item><router-link to="/" class="nav-item"><img src="../assets/logo-alt.png" alt="Bulma logo"></router-link></el-menu-item>
+      <el-menu-item index="1"><router-link to="/" class="nav-item">Home</router-link></el-menu-item>
+      <el-menu-item index="2"><router-link to="/catalogue" class="nav-item">Catalogue</router-link></el-menu-item>
+      <el-menu-item index="3"><router-link to="/build" class="nav-item">Build</router-link></el-menu-item>
+      <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
+      <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
+      <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item>
+      <el-menu-item index="7"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
+      <el-menu-item index="8"><router-link to="/favorite" class="nav-item">Favorite</router-link></el-menu-item>
 
-    <el-menu-item index="7"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
 
-      <el-menu-item index="8">
+      <el-menu-item index="9">
 
         <el-dropdown trigger="click">
           <span class="el-dropdown-link">
@@ -92,9 +90,10 @@ export default {
       else if(index=='6'){
         this.$router.push('/register');
       }
-      else if(index=='7'){
+      else if(index=='7')
         this.$router.push('/profile');
-      }
+      else if(index=='8')
+        this.$router.push('/favorite');
       else{
         this.$router.push('/');
       }

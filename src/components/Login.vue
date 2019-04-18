@@ -140,7 +140,6 @@ height: 30px;}
         name : "george",
         email : "1@1.com",
         password : "1",
-        password_confirmation : "1",
         is_admin : 0
       }
     },
@@ -149,7 +148,7 @@ height: 30px;}
         console.log(" click")
         e.preventDefault()
 
-        if (this.password === this.password_confirmation && this.password.length > 0)
+        if (this.password )
         {
           console.log(" sent http")
 
@@ -179,7 +178,7 @@ height: 30px;}
                   this.$router.push(this.$route.params.nextUrl)
                 }
                 else{
-                  this.$router.push('/catalogue')
+                  this.$router.push('/profile')
                 }
               }
             })
@@ -191,7 +190,6 @@ height: 30px;}
 
         } else {
           this.password = ""
-          this.passwordConfirm = ""
 
           return alert('Passwords do not match')
         }

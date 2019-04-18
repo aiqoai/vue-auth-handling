@@ -97,7 +97,7 @@
                       <p>Word set by Brent</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button"v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', '/topic')">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -124,20 +124,14 @@
     
     <el-container>
        <el-footer style="height: 150px;margin-top: 60px;">
-        <p style="padding-top:30px;"class="infor">©2019 aiQo.ai. All rights reserved.</p>
+        <p style="padding-top:30px;" class="infor">©2019 aiQo.ai. All rights reserved.</p>
     </el-footer> 
  </el-container>
   </div>
 
 </template>
 
-
-
-
-
-
 <script>
-import {HTTP} from '../store/httpcommon'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import * as wdata from '../../data/word_bank.json';
 // import {setWordList} from '../store/wordList'
@@ -151,38 +145,21 @@ export default {
   },
   computed: {
     ...mapGetters({
-                 testCategories: 'testCategories',
-                 userCategories: 'userCategories',
-                 testname:'testname',
-                 currentUser:'currentUser'
-               })
+      currentUser:'currentUser'
+    })
   },
   methods: {
     ...mapMutations([
-      'setWordList'
+      'setWordCategory'
     ]),
     ...mapActions([
 
     ]),
     populateWordList(name, path) {
       console.log(name, path);
-      if (false) {
-      HTTP.get('/api/word/query_words').then(response => {
-          console.log("Received from server: ", response.data);
-          this.setWordList({
-            wordList: response.data.data,
-            wordCategory: name
-          });
-          this.$router.push(path);
-        })
-      }
-      else{
-        this.setWordList({
-            wordList: wdata,
-            wordCategory: name
-          });
-        this.$router.push(path);
-      }
+
+      this.setWordCategory(name);
+      this.$router.push(path + '/' + name);
     }
   }
 }
