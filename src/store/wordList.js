@@ -21,21 +21,13 @@ export const getters = {
 
 // actions
 export const actions = {
-    getProblems : async (context, query) => {
-        let { data } = await HTTP.get('/api/problem/query_problems');
-        console.log(data);
-        if(data.status == 200){
-            context.dispatch('setWordList', data.data.data);
-        }
-    }
 };
 
 // mutations
 export const mutations = {
     markFavorite(state, word) {
-        console.log("markFavorite", state.wordList[0].favorite);
+        console.log("[Word] markFavorite", word);
         word.favorite = !word.favorite;
-        console.log("markFavorite", state.wordList[0].favorite);
     },
     setWordCategory(state, payload) {
         console.log("[Word] setWordCategory : ", payload);
