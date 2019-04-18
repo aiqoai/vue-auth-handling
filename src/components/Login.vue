@@ -178,7 +178,7 @@ height: 30px;}
                   this.$router.push(this.$route.params.nextUrl)
                 }
                 else{
-                  this.$router.push('/home')
+                  this.$router.push('/')
                 }
               }
             })

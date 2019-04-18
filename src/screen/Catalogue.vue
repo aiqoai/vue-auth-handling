@@ -133,8 +133,8 @@
 
 <script>
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-import * as wdata from '../../data/word_bank.json';
-// import {setWordList} from '../store/wordList'
+// import * as wdata from '../../data/word_bank.json';
+import {setWordList} from '../store/wordList'
 
 export default {
   name: 'catalogue',
