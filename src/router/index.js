@@ -17,6 +17,7 @@ import Profile from '@/screen/Profile'
 
 import Learning from '@/screen/wordlearn/learning'
 import Practice from '@/screen/wordlearn/practice'
+import Topic from '@/screen/wordlearn/topic'
 import Favorite from "../screen/Favorite";
 
 Vue.use(Router)
