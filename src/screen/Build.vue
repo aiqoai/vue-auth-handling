@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
-    <h1>Build the world</h1>
-    <h2>{{msg}}</h2>
+    <h1>Build your personalized learning pathway</h1>
+    <h1>Build your learning material and selling in the content marketplace </h1>
+<!--    <h2>{{msg}}</h2>-->
   </div>
 </template>
 

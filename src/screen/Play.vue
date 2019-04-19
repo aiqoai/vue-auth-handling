@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>Play</h1>
-    <h2>{{msg}}</h2>
+    <h1>Play word game</h1>
+<!--    <h2>{{msg}}</h2>-->
   </div>
 </template>
 

@@ -135,17 +135,21 @@ border-radius: 10px;
 <!--</script>-->
 <script>
   import {HTTP} from '../store/httpcommon'
+  import {mapMutations} from 'vuex'
   export default {
     props : ['nextUrl'],
     data(){
       return {
-        name : "",
-        email : "",
-        password : "",
+        name : "george",
+        email : "1@1.com",
+        password : "1",
         is_admin : 0
       }
     },
     methods : {
+      ...mapMutations([
+        'setCurrentUserData'
+      ]),
       handleSubmit(e) {
         console.log(" click")
         e.preventDefault()
@@ -166,9 +170,10 @@ border-radius: 10px;
             .then(response => {
 
               console.log(" login succeeded", response.data)
-              localStorage.setItem('user',JSON.stringify(response.data.data.user))
+              // localStorage.setItem('user',JSON.stringify(response.data.data.user))
               localStorage.setItem('jwt',response.data.data.token)
               console.log(" this.$route.params", this.$route.params)
+              this.setCurrentUserData(response.data.data)
 
               // this.$router.push('/profile')
 
