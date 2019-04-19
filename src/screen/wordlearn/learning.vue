@@ -117,6 +117,7 @@ export default {
         'level': ''
       },
       viewedWords: new Set(),
+      reportSubmitted: false,
       updateFavorite: 0
     }
   },
@@ -127,6 +128,9 @@ export default {
       'setWordCategory'
     ]),
     handleNewWord(word_id) {
+      if (this.reportSubmitted) {
+        return;
+      }
       this.viewedWords.add(word_id);
       if (this.viewedWords.size == this.wordList.length) {
         console.log("All words are viewed!!", this.query);
@@ -140,7 +144,8 @@ export default {
         };
         HTTP.post('/api/progress', progress).then(response => {
           console.log("Received from server: ", response.data);
-        })
+        });
+        this.reportSubmitted = true;
       }
     },
     getNext() {

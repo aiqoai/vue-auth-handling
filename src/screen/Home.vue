@@ -1,6 +1,6 @@
 <template>
   <div >
-    <el-alert :title="'Welcome back ' + currentUser.name + '!'" type="success" show-icon>
+    <el-alert v-if="currentUser.name" :title="'Welcome back ' + currentUser.name + '!'" type="success" show-icon>
       You completed the SAT Level-2 Practice!
       Please click <router-link to="/favorite" class="nav-item">Here</router-link> to continue with SAT Level-2 Test.
     </el-alert>

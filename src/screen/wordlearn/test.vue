@@ -86,6 +86,17 @@ export default {
           console.log("Received from server: ", response);
         })
       });
+      let progress = {
+        "category_name": this.query.wordset,
+        "category_id": String(1),
+        "set": String(this.query.level),
+        "achievement": "test",
+        "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
+        "last_access": new Date().toISOString().split('T')[0] + 'UTC'
+      };
+      HTTP.post('/api/progress', progress).then(response => {
+        console.log("Received from server: ", response.data);
+      });
     },
     playSound (sound) {
       if(sound) {
