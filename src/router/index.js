@@ -17,8 +17,9 @@ import Profile from '@/screen/Profile'
 
 import Learning from '@/screen/wordlearn/learning'
 import Practice from '@/screen/wordlearn/practice'
+import Test from '@/screen/wordlearn/test'
 import Topic from '@/screen/wordlearn/topic'
-import Favorite from "../screen/Favorite";
+import Favorite from "../screen/Favorite"
 
 Vue.use(Router)
 
@@ -144,6 +145,15 @@ let router = new Router({
       path: '/practice/:wordset/:level',
       name: 'practice',
       component: Practice,
+      props: true,
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/test/:wordset/:level',
+      name: 'test',
+      component: Test,
       props: true,
       meta: { 
           requiresAuth: false

@@ -32,8 +32,8 @@
     <div class="grid-content">
       <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
       <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord._id + 'on'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord._id + 'off'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite + selectedWord._id + 'selon'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="success" :key="updateFavorite + selectedWord._id + 'seloff'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
 
       <div style="float:right;">
         <el-button type="success" icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>

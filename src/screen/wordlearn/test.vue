@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Welocome to Practice</h1>
+    <h1>Welocome to Test</h1>
     <h2>{{msg}}</h2>
     <div v-if="totalPages == 0">
       <h2>This practice set is empty</h2>
@@ -11,9 +11,6 @@
       <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
         <div slot="header" class="clearfix">
           <span>{{currProb.problem_description}}</span>
-          <el-button style="float: right; padding: 3px 0" type="text" @click="handleHintClick">Hint</el-button>
-          <el-alert v-show="showHint" title="Hint" type="info" 
-          @close="showHint=false">{{currProb.problem_hint}}</el-alert>
         </div>
         
         <el-radio-group @change="handleRadioChange" v-model="currAnswer">
@@ -24,27 +21,11 @@
               @click.prevent="playSound(d.audio_url)">Play</el-button>
               <div style="display:inline;" v-if="d.label">{{d.label}}</div>
             </el-radio>
-            <el-alert :closable="false" v-if="currAnswer == d.key && d.answer == 'yes'" title="Correct!" type="success">
-            </el-alert>
-            <el-alert :closable="false" v-if="currAnswer == d.key && d.answer != 'yes'" title="Wrong! Please try again." 
-            type="error"> </el-alert>
           </div>
         </el-radio-group>
       </el-card>
       <div v-else>
-        <h2>Congratulations! You have finished learning the wordset!</h2>
-        <h1 v-if="summary">The following words require your attention: </h1>
-        <table style="margin: auto;">
-          <tr v-for="summ in summary" :key="summ.id">
-            <td>
-              <el-row>
-                <el-button style="margin: auto;" v-if="summ.hint" icon="el-icon-warning" type="warning">Used Hint</el-button>
-                <el-button style="margin: auto;" v-if="summ.retry" icon="el-icon-warning" type="warning">Wrong Answer</el-button>
-              </el-row>
-            </td>
-            <td>{{summ.text}}</td>
-          </tr>
-        </table>
+        <h2>Congratulations! You have finished the test!</h2>
         <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
       </div>
       <el-row v-if="currProb && currentPage < totalPages">
@@ -70,12 +51,10 @@ export default {
       activePage: 0,
       totalPages: 0,
       showHint: false,
-      mode: "practice",
       query: {
         wordset: '',
         level: ''
-      },
-      summary: []
+      }
     }
   },
   methods: {
@@ -85,30 +64,20 @@ export default {
     ]),
     submitAnswers() {
       let answers = [];
-      this.summary = [];
       this.problems.forEach(p => {
         let fromSet = this.answerSet[p._id];
         let selected = p.data_item.find(d => { return d.key == fromSet.answer });
         let ans = {
           "problem_id" : p._id,
-          "problem_answer_phase": "learning",
-          "problem_answer_retry": fromSet.retry ? true : false,
+          "problem_answer_phase": "test",
+          "problem_answer_retry": false,
           "problem_answer_correct": selected && selected.answer? selected.answer.toLowerCase() == "yes" : '',
-          "problem_answer_use_hint": fromSet.hint? true : false,
+          "problem_answer_use_hint": false,
           "answer":{
             "key": fromSet.answer? fromSet.answer : '', 
             "value": selected && selected.value? selected.value : ''
           }
         };
-          if (!ans.problem_answer_correct || ans.problem_answer_retry || ans.problem_answer_use_hint) {
-          let s = {
-            'id': ans.problem_id,
-            'text': p.problem_title +': ' + p.problem_description,
-            'retry': ans.problem_answer_retry,
-            'hint': ans.problem_answer_use_hint
-          };
-          this.summary.push(s);
-        }
         answers.push(ans);
       });
       console.log(answers);
@@ -154,7 +123,6 @@ export default {
           }
         }
       }
-      this.activateNext();
     },
     handleRadioChange (data) {
       if (!this.answerSet[this.currProb._id]) {
@@ -164,20 +132,6 @@ export default {
         this.answerSet[this.currProb._id].retry = true;
       }
       this.answerSet[this.currProb._id].answer = data;
-      this.activateNext();
-    },
-    activateNext() {
-      if (!this.answerSet[this.currProb._id] || !this.answerSet[this.currProb._id].answer) {
-        return;
-      }
-      var data = this.answerSet[this.currProb._id].answer;
-      var act = this.activePage;
-      this.activePage = this.currentPage;
-      this.currProb.data_item.forEach(p => {
-        if (p.answer == "yes" && p.key == data) {
-          this.activePage = act + 1;
-        }
-      });
     }
   },
 
@@ -195,6 +149,7 @@ export default {
 
     if (this.problems.length > 0) {
       this.totalPages = this.problems.length;
+      this.activePage = this.totalPages;
       this.currProb = this.problems[0];
     }
 
@@ -209,6 +164,7 @@ export default {
         );
         if (this.problems.length > 0) {
           this.totalPages = this.problems.length;
+          this.activePage = this.totalPages;
           this.currProb = this.problems[0];
         }
       })
