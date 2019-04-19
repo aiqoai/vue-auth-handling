@@ -182,7 +182,7 @@ export default {
       })
     },
     redirectToTest(level) {
-      var path = { name: 'practice', params: { wordset: this.wordCatagory, level: level } };
+      var path = { name: 'test', params: { wordset: this.wordCatagory, level: level } };
       HTTP.post('/api/problem/query_problems', {
         problem_category: this.wordCatagory,
         problem_grade_level: String(level)

@@ -44,7 +44,7 @@
                 <div style="padding: 14px;">
                   <h3>TOEFL words set</h3>
                   <div class="bottom clearfix">
-                    <el-button type="primary" round class="button" v-on:click="populateWordList('TOEFL', '/topic')">Learn vocabularies</el-button>
+                    <el-button type="primary" round class="button" v-on:click="populateWordList('TOEFL', 'topic')">Learn vocabularies</el-button>
                   </div>
                 </div>
                 </el-card>
