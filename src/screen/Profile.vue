@@ -10,13 +10,12 @@
                       <div class="user-img">
                             <img src="../assets/user.png" width="45%">
                         </div>
-                        
-                    <template v-if="profile">
+
                     <table>
                       
                       <tr>
                         <td><h2>My Name:</h2></td>
-                        <td>{{profile.name}}</td>
+                        <td>{{currentUser.name}}</td>
                         <td><input v-model="form_name"></td>
                       </tr>
                       <tr>
@@ -57,7 +56,6 @@
                         </el-row>
                       </tr>
                     </table>
-                    </template>
 
                 
             </el-card>
@@ -144,72 +142,73 @@ a {
 
 <script>
   import {HTTP} from '../store/httpcommon'
-  import {mapGetters} from 'vuex'
-  import Store from '../store/userStore'
-  let data = {
-    profile: null,
-    form_name: "",
-    form_description: "",
-    progress: [
-      { category: "SAT", level: "1", task: "learn" , progress: 100},
-      { category: "SAT", level: "1", task: "practice" , progress: 60},
-      { category: "SAT", level: "1", task: "test" , progress: 80},
-      { category: "SAT", level: "2", task: "learn" , progress: 100},
-      { category: "SAT", level: "2", task: "practice" , progress: 50},
-      { category: "SAT", level: "2", task: "test" , progress: 80},
-      { category: "SAT", level: "3", task: "learn" , progress: 100},
-      { category: "SAT", level: "3", task: "practice" , progress: 40},
-      { category: "SAT", level: "3", task: "test" , progress: 0},
+  import {mapGetters,mapMutations} from 'vuex'
 
-      { category: "GRE", level: "1", task: "learn" , progress: 0},
-      { category: "GRE", level: "1", task: "practice" , progress: 0},
-      { category: "GRE", level: "1", task: "test" , progress: 0},
-      { category: "GRE", level: "2", task: "learn" , progress: 0},
-      { category: "GRE", level: "2", task: "practice" , progress: 0},
-      { category: "GRE", level: "2", task: "test" , progress: 0},
-      { category: "GRE", level: "3", task: "learn" , progress: 0},
-      { category: "GRE", level: "3", task: "practice" , progress: 0},
-      { category: "GRE", level: "3", task: "test" , progress: 0},
-
-      { category: "TOEFL", level: "1", task: "learn" , progress: 0},
-      { category: "TOEFL", level: "1", task: "practice" , progress: 0},
-      { category: "TOEFL", level: "1", task: "test" , progress: 0},
-      { category: "TOEFL", level: "2", task: "learn" , progress: 0},
-      { category: "TOEFL", level: "2", task: "practice" , progress: 0},
-      { category: "TOEFL", level: "2", task: "test" , progress: 0},
-      { category: "TOEFL", level: "3", task: "learn" , progress: 0},
-      { category: "TOEFL", level: "3", task: "practice" , progress: 0},
-      { category: "TOEFL", level: "3", task: "test" , progress: 0},
-      
-    ]
-  }
 export default {
     data(){
-      return data
+      return {
+        form_name: "",
+        form_description: "",
+        progress: [
+          { category: "SAT", level: "1", task: "learn" , progress: 100},
+          { category: "SAT", level: "1", task: "practice" , progress: 60},
+          { category: "SAT", level: "1", task: "test" , progress: 80},
+          { category: "SAT", level: "2", task: "learn" , progress: 100},
+          { category: "SAT", level: "2", task: "practice" , progress: 50},
+          { category: "SAT", level: "2", task: "test" , progress: 80},
+          { category: "SAT", level: "3", task: "learn" , progress: 100},
+          { category: "SAT", level: "3", task: "practice" , progress: 40},
+          { category: "SAT", level: "3", task: "test" , progress: 0},
+
+          { category: "GRE", level: "1", task: "learn" , progress: 0},
+          { category: "GRE", level: "1", task: "practice" , progress: 0},
+          { category: "GRE", level: "1", task: "test" , progress: 0},
+          { category: "GRE", level: "2", task: "learn" , progress: 0},
+          { category: "GRE", level: "2", task: "practice" , progress: 0},
+          { category: "GRE", level: "2", task: "test" , progress: 0},
+          { category: "GRE", level: "3", task: "learn" , progress: 0},
+          { category: "GRE", level: "3", task: "practice" , progress: 0},
+          { category: "GRE", level: "3", task: "test" , progress: 0},
+
+          { category: "TOEFL", level: "1", task: "learn" , progress: 0},
+          { category: "TOEFL", level: "1", task: "practice" , progress: 0},
+          { category: "TOEFL", level: "1", task: "test" , progress: 0},
+          { category: "TOEFL", level: "2", task: "learn" , progress: 0},
+          { category: "TOEFL", level: "2", task: "practice" , progress: 0},
+          { category: "TOEFL", level: "2", task: "test" , progress: 0},
+          { category: "TOEFL", level: "3", task: "learn" , progress: 0},
+          { category: "TOEFL", level: "3", task: "practice" , progress: 0},
+          { category: "TOEFL", level: "3", task: "test" , progress: 0},
+
+        ]
+      }
     }
   ,
   mounted: function(){
-    HTTP.get('/api/profile', {headers: {
-        'Access-Control-Allow-Origin': '*',
-      }
-    }).then(response => {
-      data.profile = response.data.user
-      console.log(response.data)
+    console.log(" profile created:")
+    HTTP.get('/api/profile'
+
+    ).then(response => {
+      // data.profile = response.data.user
+      this.setUserProfile(response.data.user)
+
+      // console.log("profile return",response.data)
     })
   },
   computed:{
     ...mapGetters({
         currentUser: 'currentUser',
+        profile:'currentProfile'
       }
 
     ),
-    // user:{
-    //   // get(){
-    //   //   return this.currentUser
-    //   // }
-    // }
+
   },
   methods:{
+    ...mapMutations([
+      'setUserProfile'
+    ]),
+
 
     logout(e){
       e.preventDefault();
