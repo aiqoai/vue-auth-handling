@@ -8,7 +8,8 @@ export const state = {
     wordList: [],
     problems: [],
     wordCatagory: '',
-    wordLevel: ''
+    wordLevel: '',
+    favorites: []
 };
 
 // getters
@@ -44,5 +45,9 @@ export const mutations = {
     setProblems(state, payload) {
         console.log("[Word] setProblems : ", payload);
         state.problems = payload;
+    },
+    setFavorites(state, payload) {
+        console.log("[Word] setFavorites : ", payload);
+        state.favorites = payload;
     }
 };
