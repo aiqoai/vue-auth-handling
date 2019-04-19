@@ -16,7 +16,7 @@
           <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
           <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
           <el-button type="success" :key="updateFavorite + w._id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
-          <el-button type="success" :key="updateFavorite + w._id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
+          <el-button type="info" :key="updateFavorite + w._id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
           </div>
       </el-col>
       </el-row>
@@ -28,7 +28,7 @@
       <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
       <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
       <el-button type="success" :key="updateFavorite + selectedWord._id + 'selon'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord._id + 'seloff'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+      <el-button type="info" :key="updateFavorite + selectedWord._id + 'seloff'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
 
       <div style="float:right;">
         <el-button type="success" plain icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
