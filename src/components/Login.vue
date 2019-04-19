@@ -139,9 +139,9 @@ border-radius: 10px;
     props : ['nextUrl'],
     data(){
       return {
-        name : "george",
-        email : "1@1.com",
-        password : "1",
+        name : "",
+        email : "",
+        password : "",
         is_admin : 0
       }
     },
@@ -193,7 +193,7 @@ border-radius: 10px;
         } else {
           this.password = ""
 
-          return alert('Passwords do not match')
+          return alert('Username and Passwords do not match')
         }
       }
     }

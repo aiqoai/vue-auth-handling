@@ -35,13 +35,13 @@
 
       </el-menu-item>
      <router-link to="/login" class="nav-item">
-       <button class="button" type="submit" @click="handleSubmit" >
+       <button class="button" type="submit" @click="handleSubmit('login')" >
             Login               
          </button>
     </router-link>    
 
     <router-link to="/register" class="nav-item">
-          <button class="button" type="submit" @click="handleSubmit" >
+          <button class="button" type="submit" @click="handleSubmit('register')" >
               Sign Up
              
         </button>
@@ -107,6 +107,10 @@ export default {
     }
   },
   methods:{
+    handleSubmit(path){
+      this.$router.push(path)
+
+    },
     handleSelect(index){
       console.log("selected: ",index)
       if(index=='1'){
@@ -137,10 +141,10 @@ export default {
     }
   },
 	computed: {
-		itemsInCart(){
-			let cart = this.$store.getters.cartProducts;
-			return cart.reduce((accum, item) => accum + item.quantity, 0)
-		}
+		// itemsInCart(){
+		// 	let cart = this.$store.getters.cartProducts;
+		// 	return cart.reduce((accum, item) => accum + item.quantity, 0)
+		// }
 	}
 }
 </script>
