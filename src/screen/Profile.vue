@@ -10,12 +10,11 @@
                             <img src="../assets/user.png" width="45%">
                         </div>
                         
-                    <template v-if="profile">
                     <table>
                       
                       <tr>
                         <td><h2>My Name:</h2></td>
-                        <td>{{profile.name}}</td>
+                        <td>{{currentUser.name}}</td>
                         <td><input v-model="form_name"></td>
                       </tr>
                       <tr>
@@ -56,7 +55,6 @@
                         </el-row>
                       </tr>
                     </table>
-                    </template>
 
                 
             </el-card>
@@ -133,40 +131,41 @@ a {
 
 <script>
   import {HTTP} from '../store/httpcommon'
-  import {mapGetters} from 'vuex'
-  import Store from '../store/userStore'
-  let data = {
-    profile: null,
-    form_name: "",
-    form_description: ""
-  }
+  import {mapGetters,mapMutations} from 'vuex'
+
 export default {
     data(){
-      return data
+      return {
+        form_name: "",
+        form_description: ""
+      }
     }
   ,
   mounted: function(){
-    HTTP.get('/api/profile', {headers: {
-        'Access-Control-Allow-Origin': '*',
-      }
-    }).then(response => {
-      data.profile = response.data.user
-      console.log(response.data)
+    console.log(" profile created:")
+    HTTP.get('/api/profile'
+
+    ).then(response => {
+      // data.profile = response.data.user
+      this.setUserProfile(response.data.user)
+
+      // console.log("profile return",response.data)
     })
   },
   computed:{
     ...mapGetters({
         currentUser: 'currentUser',
+        profile:'currentProfile'
       }
 
     ),
-    // user:{
-    //   // get(){
-    //   //   return this.currentUser
-    //   // }
-    // }
+
   },
   methods:{
+    ...mapMutations([
+      'setUserProfile'
+    ]),
+
 
     logout(e){
       e.preventDefault();
