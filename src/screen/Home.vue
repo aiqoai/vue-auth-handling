@@ -1,8 +1,12 @@
 <template>
   <div >
+    <el-alert :title="'Welcome back ' + currentUser.name + '!'" type="success" show-icon>
+      You completed the SAT Level-2 Practice!
+      Please click <router-link to="/favorite" class="nav-item">Here</router-link> to continue with SAT Level-2 Test.
+    </el-alert>
     <el-row>
             <el-col :span="24"><div class="grid-content headerimg">
-                  <img src="../assets/hearderimg.png"width="100%">
+                  <img src="../assets/hearderimg.png" width="100%">
             </div></el-col>
       </el-row>
 
@@ -10,7 +14,7 @@
            <el-col :span="24">
                <div class="grid-content headerimg">
                     <div class="img1">
-                         <img src="../assets/home1.png"width="100%">
+                         <img src="../assets/home1.png" width="100%">
                     </div>
 
                  </div>
@@ -23,7 +27,7 @@
            <el-col :span="24">
                <div class="grid-content">
                     <div class="img2">
-                          <img src="../assets/home2.png"width="100%">
+                          <img src="../assets/home2.png" width="100%">
                     </div>
 
                  </div>
@@ -46,7 +50,8 @@ export default {
   name: 'app',
   computed: {
     ...mapGetters({
-      testCategories: 'testCategories'
+      curr: 'testCategories',
+      currentUser:'currentUser'
                })
 
   }

@@ -5,8 +5,8 @@
     
   <h1 v-show="!selectedWord">Learning Deck </h1>
   <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
-  <el-collapse accordion v-show="!selectedWord">
-    <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w.word">
+  <el-collapse accordion v-show="!selectedWord" @change="handleNewWord">
+    <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w._id">
       <el-row >
       <el-col :span="20">
         <div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">
@@ -116,6 +116,7 @@ export default {
         'wordset': '',
         'level': ''
       },
+      viewedWords: new Set(),
       updateFavorite: 0
     }
   },
@@ -125,6 +126,23 @@ export default {
       'setWordList',
       'setWordCategory'
     ]),
+    handleNewWord(word_id) {
+      this.viewedWords.add(word_id);
+      if (this.viewedWords.size == this.wordList.length) {
+        console.log("All words are viewed!!", this.query);
+        let progress = {
+          "category_name": this.query.wordset,
+          "category_id": String(1),
+          "set": String(this.query.level),
+          "achievement": "learning",
+          "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
+          "last_access": new Date().toISOString().split('T')[0] + 'UTC'
+        };
+        HTTP.post('/api/progress', progress).then(response => {
+          console.log("Received from server: ", response.data);
+        })
+      }
+    },
     getNext() {
       let id = this.wordList.indexOf(this.selectedWord);
       if (id || id == 0) {
@@ -133,6 +151,7 @@ export default {
           this.selectedWord = this.wordList[id];
         }
       }
+      this.handleNewWord(this.selectedWord._id);
     },
     getPrev() {
       let idx = this.wordList.indexOf(this.selectedWord);
@@ -142,6 +161,7 @@ export default {
           this.selectedWord = this.wordList[idx];
         }
       }
+      this.handleNewWord(this.selectedWord._id);
     },
     playSound (sound) {
       if(sound) {

@@ -1,7 +1,8 @@
 
 
 <template>
-
+    <el-tabs type="border-card">
+  <el-tab-pane label="Profile">
     <el-row :gutter="20">
          <el-col :span="10" :offset="6">
             <h1>My profile</h1>
@@ -62,7 +63,17 @@
             </el-card>
         </el-col>    
     </el-row>
-  
+  </el-tab-pane>
+  <el-tab-pane label="Pregress">
+    <el-col :span="4" v-for="p in this.progress" :key="p.category + p.level + p.task">
+    <el-progress
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="green">
+      <el-row>{{p.category}}-{{p.level}}</el-row>
+      <el-row>{{p.task}}</el-row>
+    </el-progress>
+    </el-col>
+  </el-tab-pane>
+  </el-tabs>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -138,7 +149,39 @@ a {
   let data = {
     profile: null,
     form_name: "",
-    form_description: ""
+    form_description: "",
+    progress: [
+      { category: "SAT", level: "1", task: "learn" , progress: 100},
+      { category: "SAT", level: "1", task: "practice" , progress: 60},
+      { category: "SAT", level: "1", task: "test" , progress: 80},
+      { category: "SAT", level: "2", task: "learn" , progress: 100},
+      { category: "SAT", level: "2", task: "practice" , progress: 50},
+      { category: "SAT", level: "2", task: "test" , progress: 80},
+      { category: "SAT", level: "3", task: "learn" , progress: 100},
+      { category: "SAT", level: "3", task: "practice" , progress: 40},
+      { category: "SAT", level: "3", task: "test" , progress: 0},
+
+      { category: "GRE", level: "1", task: "learn" , progress: 0},
+      { category: "GRE", level: "1", task: "practice" , progress: 0},
+      { category: "GRE", level: "1", task: "test" , progress: 0},
+      { category: "GRE", level: "2", task: "learn" , progress: 0},
+      { category: "GRE", level: "2", task: "practice" , progress: 0},
+      { category: "GRE", level: "2", task: "test" , progress: 0},
+      { category: "GRE", level: "3", task: "learn" , progress: 0},
+      { category: "GRE", level: "3", task: "practice" , progress: 0},
+      { category: "GRE", level: "3", task: "test" , progress: 0},
+
+      { category: "TOEFL", level: "1", task: "learn" , progress: 0},
+      { category: "TOEFL", level: "1", task: "practice" , progress: 0},
+      { category: "TOEFL", level: "1", task: "test" , progress: 0},
+      { category: "TOEFL", level: "2", task: "learn" , progress: 0},
+      { category: "TOEFL", level: "2", task: "practice" , progress: 0},
+      { category: "TOEFL", level: "2", task: "test" , progress: 0},
+      { category: "TOEFL", level: "3", task: "learn" , progress: 0},
+      { category: "TOEFL", level: "3", task: "practice" , progress: 0},
+      { category: "TOEFL", level: "3", task: "test" , progress: 0},
+      
+    ]
   }
 export default {
     data(){
