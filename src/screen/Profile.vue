@@ -100,11 +100,38 @@ border-radius: 10px;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
-  margin: 15px 2px;
+ margin-left: 40%;
+ margin-top: 15px;
   cursor: pointer;
 
 }
-
+.logout-button:hover {
+    border-radius: 10px;
+     background-color: #53A1E6;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+ margin-left: 40%;
+ margin-top: 15px;
+  cursor: pointer;
+}
+.update-button:hover {
+  border-radius: 10px;
+ background-color: #B35432;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 15px 2px;
+  cursor: pointer;
+}
 
 .user-img{
     text-align: center;

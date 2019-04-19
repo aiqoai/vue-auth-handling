@@ -4,7 +4,15 @@
         
     
   <h1 v-show="!selectedWord">Learning Deck </h1>
-  <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
+      <el-row :gutter="20">
+        <el-col :span="16">
+              <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
+        </el-col>
+
+        <el-col :span="8">
+            <el-button type="warning" round v-on:click="redirectToLearn(1)">Practice</el-button>
+        </el-col>
+      </el-row>
   <el-collapse accordion v-show="!selectedWord" @change="handleNewWord">
     <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w._id">
       <el-row >
