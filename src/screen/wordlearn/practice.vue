@@ -1,59 +1,142 @@
 <template>
   <div class="hello">
-    <h1>Welocome to Practice</h1>
-    <h2>{{msg}}</h2>
+    <h1 class="title">Vocabulary Practice</h1>
+    <el-row :gutter="20">
+        <el-col :span="6">
+             <h2>{{msg}}</h2>
+        </el-col>
+          <el-col :span="6" :offset="9">
+            
+                <el-button type="warning" round v-on:click="redirectToLearn(1)">Check Learning Words</el-button>
+          
+              
+               <el-button type="danger" round>SAT Sets</el-button>
+
+      </el-col> 
+            
+    </el-row>
+
     <div v-if="totalPages == 0">
       <h2>This practice set is empty</h2>
       <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
     </div>
+
     <div v-if="totalPages > 0">
       <el-progress :percentage="parseInt((currentPage / totalPages) * 100)" color="green"></el-progress>
-      <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
-        <div slot="header" class="clearfix">
-          <span>{{currProb.problem_description}}</span>
-          <el-button style="float: right; padding: 3px 0" type="text" @click="handleHintClick">Hint</el-button>
-          <el-alert v-show="showHint" title="Hint" type="info" 
-          @close="showHint=false">{{currProb.problem_hint}}</el-alert>
-        </div>
-        
-        <el-radio-group @change="handleRadioChange" v-model="currAnswer">
-          <div v-for="d in currProb.data_item" :key="d.key">
-            <el-radio :label="d.key" v-model="d.value">
-              <img v-if="d.image_url" :src="d.image_url" class="image">
-              <el-button style="display:inline;" v-if="d.audio_url" type="primary" icon="el-icon-caret-right" 
-              @click.prevent="playSound(d.audio_url)">Play</el-button>
-              <div style="display:inline;" v-if="d.label">{{d.label}}</div>
-            </el-radio>
-            <el-alert :closable="false" v-if="currAnswer == d.key && d.answer == 'yes'" title="Correct!" type="success">
-            </el-alert>
-            <el-alert :closable="false" v-if="currAnswer == d.key && d.answer != 'yes'" title="Wrong! Please try again." 
-            type="error"> </el-alert>
-          </div>
-        </el-radio-group>
-      </el-card>
+              <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
+
+                <div slot="header" class="clearfix">
+                  <span>{{currProb.problem_description}}</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="handleHintClick">Hint</el-button>
+                  <el-alert v-show="showHint" title="Hint" type="info" 
+                  @close="showHint=false">{{currProb.problem_hint}}</el-alert>
+                </div>
+                
+                <el-radio-group @change="handleRadioChange" v-model="currAnswer">
+                  <div v-for="d in currProb.data_item" :key="d.key">
+                        <el-radio :label="d.key" v-model="d.value">
+                          <img v-if="d.image_url" :src="d.image_url" class="image">
+
+                          <el-button style="display:inline;" v-if="d.audio_url" type="primary" icon="el-icon-caret-right" 
+                          @click.prevent="playSound(d.audio_url)">Play</el-button>
+
+                          <div style="display:inline;" v-if="d.label">{{d.label}}</div>
+                            </el-radio>
+                        <el-alert :closable="false" v-if="currAnswer == d.key && d.answer == 'yes'" title="Correct!" type="success"></el-alert>
+                        <el-alert :closable="false" v-if="currAnswer == d.key && d.answer != 'yes'" title="Wrong! Please try again." 
+                        type="error">
+                         </el-alert>
+                  </div>
+                </el-radio-group>
+              </el-card>
+
       <div v-else>
-        <h2>Congratulations! You have finished learning the wordset!</h2>
-        <h1 v-if="summary">The following words require your attention: </h1>
-        <table style="margin: auto;">
-          <tr v-for="summ in summary" :key="summ.id">
-            <td>
-              <el-row>
-                <el-button style="margin: auto;" v-if="summ.hint" icon="el-icon-warning" type="warning">Used Hint</el-button>
-                <el-button style="margin: auto;" v-if="summ.retry" icon="el-icon-warning" type="warning">Wrong Answer</el-button>
-              </el-row>
-            </td>
-            <td>{{summ.text}}</td>
-          </tr>
-        </table>
+                <h2>Congratulations! You have finished learning the wordset!</h2>
+                <h1 v-if="summary">The following words require your attention: </h1>
+                        <table style="margin: auto;">
+                          <tr v-for="summ in summary" :key="summ.id">
+                            <td>
+                              <el-row>
+                                <el-button style="margin: auto;" v-if="summ.hint" icon="el-icon-warning" type="warning">Used Hint</el-button>
+                                <el-button style="margin: auto;" v-if="summ.retry" icon="el-icon-warning" type="warning">Wrong Answer</el-button>
+                              </el-row>
+                            </td>
+                            <td>{{summ.text}}</td>
+                          </tr>
+                        </table>
         <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
       </div>
+
       <el-row v-if="currProb && currentPage < totalPages">
-        <el-button icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"></el-button>
-        <el-button icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"></el-button>
+        <el-button type="primary"icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"
+        style="margin-top: 20px;"></el-button>
+        <el-button type="primary"icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"
+        style="margin-left: 80%; margin-top:20px;"></el-button>
       </el-row>
+
     </div>
   </div>
 </template>
+
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+.el-radio__inner {
+    border: 1px solid #0e1015;
+    border-radius: 100%;
+    width: 14px;
+    height: 14px;
+    background-color: #FFF;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 640px;
+    min-height: 400px;
+  }
+  .image {
+    height: 150px;
+    width: 150px;
+    display: inline;
+    vertical-align: middle;
+    border: 1px solid black;
+  }
+  h1{
+    font-size: 25px;
+color:#E6605B;
+  }
+.title{
+    text-align: center;
+}
+
+
+
+
+
+</style>
+
+
+
+
 
 <script>
 import {HTTP} from '../../store/httpcommon';
@@ -236,34 +319,3 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.text {
-    font-size: 14px;
-  }
-
-  .item {
-    margin-bottom: 18px;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both
-  }
-
-  .box-card {
-    width: 640px;
-    min-height: 400px;
-  }
-  .image {
-    height: 150px;
-    width: 150px;
-    display: inline;
-    vertical-align: middle;
-    border: 1px solid black;
-  }
-</style>
