@@ -5,9 +5,9 @@
         <el-col :span="6">
              <h2>{{msg}}</h2>
         </el-col>
-          <el-col :span="6" :offset="9">
+          <el-col :span="6" :offset="8">
             
-                <el-button type="warning" round v-on:click="redirectToLearn(1)">Check Learning Words</el-button>
+                <el-button type="warning" round v-on:click="redirectToLearn(1)">Learning Words</el-button>
           
               
                <el-button type="danger" round>SAT Sets</el-button>
@@ -80,7 +80,7 @@
 <style scoped>
 
 .el-radio__inner {
-    border: 1px solid #0e1015;
+    border: 1px solid #2f333c;
     border-radius: 100%;
     width: 14px;
     height: 14px;
