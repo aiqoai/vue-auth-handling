@@ -8,6 +8,12 @@
     </div>
     <div v-if="totalPages > 0">
       <el-progress :percentage="parseInt((currentPage / totalPages) * 100)" color="green"></el-progress>
+      <el-row v-if="currProb && currentPage < totalPages">
+        <el-button type="success" icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"
+          style="margin-top: 20px;" >Previous</el-button>
+        <el-button type="success" icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"
+          style="margin-left: 80%; margin-top:20px;" >Next</el-button>
+      </el-row>
       <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
         <div slot="header" class="clearfix">
           <span>{{currProb.problem_description}}</span>
@@ -28,10 +34,6 @@
         <h2>Congratulations! You have finished the test!</h2>
         <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
       </div>
-      <el-row v-if="currProb && currentPage < totalPages">
-        <el-button icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"></el-button>
-        <el-button icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"></el-button>
-      </el-row>
     </div>
   </div>
 </template>
