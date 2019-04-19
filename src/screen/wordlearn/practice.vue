@@ -7,10 +7,10 @@
         </el-col>
           <el-col :span="6" :offset="8">
             
-                <el-button type="warning" round v-on:click="redirectToLearn(1)">Learning Words</el-button>
+                <el-button type="warning" @click="$router.push('/learning/' + query.wordset + '/' + query.level)">Learning Words</el-button>
           
               
-               <el-button type="danger" round>SAT Sets</el-button>
+               <el-button type="danger" @click="$router.push('/topic/' + query.wordset)">{{query.wordset}} Sets</el-button>
 
       </el-col> 
             
@@ -75,7 +75,6 @@
   </div>
 </template>
 
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
@@ -130,10 +129,6 @@ color:#E6605B;
 
 
 </style>
-
-
-
-
 
 <script>
 import {HTTP} from '../../store/httpcommon';
