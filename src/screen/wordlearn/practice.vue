@@ -4,13 +4,12 @@
     <h2>{{msg}}</h2>
     <div v-if="totalPages == 0">
       <h2>This practice set is empty</h2>
-      <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catelogue</el-button>
+      <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
     </div>
     <div v-if="totalPages > 0">
       <el-progress :percentage="parseInt((currentPage / totalPages) * 100)" color="green"></el-progress>
       <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
         <div slot="header" class="clearfix">
-          <strong>{{currProb.problem_title}}:</strong>
           <span>{{currProb.problem_description}}</span>
           <el-button style="float: right; padding: 3px 0" type="text" @click="handleHintClick">Hint</el-button>
           <el-alert v-show="showHint" title="Hint" type="info" 
@@ -33,14 +32,20 @@
         </el-radio-group>
       </el-card>
       <div v-else>
-        <h2>Contratulation!</h2>
-        <table>
+        <h2>Congratulations! You have finished learning the wordset!</h2>
+        <h1 v-if="summary">The following words require your attention: </h1>
+        <table style="margin: auto;">
           <tr v-for="summ in summary" :key="summ.id">
-            <td></td>
+            <td>
+              <el-row>
+                <el-button style="margin: auto;" v-if="summ.hint" icon="el-icon-warning" type="warning">Used Hint</el-button>
+                <el-button style="margin: auto;" v-if="summ.retry" icon="el-icon-warning" type="warning">Wrong Answer</el-button>
+              </el-row>
+            </td>
             <td>{{summ.text}}</td>
           </tr>
         </table>
-        <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catelogue</el-button>
+        <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
       </div>
       <el-row v-if="currProb && currentPage < totalPages">
         <el-button icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"></el-button>
@@ -65,6 +70,7 @@ export default {
       activePage: 0,
       totalPages: 0,
       showHint: false,
+      mode: "practice",
       query: {
         wordset: '',
         level: ''
@@ -82,7 +88,7 @@ export default {
       this.summary = [];
       this.problems.forEach(p => {
         let fromSet = this.answerSet[p._id];
-        let selected = p.data_item.forEach(d => { return d.key == fromSet.answer });
+        let selected = p.data_item.find(d => { return d.key == fromSet.answer });
         let ans = {
           "problem_id" : p._id,
           "problem_answer_phase": "learning",
@@ -94,16 +100,22 @@ export default {
             "value": selected && selected.value? selected.value : ''
           }
         };
-        if (!ans.problem_answer_correct) {
+          if (!ans.problem_answer_correct || ans.problem_answer_retry || ans.problem_answer_use_hint) {
           let s = {
             'id': ans.problem_id,
-            'text': p.problem_title,
+            'text': p.problem_title +': ' + p.problem_description,
             'retry': ans.problem_answer_retry,
             'hint': ans.problem_answer_use_hint
           };
           this.summary.push(s);
         }
         answers.push(ans);
+      });
+      console.log(answers);
+      answers.forEach(answer => {
+        HTTP.post('/api/problem_answer/submit_answer', answer).then(response => {
+          console.log("Received from server: ", response);
+        })
       });
     },
     playSound (sound) {
@@ -116,7 +128,6 @@ export default {
       this.handleCurrentChange(this.currentPage - 1);
     },
     handleNextClick () {
-      console.log("Next");
       this.handleCurrentChange(this.currentPage + 1)
       if (this.currentPage == this.totalPages) {
         this.submitAnswers()
@@ -131,7 +142,7 @@ export default {
       console.log(this.answerSet);
     },
     handleCurrentChange(curr) {
-      console.log("handleCurrentChange", curr);
+      this.showHint = false;
       this.currentPage = curr;
       this.currProb = '';
       if (curr < this.totalPages) {
@@ -146,7 +157,6 @@ export default {
       this.activateNext();
     },
     handleRadioChange (data) {
-      console.log("handleRadioChange")
       if (!this.answerSet[this.currProb._id]) {
         this.answerSet[this.currProb._id] = {};
       }
@@ -154,7 +164,6 @@ export default {
         this.answerSet[this.currProb._id].retry = true;
       }
       this.answerSet[this.currProb._id].answer = data;
-      console.log(this.answerSet);
       this.activateNext();
     },
     activateNext() {
@@ -164,7 +173,6 @@ export default {
       var data = this.answerSet[this.currProb._id].answer;
       var act = this.activePage;
       this.activePage = this.currentPage;
-      console.log("activateNext", this.currProb);
       this.currProb.data_item.forEach(p => {
         if (p.answer == "yes" && p.key == data) {
           this.activePage = act + 1;
