@@ -55,7 +55,7 @@ color:#06597D;}
      background-color: #06597D;
      border: none;
      color: white;
-     padding: 15px 120px;
+     padding: 15px 100px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
@@ -77,11 +77,11 @@ color:#06597D;}
      background-color: #EC5F64;
      border: none;
      color: white;
-     padding: 15px 70px;
+     padding: 15px 50px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
-     font-size: 20px;
+     font-size: 18px;
      margin: 4px 2px;
      cursor: pointer;
      -webkit-transition-duration: 0.4s; /* Safari */
@@ -98,11 +98,11 @@ color:#06597D;}
      background-color: #FF8800;
      border: none;
      color: white;
-     padding: 15px 70px;
+     padding: 15px 50px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
-     font-size: 20px;
+     font-size: 18px;
      margin: 4px 2px;
      cursor: pointer;
      -webkit-transition-duration: 0.4s; /* Safari */
