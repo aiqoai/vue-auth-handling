@@ -1,13 +1,18 @@
 <template>
   <div class="hello">
+    <div class="column">
+        
+    
   <h1 v-show="!selectedWord">Learning Deck </h1>
   <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
   <el-collapse accordion v-show="!selectedWord">
     <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w.word">
-      <el-row>
+      <el-row >
       <el-col :span="20">
         <div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">
-          <strong>{{pos.type}}</strong>
+          <strong>
+            {{pos.type}}
+            </strong>
           {{pos.definition}}
         </div>
       </el-col>
@@ -31,12 +36,15 @@
       <el-button type="success" :key="updateFavorite + selectedWord._id + 'off'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
 
       <div style="float:right;">
-        <el-button type="success" plain icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
-        <el-button type="success" plain icon="el-icon-arrow-right" @click="getNext">Next Word</el-button>
+        <el-button type="success" icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
+        <el-button type="success"  icon="el-icon-arrow-right" @click="getNext">Next Word</el-button>
       </div>
        </div>
     <h2>{{selectedWord.word}}</h2> 
-    <img :src="selectedWord.picture_url" class="image">
+    <div class="picture">
+        <img :src="selectedWord.picture_url" class="image" width="500px">
+    </div>
+ 
     <div v-for="p in selectedWord.part_of_speech" :key="p.type">
     <div>{{p.type}}</div> <strong>{{p.definition}}</strong>
     <div v-for="t in p.translation" :key="t.zh">{{t.zh}}</div>
@@ -49,8 +57,50 @@
       {{r.type}} : {{r.root}}
     </div>
   </div>
+
+  </div>
   </div>
 </template>
+
+<style>
+.image{
+    height: 300px;
+    width: 500px;
+}
+.picture{
+   
+    margin-bottom: 30px;
+}
+
+.h1{font-size: 30px;
+color:#06597D;}
+    .column{
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+
+    }
+
+    .el-collapse-item__header {
+        font-size: 22px;
+        color: #041F3D;
+        padding-top: 10px;
+    }
+     .el-collapse-item__header:hover{
+        font-size: 22px;
+        color: #EA3232;
+        padding-top: 10px;
+    }
+    .el-collapse-item__content {
+    padding-bottom: 25px;
+    font-size: 18px;
+    color: #303133;
+    line-height: 1.769230769230769;
+}
+
+</style>
+
+
 
 <script>
 import {HTTP} from '../../store/httpcommon';
@@ -179,8 +229,8 @@ export default {
 }
 
 .image {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 500px;
 }
 
 .el-carousel__item:nth-child(2n) {
