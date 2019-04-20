@@ -15,19 +15,34 @@
       :before-upload="callback"
       :successful-upload="callback"
       :failed-upload="callback"/>
+    <div>
+
+      <label>Score:</label>
+      <div>{{ JSON.stringify(scoringdata) }}</div>
+      <div>{{JSON.stringify(wordsscore[0])}}</div>
+    </div>
   </div>
+
 </template>
 
 <script>
 export default {
   data () {
     return {
-      msg: 'Hello World!'
+      msg: 'Hello World!',
+      scoringdata:{},
+      wordsscore:[],
+      headers:{}
     }
   },
   methods: {
     callback (data) {
       console.log(data)
+      if(data.data){
+
+      this.scoringdata=data.data.text_score.quality_score;
+      this.wordsscore=data.data.text_score.word_score_list
+      }
     }
   }
 }
