@@ -3,83 +3,120 @@
     <div class="column">
         
     
-  <h1 v-show="!selectedWord">Learning Deck </h1>
-      <el-row :gutter="20">
-        <el-col :span="16">
-              <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
-        </el-col>
+                    <h1 v-show="!selectedWord">Learning Deck </h1>
 
-        <el-button style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">Go to Practice</el-button>
-            
-      </el-row>
-  <el-collapse accordion v-show="!selectedWord" @change="handleNewWord">
-    <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w._id">
-      <el-row >
-      <el-col :span="20">
-        <div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">
-          <strong>
-            {{pos.type}}
-            </strong>
-          {{pos.definition}}
-        </div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content">
-          <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
-          <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-          <el-button type="success" :key="updateFavorite + w._id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
-          <el-button type="success" :key="updateFavorite + w._id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
-          </div>
-      </el-col>
-      </el-row>
-    </el-collapse-item>
-  </el-collapse>
+                     <el-row :gutter="20">
+                           <el-col :span="16">
+                                 <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
+                           </el-col>
 
-  <div v-if="selectedWord">
-    <div class="grid-content">
-      <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
-      <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord._id + 'selon'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
-      <el-button type="success" :key="updateFavorite + selectedWord._id + 'seloff'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+                           <el-button style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">Go to Practice</el-button>
+                               
+                     </el-row>
 
-      <div style="float:right;">
-        <el-button type="success" icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
-        <el-button type="success"  icon="el-icon-arrow-right" @click="getNext">Next Word</el-button>
-      </div>
-       </div>
-    <h1>{{selectedWord.word}}</h1> 
-    <div class="picture">
-        <img :src="selectedWord.picture_url" class="image" width="500px">
-    </div>
- 
-        <div v-for="p in selectedWord.part_of_speech" :key="p.type">
-                    <h2>{{p.type}}</h2> 
-                    <p>Definition:</p>
-                    <strong>{{p.definition}}</strong>
-                    <br>
-                    <div v-for="t in p.translation" :key="t.zh">{{t.zh}}</div><br>
+                    <el-collapse accordion v-show="!selectedWord" @change="handleNewWord">
+                        <el-collapse-item v-for="w in wordList" :key="w._id" :title="w.word" :name="w._id">
+                         <el-row >
+                                 <el-col :span="20">
+                                   <div class="grid-content" v-for="pos in w.part_of_speech" :key="pos.type">
+                                     <strong>
+                                       {{pos.type}}
+                                       </strong>
+                                     {{pos.definition}}
+                                   </div>
 
-                    <li v-for="s in p.sentence" :key="s">{{s}}</li>
+                                 </el-col>
+                                 <el-col :span="4">
+                                   <div class="grid-content">
+                                     <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
+                                     <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
+                                     <el-button type="success" :key="updateFavorite + w._id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
+                                     <el-button type="success" :key="updateFavorite + w._id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
+                                     </div>
+                                 </el-col>
 
-                    <div v-if="p.synonyms"><strong>Synonyms: </strong><br>
-                        <label v-for="syn in p.synonyms" :key="syn">{{syn}}</label><br>
-                    </div>
-                    <div v-if="p.encoding"><strong>Encoding: </strong>
-                        <label v-for="enc in p.encoding" :key="enc" style="white-space: pre-line">{{enc}}</label> 
-                    </div>
-                    </div>
-                    <strong v-if="selectedWord.root">Roots</strong>
+                             </el-row>
+                        </el-collapse-item>
+                    </el-collapse>
 
-                    <div v-for="r in selectedWord.root" :key="r.type">
-                      {{r.type}} : {{r.root}}
-                    </div>
-        </div>
+            <div v-if="selectedWord">
+                    <div class="grid-content">
+                                 <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
+                                 
+                                 
+
+                                 <div style="float:right;">
+                                   <el-button type="success" icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
+                                   <el-button type="success"  icon="el-icon-arrow-right" @click="getNext">Next Word</el-button>
+                                 </div>
+                      </div>
+
+
+                        <el-row>
+                            <el-col :span="12">
+                              <h1>{{selectedWord.word}}</h1> 
+                              <div class="picture">
+                                 <img :src="selectedWord.picture_url" class="image" width="500px">
+                              </div>
+
+                            <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
+                                 <el-button type="success" :key="updateFavorite + selectedWord._id + 'selon'" v-show="selectedWord && selectedWord.favorite" icon="el-icon-star-on" circle @click="favorite(selectedWord)"></el-button>
+                                 <el-button type="success" :key="updateFavorite + selectedWord._id + 'seloff'" v-show="selectedWord && !selectedWord.favorite" icon="el-icon-star-off" circle @click="favorite(selectedWord)"></el-button>
+
+
+
+                            </el-col>
+
+                            <el-col :span="12" class="definition-content">
+
+                                  <div class="definition-content">
+                           
+                      
+                          <div v-for="p in selectedWord.part_of_speech" :key="p.type" >
+                                              <h2>{{p.type}}</h2> 
+                                              <h1>Definition:</h1>
+                                                   <h3>{{p.definition}}</h3>
+                                      
+                                      <div v-for="t in p.translation" :key="t.zh">{{t.zh}}</div>
+                                      
+
+                                      <li v-for="s in p.sentence" :key="s">{{s}}</li>
+
+                                      <div v-if="p.synonyms"><h3>Synonyms: </h3>
+
+                                          <p v-for="syn in p.synonyms" :key="syn">{{syn}}</p>
+                                      </div>
+
+                                      <div v-if="p.encoding"><h3>Encoding: </h3>
+                                          <p v-for="enc in p.encoding" :key="enc" style="white-space: pre-line">{{enc}}</p> 
+                                      </div>
+
+                                      </div>
+
+                                      <h3 v-if="selectedWord.root">Roots</h3>
+
+
+                                      <div v-for="r in selectedWord.root" :key="r.type">
+                                        {{r.type}} : {{r.root}}
+                                      </div>
+                        
+                          </div>
+                        </el-col>
+                
+                </el-row>
+           </div>
+
+     </div>
 
   </div>
-  </div>
+  
 </template>
 
 <style>
+.definition-content{
+     padding-top: 3%;
+
+}
 .image{
     height: 300px;
     width: 500px;
@@ -89,14 +126,19 @@
     margin-bottom: 30px;
 }
 
-h1{font-size: 30px;
+p{font-size: 16px;
+  line-height: 1.6;  
+color:#090218;
+
+}
+h1{font-size: 25px;
 color:#06597D;}
 h2{font-size: 20px;
 color:#B33434;}
 
-p{font-size: 20px;
+h3{font-size: 20px;
     font-weight: bold;
-color:#06597D;}
+color:#090218;}
     .column{
         width: 70%;
         margin-left: 15%;

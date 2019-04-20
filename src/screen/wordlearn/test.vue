@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Welocome to Test</h1>
+    <h1 class="title">Welcome to Test</h1>
     <h2>{{msg}}</h2>
     <div v-if="totalPages == 0">
       <h2>This practice set is empty</h2>
@@ -14,22 +14,27 @@
         <el-button type="success" icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"
           style="margin-left: 80%; margin-top:20px;" >Next</el-button>
       </el-row>
+
+
       <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
         <div slot="header" class="clearfix">
-          <span>{{currProb.problem_description}}</span>
+          <h2>{{currProb.problem_description}}</h2>
         </div>
         
         <el-radio-group @change="handleRadioChange" v-model="currAnswer">
           <div v-for="d in currProb.data_item" :key="d.key">
             <el-radio :label="d.key" v-model="d.value">
               <img v-if="d.image_url" :src="d.image_url" class="image">
-              <el-button style="display:inline;" v-if="d.audio_url" type="primary" icon="el-icon-caret-right" 
-              @click.prevent="playSound(d.audio_url)">Play</el-button>
-              <div style="display:inline;" v-if="d.label">{{d.label}}</div>
+
+              <el-button style="display:inline-block;" v-if="d.audio_url" type="primary" icon="el-icon-caret-right" 
+              @click.prevent="playSound(d.audio_url)" class="playbutton">Play</el-button>
+
+              <div style="display:inline-block;" v-if="d.label"><p>{{d.label}}</p></div>
             </el-radio>
           </div>
         </el-radio-group>
       </el-card>
+
       <div v-else>
         <h2>Congratulations! You have finished the test!</h2>
         <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
@@ -37,6 +42,64 @@
     </div>
   </div>
 </template>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+    .title{
+    text-align: center;
+}
+
+     h1{
+    font-size: 25px;
+color:#E6605B;
+  }
+    .playbutton{
+        margin-top: 10px
+    }
+     .image{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    h2{font-size: 20px;
+color:#090218;}
+p{
+font-size: 16px;
+   
+color:#090218;
+
+}
+
+.text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 640px;
+    min-height: 400px;
+  }
+  .image {
+    height: 150px;
+    width: 150px;
+    display: inline;
+    vertical-align: middle;
+    border: 1px solid black;
+  }
+</style>
+
 
 <script>
 import {HTTP} from '../../store/httpcommon';
@@ -212,34 +275,4 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.text {
-    font-size: 14px;
-  }
 
-  .item {
-    margin-bottom: 18px;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both
-  }
-
-  .box-card {
-    width: 640px;
-    min-height: 400px;
-  }
-  .image {
-    height: 150px;
-    width: 150px;
-    display: inline;
-    vertical-align: middle;
-    border: 1px solid black;
-  }
-</style>
