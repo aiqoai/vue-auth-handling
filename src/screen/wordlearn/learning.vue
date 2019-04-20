@@ -56,7 +56,7 @@
                             <el-col :span="12">
                               <h1>{{selectedWord.word}}</h1> 
                               <div class="picture">
-                                 <img :src="selectedWord.picture_url" class="image" width="60%">
+                                 <img :src="selectedWord.picture_url" class="image">
                               </div>
 
                             <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
@@ -112,14 +112,15 @@
   
 </template>
 
-<style>
+<style scoped>
 .definition-content{
      padding-top: 3%;
+     padding: 20px;
 
 }
 .image{
-    height: 300px;
-    width: 500px;
+    max-width:100%;
+    max-height:100%;
 }
 .picture{
    
@@ -316,11 +317,6 @@ export default {
   width: 50%;
   padding: 10px;
   text-align: center;
-}
-
-.image {
-  height: 300px;
-  width: 500px;
 }
 
 .el-carousel__item:nth-child(2n) {
