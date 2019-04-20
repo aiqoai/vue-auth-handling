@@ -205,7 +205,7 @@ export default {
           "task": "learning",
           "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
           "last_access": new Date().toISOString().split('T')[0] + 'UTC',
-          "progress": "80"
+          "progress": 100
         };
         HTTP.post('/api/progress', progress).then(response => {
           console.log("Received from server: ", response.data);
