@@ -1,18 +1,13 @@
 <template>
   <div class="hello">
     <h1 class="title">Vocabulary Practice</h1>
-    <el-row :gutter="20">
+    <el-row>
         <el-col :span="6">
              <h2>{{msg}}</h2>
         </el-col>
-          <el-col :span="6" :offset="8">
-            
-                <el-button type="warning" @click="$router.push('/learning/' + query.wordset + '/' + query.level)">Learning Words</el-button>
-          
-              
-               <el-button type="danger" @click="$router.push('/topic/' + query.wordset)">{{query.wordset}} Sets</el-button>
+          <el-button style="float:right; margin:20px; " icon="el-icon-d-arrow-left" type="warning" @click="$router.push('/learning/' + query.wordset + '/' + query.level)">Back to Learning</el-button>
+          <el-button style="float:right; margin:20px; " icon="el-icon-d-arrow-left" type="danger" @click="$router.push('/topic/' + query.wordset)">Back to {{query.wordset}} Sets</el-button>
 
-      </el-col> 
             
     </el-row>
 

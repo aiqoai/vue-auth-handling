@@ -220,6 +220,10 @@ export default {
       this.setUserProfile(response.data.user)
 
       // console.log("profile return",response.data)
+    });
+    HTTP.get('/api/progress')
+      .then(response => {
+        console.log(response.data);
     })
   },
   computed:{
@@ -235,8 +239,6 @@ export default {
     ...mapMutations([
       'setUserProfile'
     ]),
-
-
     logout(e){
       e.preventDefault();
       console.log(" logout")
