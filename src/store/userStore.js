@@ -24,5 +24,5 @@ export const mutations = {
         //update user data
       console.log(" set profile",payload)
       state.currentProfile=payload
-    }
+    },
 };

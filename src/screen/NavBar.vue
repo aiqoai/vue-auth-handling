@@ -9,7 +9,7 @@
                 <el-menu-item index="4"><router-link to="/play" class="nav-item">Play</router-link></el-menu-item>
                <!--  <el-menu-item index="5"><router-link to="/login" class="nav-item">Login</router-link></el-menu-item>
                 <el-menu-item index="6"><router-link to="/register" class="nav-item">Sign Up</router-link></el-menu-item> -->
-                <el-menu-item index="7"><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
+                <el-menu-item index="7" ><router-link to="/profile" class="nav-item">Profile</router-link></el-menu-item>
                 <el-menu-item index="8"><router-link to="/favorite" class="nav-item">Favorite</router-link></el-menu-item>
            
       <el-menu-item index="9">
@@ -34,18 +34,28 @@
         </el-dropdown>
 
       </el-menu-item>
-     <router-link to="/login" class="nav-item">
-       <button class="button" type="submit" @click="handleSubmit('login')" >
-            Login               
-         </button>
-    </router-link>    
+      <div v-if="currentUser.email">
+        <router-link to="/login" class="nav-item" >
+          <button class="button" type="submit" @click="logout" >
+            Logout
+          </button>
+        </router-link>
+      </div>
+      <div v-else>
+        <router-link to="/login" class="nav-item" >
+          <button class="button" type="submit" @click="handleSubmit('login')" >
+            Login
+          </button>
+        </router-link>
 
-    <router-link to="/register" class="nav-item">
+        <router-link to="/register" class="nav-item">
           <button class="button" type="submit" @click="handleSubmit('register')" >
-              Sign Up
-             
-        </button>
-     </router-link>
+            Sign Up
+
+          </button>
+        </router-link>
+      </div>
+
 
 
   </el-menu>
@@ -58,6 +68,14 @@
 	margin-bottom: 2rem;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+.el-dropdown {
+  font-size: 1.3em;
+}
 .nav-item img {
     max-height: 3.5rem;
 }
@@ -99,6 +117,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import {mapMutations} from 'vuex'
 
 export default {
   data(){
@@ -107,6 +126,15 @@ export default {
     }
   },
   methods:{
+    ...mapMutations([
+      'setCurrentUserData'
+    ]),
+    logout(e){
+      e.preventDefault();
+      console.log(" logout")
+      this.setCurrentUserData({})
+      this.$router.push('/login');
+    },
     handleSubmit(path){
       this.$router.push(path)
 
@@ -141,10 +169,18 @@ export default {
     }
   },
 	computed: {
+    jwt: function () {
+
+
+      return localStorage.getItem('jwt')
+    },
 		// itemsInCart(){
 		// 	let cart = this.$store.getters.cartProducts;
 		// 	return cart.reduce((accum, item) => accum + item.quantity, 0)
 		// }
+    ...mapGetters({
+      currentUser:'currentUser'
+    })
 	}
 }
 </script>
