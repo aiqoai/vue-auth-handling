@@ -56,7 +56,7 @@
                             <el-col :span="12">
                               <h1>{{selectedWord.word}}</h1> 
                               <div class="picture">
-                                 <img :src="selectedWord.picture_url" class="image" width="500px">
+                                 <img :src="selectedWord.picture_url" class="image" width="60%">
                               </div>
 
                             <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(selectedWord.sound_url)" ></el-button>
