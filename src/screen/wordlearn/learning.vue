@@ -158,12 +158,12 @@ export default {
       if (this.viewedWords.size == this.wordList.length) {
         console.log("All words are viewed!!", this.query);
         let progress = {
-          "category_name": this.query.wordset,
-          "category_id": String(1),
-          "set": String(this.query.level),
-          "achievement": "learning",
+          "category": this.query.wordset,
+          "level": String(this.query.level),
+          "task": "learning",
           "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
-          "last_access": new Date().toISOString().split('T')[0] + 'UTC'
+          "last_access": new Date().toISOString().split('T')[0] + 'UTC',
+          "progress": "80"
         };
         HTTP.post('/api/progress', progress).then(response => {
           console.log("Received from server: ", response.data);
