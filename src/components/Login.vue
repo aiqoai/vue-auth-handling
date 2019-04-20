@@ -22,6 +22,9 @@
                             <input id="password" type="password" v-model="password" required>
                         </div>
                     </div>
+                  <div v-if="failedLogin">
+                    Invalid Username Password
+                  </div>
                     <el-row>
                         <el-col :span="24">
                             <button class="button1" type="submit" @click="handleSubmit" >
@@ -143,7 +146,8 @@ border-radius: 10px;
         name : "george",
         email : "1@1.com",
         password : "1",
-        is_admin : 0
+        is_admin : 0,
+        failedLogin : false
       }
     },
     methods : {
@@ -191,6 +195,7 @@ border-radius: 10px;
             })
             .catch(error => {
               console.error(error);
+              this.failedLogin = true
             });
 
 
