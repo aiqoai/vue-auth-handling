@@ -8,7 +8,7 @@
         <el-col :span="16">
               <h2 v-show="!selectedWord">{{this.query.wordset}}</h2>
         </el-col>
-        <el-button style="float:right;" icon="el-icon-d-arrow-right" type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">Go to Practice</el-button>
+        <el-button style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">Go to Practice</el-button>
             
       </el-row>
   <el-collapse accordion v-show="!selectedWord" @change="handleNewWord">

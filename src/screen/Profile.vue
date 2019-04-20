@@ -223,7 +223,8 @@ export default {
     });
     HTTP.get('/api/progress')
       .then(response => {
-        console.log(response.data);
+        console.log(response.data.data);
+        // this.progress = response.data; 
     })
   },
   computed:{

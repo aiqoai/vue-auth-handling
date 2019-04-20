@@ -68,16 +68,34 @@ export default {
       let answers = [];
       this.problems.forEach(p => {
         let fromSet = this.answerSet[p._id];
-        let selected = p.data_item.find(d => { return d.key == fromSet.answer });
+        let selected = null;
+        let problem_answer_correct = false;
+        let key = '';
+        let value = '';
+        
+        if (fromSet){
+          if (fromSet.answer) {
+            selected = p.data_item.find(d => { return d.key == fromSet.answer });
+            key = fromSet.answer;
+          }
+        }
+        if (selected) {
+          if (selected.answer) {
+            problem_answer_correct = selected.answer.toLowerCase() == "yes";
+          }
+          if (selected.value) {
+            value = selected.value;
+          }
+        }
         let ans = {
           "problem_id" : p._id,
           "problem_answer_phase": "test",
           "problem_answer_retry": false,
-          "problem_answer_correct": selected && selected.answer? selected.answer.toLowerCase() == "yes" : '',
+          "problem_answer_correct": problem_answer_correct,
           "problem_answer_use_hint": false,
-          "answer":{
-            "key": fromSet.answer? fromSet.answer : '', 
-            "value": selected && selected.value? selected.value : ''
+          "answer": {
+            "key": key, 
+            "value": value
           }
         };
         answers.push(ans);
