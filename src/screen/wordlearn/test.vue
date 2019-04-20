@@ -101,19 +101,24 @@ export default {
         answers.push(ans);
       });
       console.log(answers);
+      let correct = 0;
       answers.forEach(answer => {
+        if (answer.problem_answer_correct){
+          correct += 1;
+        }
         HTTP.post('/api/problem_answer/submit_answer', answer).then(response => {
           console.log("Received from server: ", response);
         })
       });
+      let percent_val = parseInt((correct / answers.length) * 100);
       let progress = {
-        "category_name": this.query.wordset,
-        "category_id": String(1),
-        "set": String(this.query.level),
-        "achievement": "test",
-        "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
-        "last_access": new Date().toISOString().split('T')[0] + 'UTC'
-      };
+          "category": this.query.wordset,
+          "level": String(this.query.level),
+          "task": "test",
+          "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
+          "last_access": new Date().toISOString().split('T')[0] + 'UTC',
+          "progress": percent_val
+        }
       HTTP.post('/api/progress', progress).then(response => {
         console.log("Received from server: ", response.data);
       });

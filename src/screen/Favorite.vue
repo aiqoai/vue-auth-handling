@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-  <h1>Favorite Words </h1>
+  <h1 v-if="!favorites">Favorite Words</h1>
+  <h1 v-if="favorites">Favorite Words ({{favorites.length}})</h1>
   <div >
   <el-collapse accordion v-show="!selectedWord">
     <el-collapse-item v-for="w in favorites" :key="w._id" :title="w.word" :name="w.word">

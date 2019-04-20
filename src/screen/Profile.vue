@@ -64,7 +64,27 @@
   </el-tab-pane>
   <el-tab-pane label="Pregress">
     <el-col :span="4" v-for="p in this.progress" :key="p.category + p.level + p.task">
-    <el-progress
+    <el-progress v-if="p.progress < 25"
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="red">
+      <el-row>{{p.category}}-{{p.level}}</el-row>
+      <el-row>{{p.task}}</el-row>
+    </el-progress>
+    <el-progress v-else-if="p.progress < 50"
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="orange">
+      <el-row>{{p.category}}-{{p.level}}</el-row>
+      <el-row>{{p.task}}</el-row>
+    </el-progress>
+    <el-progress v-else-if="p.progress < 75"
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="yellow">
+      <el-row>{{p.category}}-{{p.level}}</el-row>
+      <el-row>{{p.task}}</el-row>
+    </el-progress>
+    <el-progress v-else-if="p.progress < 90"
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="lime">
+      <el-row>{{p.category}}-{{p.level}}</el-row>
+      <el-row>{{p.task}}</el-row>
+    </el-progress>
+    <el-progress v-else
       type="circle" :percentage="parseInt(p.progress)" status="text" color="green">
       <el-row>{{p.category}}-{{p.level}}</el-row>
       <el-row>{{p.task}}</el-row>
@@ -176,38 +196,7 @@ export default {
       return {
         form_name: "",
         form_description: "",
-        progress: [
-          { category: "SAT", level: "1", task: "learn" , progress: 100},
-          { category: "SAT", level: "1", task: "practice" , progress: 60},
-          { category: "SAT", level: "1", task: "test" , progress: 80},
-          { category: "SAT", level: "2", task: "learn" , progress: 100},
-          { category: "SAT", level: "2", task: "practice" , progress: 50},
-          { category: "SAT", level: "2", task: "test" , progress: 80},
-          { category: "SAT", level: "3", task: "learn" , progress: 100},
-          { category: "SAT", level: "3", task: "practice" , progress: 40},
-          { category: "SAT", level: "3", task: "test" , progress: 0},
-
-          { category: "GRE", level: "1", task: "learn" , progress: 0},
-          { category: "GRE", level: "1", task: "practice" , progress: 0},
-          { category: "GRE", level: "1", task: "test" , progress: 0},
-          { category: "GRE", level: "2", task: "learn" , progress: 0},
-          { category: "GRE", level: "2", task: "practice" , progress: 0},
-          { category: "GRE", level: "2", task: "test" , progress: 0},
-          { category: "GRE", level: "3", task: "learn" , progress: 0},
-          { category: "GRE", level: "3", task: "practice" , progress: 0},
-          { category: "GRE", level: "3", task: "test" , progress: 0},
-
-          { category: "TOEFL", level: "1", task: "learn" , progress: 0},
-          { category: "TOEFL", level: "1", task: "practice" , progress: 0},
-          { category: "TOEFL", level: "1", task: "test" , progress: 0},
-          { category: "TOEFL", level: "2", task: "learn" , progress: 0},
-          { category: "TOEFL", level: "2", task: "practice" , progress: 0},
-          { category: "TOEFL", level: "2", task: "test" , progress: 0},
-          { category: "TOEFL", level: "3", task: "learn" , progress: 0},
-          { category: "TOEFL", level: "3", task: "practice" , progress: 0},
-          { category: "TOEFL", level: "3", task: "test" , progress: 0},
-
-        ]
+        progress: []
       }
     }
   ,
@@ -221,11 +210,14 @@ export default {
 
       // console.log("profile return",response.data)
     });
+    console.log("Before progress");
     HTTP.get('/api/progress')
       .then(response => {
-        console.log(response.data.data);
-        // this.progress = response.data; 
+        console.log(response.data[0].data);
+        this.progress = response.data[0].data; 
+        console.log("During progress");
     })
+    console.log("After progress");
   },
   computed:{
     ...mapGetters({
