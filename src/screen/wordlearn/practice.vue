@@ -23,25 +23,32 @@
       <el-button type="success" icon="el-icon-arrow-right" @click="handleNextClick" :disabled="currentPage == activePage"
         style="margin-left: 80%; margin-top:20px;">Next</el-button>
       </el-row>
+
               <el-card style="margin: auto;" v-if="currProb && currentPage < totalPages" class="box-card">
 
                 <div slot="header" class="clearfix">
-                  <span>{{currProb.problem_description}}</span>
+
+                  <h2>{{currProb.problem_description}}</h2>
+
                   <el-button style="float: right; padding: 3px 0" type="text" @click="handleHintClick">Hint</el-button>
                   <el-alert v-show="showHint" title="Hint" type="info" 
                   @close="showHint=false">{{currProb.problem_hint}}</el-alert>
                 </div>
+
+
                 
                 <el-radio-group @change="handleRadioChange" v-model="currAnswer">
                   <div v-for="d in currProb.data_item" :key="d.key">
                         <el-radio :label="d.key" v-model="d.value">
                           <img v-if="d.image_url" :src="d.image_url" class="image">
 
-                          <el-button style="display:inline;" v-if="d.audio_url" type="primary" icon="el-icon-caret-right" 
-                          @click.prevent="playSound(d.audio_url)">Play</el-button>
+                          <el-button style="display:inline-block;" v-if="d.audio_url" type="primary" icon="el-icon-caret-right" 
+                          @click.prevent="playSound(d.audio_url)"
+                          class="playbutton">Play</el-button>
 
-                          <div style="display:inline;" v-if="d.label">{{d.label}}</div>
+                          <div style="display:inline-block;" v-if="d.label"><p>{{d.label}}</p></div>
                             </el-radio>
+
                         <el-alert :closable="false" v-if="currAnswer == d.key && d.answer == 'yes'" title="Correct!" type="success"></el-alert>
                         <el-alert :closable="false" v-if="currAnswer == d.key && d.answer != 'yes'" title="Wrong! Please try again." 
                         type="error">
@@ -72,7 +79,21 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .playbutton{
+        margin-top: 10px
+    }
+    .image{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+.el-radio-group{
 
+}
+p{font-size: 16px;
+   
+color:#090218;
+
+}
 .el-radio__inner {
     border: 1px solid #2f333c;
     border-radius: 100%;
@@ -84,7 +105,7 @@
     box-sizing: border-box;
 }
 .text {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .item {
@@ -103,6 +124,7 @@
   .box-card {
     width: 640px;
     min-height: 400px;
+    font-size: 20px;
   }
   .image {
     height: 150px;
@@ -115,6 +137,9 @@
     font-size: 25px;
 color:#E6605B;
   }
+
+  h2{font-size: 20px;
+color:#090218;}
 .title{
     text-align: center;
 }
