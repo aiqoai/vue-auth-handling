@@ -159,11 +159,15 @@
     </el-row>
 
 
-
-       <el-container>
-  <el-footer>©2019 aiQo.ai. All rights reserved.</el-footer>
-
- </el-container>
+        <el-row>
+              <el-col :span="24">
+                <div class="gr" style="text-align: center;padding-top: 1%; max-height: 20px;">
+                <p>©2019 aiQo.ai. All rights reserved.</p> 
+                 </div>
+             </el-col>
+        </el-row>
+       
+       
   </div>
 </template>
 

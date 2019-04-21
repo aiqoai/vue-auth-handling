@@ -73,8 +73,8 @@
                                   <div class="definition-content">
                            
                       
-                          <div v-for="p in selectedWord.part_of_speech" :key="p.type" >
-                                              <h1>Definition:</h1>
+                          <div v-for="p in selectedWord.part_of_speech" :key="p.type" >                                          
+                                              <h3>Definition:</h3>
                                                    <h3>{{p.definition}}</h3>
                                       
                                       <div v-for="t in p.translation" :key="t.zh">{{t.zh}}</div>
@@ -128,7 +128,7 @@
 }
 
 p{font-size: 16px;
-  line-height: 1.6;  
+  line-height: 1.4;  
 color:#090218;
 
 }
