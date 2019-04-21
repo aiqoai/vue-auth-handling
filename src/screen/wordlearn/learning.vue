@@ -281,10 +281,16 @@ export default {
     console.log("Query", this.query);
 
     if (!this.wordList || this.wordList.length == 0) {
-      HTTP.post('/api/word/query_words', {
+      let api_path = '/api/word/query_words';
+      let api_query = {
         category: this.query.wordset,
         level: String(this.query.level)
-      }).then(response => {
+      };
+      if (this.query.wordset == "mywords"){
+        api_path = '/api/word/my_words',
+        api_query = {}
+      }
+      HTTP.post(api_path, api_query).then(response => {
         console.log("Received from server: ", response.data);
         this.setWordList(response.data.data);
       })

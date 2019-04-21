@@ -29,7 +29,7 @@
                     </div>
 
                  </div>
-                  <el-col><el-button type="danger" round>Learn More</el-button></el-col>
+                  
 
             </el-col>
       </el-row>
@@ -47,7 +47,7 @@
 
       <el-row>
 
-              <el-col :span="24"><div class="grid-content bg-purple-light"><p>©2019 aiQo.ai. All rights reserved.</p> </div></el-col>
+              <el-col :span="24"><div class="grid-content " style="max-height: 20px;"><p>©2019 aiQo.ai. All rights reserved.</p> </div></el-col>
 
 
       </el-row>
