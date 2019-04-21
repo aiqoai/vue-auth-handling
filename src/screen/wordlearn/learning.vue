@@ -10,7 +10,10 @@
                                  <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
                            </el-colloapse-item_header>
 
-                           <el-button style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">Go to Practice</el-button>
+                           <el-button v-show="!selectedWord"
+                           style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" 
+                           type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">
+                           Go to Practice</el-button>
                                
                      </el-row>
 
@@ -46,9 +49,6 @@
             <div v-if="selectedWord">
                     <div class="grid-content">
                                  <el-button type="warning" icon="el-icon-back" circle @click.prevent="switchView('')"></el-button>
-                                 
-                                 
-
                                  <div style="float:right;">
                                    <el-button type="success" icon="el-icon-arrow-left" @click="getPrev">Previous Word</el-button>
                                    <el-button type="success"  icon="el-icon-arrow-right" @click="getNext">Next Word</el-button>
@@ -103,8 +103,8 @@
                                       <h3 v-if="selectedWord.root">Roots</h3>
 
 
-                                      <div v-for="r in selectedWord.root" :key="r.type">
-                                        {{r.type}} : {{r.root}}
+                                      <div v-for="r in selectedWord.root" :key="r.origin">
+                                        {{r.origin}} : {{r.root}}
                                       </div>
                         
                           </div>
@@ -119,10 +119,7 @@
   
 </template>
 
-<style scoped>
-
-
-
+<style>
 .definition-content{
      padding-top: 3%;
      padding: 20px;
