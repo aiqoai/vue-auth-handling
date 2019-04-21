@@ -59,7 +59,7 @@
                       <p>Word set by Linda</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" v-on:click="$router.push('/learning/mywords/1');">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -71,7 +71,7 @@
                       <p>Word set by Brent</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button">Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -83,7 +83,7 @@
                       <p>Word set by Brent</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" >Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -95,7 +95,7 @@
                     <p>Word set by Danile</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" >Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -110,7 +110,7 @@
                       <p>Word set by Linda</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" >Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -123,7 +123,7 @@
                       <p>Word set by Linda</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" >Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -136,7 +136,7 @@
                       <p>Word set by Linda</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" >Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
@@ -149,7 +149,7 @@
                       <p>Word set by Linda</p>
                       <div class="bottom clearfix">
                         
-                        <el-button type="danger" round class="button" v-on:click="populateWordList('GRE', 'topic')">Learn vocabularies</el-button>
+                        <el-button type="danger" round class="button" >Learn vocabularies</el-button>
                       </div>
                     </div>
                 </el-card>
