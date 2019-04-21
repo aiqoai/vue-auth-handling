@@ -1,12 +1,19 @@
 <template>
   <div >
-    <el-alert :key="problems.length" 
-      :title="'Welcome back ' + currentUser.name + '!'" 
-      type="success" show-icon :closable="problems.length == 0">
-      <label v-if="problems.length > 0" style="font-weight: bold; font-size:16px;">
+    <el-alert class="home-alert" :key="problems.length" 
+      :title="'Welcome ' + currentUser.name + '!'"
+      close-text="Close"
+      type="success" show-icon 
+      @close="redirect_to_practice=false">
+      <label v-if="problems.length > 0">
       There are {{problems.length}} words to be reviewed.
-      Please click <router-link to="/practice/review/1" class="nav-item">here</router-link> to continue practicing these words.
+      You will be redirected to <router-link to="/practice/review/1" class="nav-item">the review page</router-link> to continue practicing these words.
       </label>
+      <el-row v-if="redirect_to_practice">
+        <label>
+        Please close this to cancel going to the review page.
+        </label>
+      </el-row>
     </el-alert>
     <el-row>
             <el-col :span="24"><div class="grid-content headerimg">
@@ -72,7 +79,15 @@ export default {
   data () {
     return {
       problems: [],
+      redirect_to_practice: true,
       msg: 'This is your home page'
+    }
+  },
+  methods: {
+    handleRedirect() {
+      if (this.redirect_to_practice) {
+        this.$router.push({ path: '/practice/review/1'});
+      }
     }
   },
   mounted() {
@@ -91,6 +106,9 @@ export default {
     HTTP.post(post_path, query_string).then(response => {
       console.log("Received from server: ", response.data);
       this.problems = response.data.data;
+      if (this.problems) {
+        setTimeout( this.handleRedirect, 5000);
+      }
     })
   }
 }
@@ -132,5 +150,8 @@ z-index: 2;
   .grid-content {
     border-radius: 4px;
 
+  }
+  .home-alert label {
+    font-weight: bold; font-size:16px;
   }
 </style>
