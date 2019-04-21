@@ -42,6 +42,8 @@
     </table>
     <div v-if="msg.length > 0">{{msg}}</div>
     <button @click="submit"> Upload Word</button>
+    <button @click="checkWords"> Checkout my Words</button>
+
   </div>
 
 </template>
@@ -103,6 +105,9 @@
           this.msg = 'Upload was Unsuccessfully';
           console.log(error);
         });
+      },
+      checkWords(path) {
+        this.$router.push('/learning/mywords/1')
       },
     },
 }
