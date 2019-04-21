@@ -2,7 +2,7 @@
 
     <el-row :gutter="24">
         <el-col :span="8" :offset="8" >
-            <div class=headerimg>
+            <div class="headerimg">
                 <img src="../assets/login.png" width="100%">
             </div>
               <el-card class="box-card">
@@ -45,7 +45,10 @@
 </template>
 <style>
     .headerimg{
-        margin-left: 0px;
+        position: relative;
+        z-index: -1;
+        max-width: 100%;
+
     }
     h2{
     font-size:30px;
@@ -60,36 +63,32 @@ input{width:100%;
 height: 30px;}
 .button1{
 border-radius: 10px;
-     background-color: #EF843C;
+    background-color: #EF843C;
   border: none;
   color: white;
   padding: 15px 90px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin: 30px 2px;
+  font-size: 18px;
+  margin: 25px 2px;
   cursor: pointer;
 }
 .button1:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
+    background-color: #CE641D;
+    border: none;
+    color: white;
+    padding: 15px 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 25px 2px;
+    cursor: pointer;
+  
 }
-.button2{
-border-radius: 10px;
-     background-color: #06597D;
-  border: none;
-  color: white;
-  padding: 15px 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 30px 2px;
-  cursor: pointer;
-}
-.button2:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
+
 </style>
 
 <!--<script>-->

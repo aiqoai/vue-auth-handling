@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div calss="content-infor">
      <el-row :gutter="24">
           <el-col :span="12" >
-               <img class="avatar" src="../assets/login.png"width=80%>
+               <img class="avatar" src="../assets/login.png"width=80%;>
           </el-col>
           <el-col :span="12">
                <el-card class="box-card-2">
@@ -46,7 +46,7 @@
                                    Register
                                </button>
                            </div>
-        </form>
+                    </form>
 
                </el-card>
           </el-col>
@@ -56,28 +56,43 @@
     </div>
 </template>
 <style>
-     .avatar{
-          margin-left: 20%;
-          margin-top: 20%;
-     }
-     .box-card-2{
-          width: 70%;
-     }
-     .button{
+
+.box-card-2{
+    max-width: 70%;
+}
+
+ .avatar{
+    
+    margin-left: 10%;
+    margin-top: 7%;
+ }
+
+ .button{
 border-radius: 10px;
-     background-color: #EF843C;
+background-color: #EF843C;
   border: none;
   color: white;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin: 30px 2px;
+  font-size: 18px;
+  margin: 25px 2px;
   cursor: pointer;
 }
+
 .button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  border-radius: 10px;
+  background-color: #CE641D;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 25px 2px;
+  cursor: pointer;
 }
 </style>
 

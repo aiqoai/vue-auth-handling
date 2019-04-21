@@ -6,9 +6,9 @@
                     <h1 v-show="!selectedWord">Learning Deck </h1>
 
                      <el-row :gutter="20">
-                           <el-col :span="16">
+                           <el-colloapse-item_header :span="16">
                                  <h2 v-show="!selectedWord">{{wordCatagory}}</h2>
-                           </el-col>
+                           </el-colloapse-item_header>
 
                            <el-button style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">Go to Practice</el-button>
                                
@@ -30,7 +30,11 @@
                                    <div class="grid-content">
                                      <el-button type="warning" icon="el-icon-tickets" circle @click.prevent="switchView(w)"></el-button>
                                      <el-button type="primary" icon="el-icon-caret-right" circle @click.prevent="playSound(w.sound_url)" ></el-button>
-                                     <el-button type="success" :key="updateFavorite + w._id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)"></el-button>
+                                    
+                                             <el-button type="success" :key="updateFavorite + w._id + 'on'" v-if="w.favorite && w.favorite == true" icon="el-icon-star-on" circle @click="favorite(w)">   
+                                             </el-button>
+
+
                                      <el-button type="info" :key="updateFavorite + w._id + 'off'" v-else icon="el-icon-star-off" circle @click="favorite(w)"></el-button>
                                      </div>
                                  </el-col>
@@ -55,6 +59,9 @@
                         <el-row>
                             <el-col :span="12">
                               <h1>{{selectedWord.word}}</h1> 
+                              <div v-for="p in selectedWord.part_of_speech" :key="p.type" ><h2>{{p.type}}</h2> </div>
+
+
                               <div class="picture">
                                  <img :src="selectedWord.picture_url" class="image">
                               </div>
@@ -73,7 +80,7 @@
                            
                       
                           <div v-for="p in selectedWord.part_of_speech" :key="p.type" >
-                                              <h2>{{p.type}}</h2> 
+                                          
                                               <h1>Definition:</h1>
                                                    <h3>{{p.definition}}</h3>
                                       
@@ -113,6 +120,9 @@
 </template>
 
 <style scoped>
+
+
+
 .definition-content{
      padding-top: 3%;
      padding: 20px;
@@ -134,7 +144,7 @@ color:#090218;
 }
 h1{font-size: 25px;
 color:#06597D;}
-h2{font-size: 20px;
+h2{font-size: 18px;
 color:#B33434;}
 
 h3{font-size: 20px;
@@ -146,13 +156,13 @@ color:#090218;}
         margin-right: 15%;
 
     }
-
-    .el-collapse-item__header {
+.el-collapse-item__header {
         font-size: 22px;
         color: #041F3D;
         padding-top: 10px;
     }
-     .el-collapse-item__header:hover{
+
+    .el-collapse-item__header:hover{
         font-size: 22px;
         color: #EA3232;
         padding-top: 10px;
