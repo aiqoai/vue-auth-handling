@@ -1,8 +1,12 @@
 <template>
   <div >
-    <el-alert v-if="currentUser.name" :title="'Welcome back ' + currentUser.name + '!'" type="success" show-icon>
-      You completed the SAT Level-2 Practice!
-      Please click <router-link to="/favorite" class="nav-item">Here</router-link> to continue with SAT Level-2 Test.
+    <el-alert :key="problems.length" 
+      :title="'Welcome back ' + currentUser.name + '!'" 
+      type="success" show-icon :closable="problems.length == 0">
+      <label v-if="problems.length > 0" style="font-weight: bold; font-size:16px;">
+      There are {{problems.length}} words to be reviewed.
+      Please click <router-link to="/practice/review/1" class="nav-item">here</router-link> to continue practicing these words.
+      </label>
     </el-alert>
     <el-row>
             <el-col :span="24"><div class="grid-content headerimg">
@@ -45,6 +49,7 @@
 </template>
 
 <script>
+import {HTTP} from '../store/httpcommon';
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'app',
@@ -66,12 +71,27 @@ export default {
 ,
   data () {
     return {
+      problems: [],
       msg: 'This is your home page'
     }
   },
   mounted() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+
+    // The following shold be provided by the current user api.
+    // This is for temporary testing.
+    let post_path = '/api/problem_answer/query_problem_answers';
+    let query_string = {
+      problem_answer_correct: false,
+      num_problems: 10,
+      problem_answer_phase: 'test'
+    }
+    HTTP.post(post_path, query_string).then(response => {
+      console.log("Received from server: ", response.data);
+      this.problems = response.data.data;
+    })
   }
 }
 </script>

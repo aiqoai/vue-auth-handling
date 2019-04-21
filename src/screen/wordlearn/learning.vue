@@ -280,7 +280,7 @@ export default {
     this.loading = false;
     console.log("Query", this.query);
 
-    if (!this.problems || this.problems.length == 0) {
+    if (!this.wordList || this.wordList.length == 0) {
       HTTP.post('/api/word/query_words', {
         category: this.query.wordset,
         level: String(this.query.level)
@@ -293,8 +293,6 @@ export default {
 
   computed: {
     ...mapGetters({
-      testCategories: 'testCategories',
-      userCategories: 'userCategories',
       wordList: 'wordList',
       wordCatagory: 'wordCatagory'
     }),

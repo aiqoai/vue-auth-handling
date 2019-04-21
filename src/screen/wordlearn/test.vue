@@ -255,7 +255,8 @@ export default {
     if (this.problems.length == 0) {
       HTTP.post('/api/problem/query_problems', {
         problem_category: this.query.wordset,
-        problem_grade_level: this.query.level
+        problem_grade_level: this.query.level,
+        num_problems: 5
       }).then(response => {
         console.log("Received from server: ", response.data);
         this.setProblems(

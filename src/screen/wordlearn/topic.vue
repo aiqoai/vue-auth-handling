@@ -172,7 +172,8 @@ export default {
       var path = { name: 'practice', params: { wordset: this.wordCatagory, level: level } };
       HTTP.post('/api/problem/query_problems', {
         problem_category: this.wordCatagory,
-        problem_grade_level: String(level)
+        problem_grade_level: String(level),
+        num_problems: 5
       }).then(response => {
         console.log("Received from server: ", response.data);
         this.setProblems(
@@ -185,7 +186,8 @@ export default {
       var path = { name: 'test', params: { wordset: this.wordCatagory, level: level } };
       HTTP.post('/api/problem/query_problems', {
         problem_category: this.wordCatagory,
-        problem_grade_level: String(level)
+        problem_grade_level: String(level),
+        num_problems: 5
       }).then(response => {
         console.log("Received from server: ", response.data);
         this.setProblems(

@@ -75,12 +75,12 @@
       <el-row>{{p.task}}</el-row>
     </el-progress>
     <el-progress v-else-if="p.progress < 75"
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="yellow">
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="gold">
       <el-row>{{p.category}}-{{p.level}}</el-row>
       <el-row>{{p.task}}</el-row>
     </el-progress>
-    <el-progress v-else-if="p.progress < 90"
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="lime">
+    <el-progress v-else-if="p.progress < 95"
+      type="circle" :percentage="parseInt(p.progress)" status="text" color="limegreen">
       <el-row>{{p.category}}-{{p.level}}</el-row>
       <el-row>{{p.task}}</el-row>
     </el-progress>

@@ -5,8 +5,9 @@
         <el-col :span="6">
              <h2>{{msg}}</h2>
         </el-col>
-          <el-button style="float:right; margin:20px; " icon="el-icon-d-arrow-left" type="warning" @click="$router.push('/learning/' + query.wordset + '/' + query.level)">Back to Learning</el-button>
-          <el-button style="float:right; margin:20px; " icon="el-icon-d-arrow-left" type="danger" @click="$router.push('/topic/' + query.wordset)">Back to {{query.wordset}} Sets</el-button>
+          <el-button v-if="query.wordset == 'review'" style="float:right; margin:20px; " icon="el-icon-back" type="success" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
+          <el-button v-if="query.wordset != 'review'" style="float:right; margin:20px; " icon="el-icon-d-arrow-left" type="warning" @click="$router.push('/learning/' + query.wordset + '/' + query.level)">Back to Learning</el-button>
+          <el-button v-if="query.wordset != 'review'" style="float:right; margin:20px; " icon="el-icon-d-arrow-left" type="danger" @click="$router.push('/topic/' + query.wordset)">Back to {{query.wordset}} Sets</el-button>
 
             
     </el-row>
@@ -216,18 +217,20 @@ export default {
           console.log("Received from server: ", response);
         })
       });
-      let percent_val = parseInt((correct / answers.length) * 100);
-      let progress = {
-          "category": this.query.wordset,
-          "level": String(this.query.level),
-          "task": "practice",
-          "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
-          "last_access": new Date().toISOString().split('T')[0] + 'UTC',
-          "progress": percent_val
-        }
-      HTTP.post('/api/progress', progress).then(response => {
-        console.log("Received from server: ", response.data);
-      });
+      if (this.query.wordset !== 'review') {
+        let percent_val = parseInt((correct / answers.length) * 100);
+        let progress = {
+            "category": this.query.wordset,
+            "level": String(this.query.level),
+            "task": "practice",
+            "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
+            "last_access": new Date().toISOString().split('T')[0] + 'UTC',
+            "progress": percent_val
+          }
+        HTTP.post('/api/progress', progress).then(response => {
+          console.log("Received from server: ", response.data);
+        });
+      }
     },
     playSound (sound) {
       if(sound) {
@@ -302,6 +305,9 @@ export default {
       this.query.level = this.$route.params.level
     }
     this.msg = this.query.wordset + ": Level " + this.query.level;
+    if (this.query.wordset == 'review') {
+      this.msg = 'Review previous words';
+    }
     console.log("Query", this.query);
 
     if (this.problems.length > 0) {
@@ -310,10 +316,21 @@ export default {
     }
 
     if (this.problems.length == 0) {
-      HTTP.post('/api/problem/query_problems', {
+      let post_path = '/api/problem/query_problems';
+      let query_string = {
         problem_category: this.query.wordset,
-        problem_grade_level: this.query.level
-      }).then(response => {
+        problem_grade_level: this.query.level,
+        num_problems: 5
+      };
+      if (this.query.wordset == 'review') {
+        post_path = '/api/problem_answer/query_problem_answers';
+        query_string = {
+          problem_answer_correct: false,
+          num_problems: 10,
+          problem_answer_phase: 'test'
+        }
+      }
+      HTTP.post(post_path, query_string).then(response => {
         console.log("Received from server: ", response.data);
         this.setProblems(
           response.data.data,
