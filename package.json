@@ -13,6 +13,7 @@
   "dependencies": {
     "@casl/ability": "^2.4.2",
     "@casl/vue": "^0.4.3",
+    "@johmun/vue-tags-input": "^2.0.1",
     "axios": "^0.18.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
