@@ -10,7 +10,7 @@
         </el-col>
     </el-row>
              <div class="title-1" style="text-align: left;">
-                <h2 class="title">Test Preparation</h2>
+                <h1 class="title">Test Preparation</h1>
             </div>
         <el-row>
                 <el-col :span="8" >
@@ -50,7 +50,7 @@
                 </el-card>
             </el-col>
         </el-row>
-    <h2 class="title-2">Category by User</h2>
+    <h1 class="title-2">Category by User</h1>
     <el-row>
            <el-col :span="6">
             <el-card :body-style="{ padding: '0px' }">
