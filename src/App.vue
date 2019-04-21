@@ -3,9 +3,9 @@
 <!--    <el-aside width="200px">Category</el-aside>-->
     <el-container>
       <el-header>
-        <nav-bar></nav-bar>
+        <nav-bar style="position: fixed; left:0;top:0;right:0;"></nav-bar>
       </el-header>
-      <el-main>
+      <el-main class="main"  >
 
 <!--        <div  >-->
           <router-view/>
@@ -32,9 +32,7 @@
   }
 </script>
 <style>
-
   .el-header, .el-footer {
-    background-color: #B3C0D1;
     color: #333;
     text-align: center;
     line-height: 60px;
