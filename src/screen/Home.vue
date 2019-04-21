@@ -85,7 +85,8 @@ export default {
   },
   methods: {
     handleRedirect() {
-      if (this.redirect_to_practice) {
+      console.log(this.$router.currentRoute.path);
+      if (this.redirect_to_practice && this.$router.currentRoute.path == "/") {
         this.$router.push({ path: '/practice/review/1'});
       }
     }
