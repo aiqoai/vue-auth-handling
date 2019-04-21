@@ -5,7 +5,7 @@
       <el-header>
         <nav-bar style="position: fixed; left:0;top:0;right:0;"></nav-bar>
       </el-header>
-      <el-main class="main"  >
+      <el-main style="z-index: -1"  >
 
 <!--        <div  >-->
           <router-view/>
