@@ -20,5 +20,10 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+FROM nginx
+RUN mkdir /app
+COPY --from=0 /app/dist /app
+COPY nginx/nginx-prd.conf /etc/nginx/nginx.conf
+
+#EXPOSE 8080
+#CMD [ "http-server", "dist" ]

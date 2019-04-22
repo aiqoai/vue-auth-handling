@@ -62,7 +62,7 @@
         </el-col>    
     </el-row>
   </el-tab-pane>
-  <el-tab-pane label="Pregress">
+  <el-tab-pane label="Progress">
     <el-col :span="4" v-for="p in this.progress" :key="p.category + p.level + p.task">
     <el-progress v-if="p.progress < 25"
       type="circle" :percentage="parseInt(p.progress)" status="text" color="red">
