@@ -253,13 +253,10 @@ export default {
         this.profile_updates.description = this.form_description;
       }
       HTTP.patch('/api/profile', this.profile_updates).then(res => {
-        this.setUserProfile(res.data.data)
+        this.setUserProfile(res.data.data);
+        this.$forceUpdate();
         if(this.$route.params.nextUrl != null){
           this.$router.push(this.$route.params.nextUrl)
-        }
-        else{
-          this.$router.push('/profile');
-          // window.location.reload()
         }
       }).catch(error => {
         console.error(error);

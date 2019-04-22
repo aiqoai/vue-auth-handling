@@ -9,7 +9,7 @@
       There are {{problems.length}} words to be reviewed.
       You will be redirected to <router-link to="/practice/review/1" class="nav-item">the review page</router-link> to continue practicing these words.
       </label>
-      <el-row v-if="redirect_to_practice">
+      <el-row v-if="problems.length > 0 && redirect_to_practice">
         <label>
         Please close this to cancel going to the review page.
         </label>
@@ -107,7 +107,7 @@ export default {
     HTTP.post(post_path, query_string).then(response => {
       console.log("Received from server: ", response.data);
       this.problems = response.data.data;
-      if (this.problems) {
+      if (this.problems.length > 0) {
         setTimeout( this.handleRedirect, 5000);
       }
     })
