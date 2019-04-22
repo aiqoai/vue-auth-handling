@@ -1,10 +1,11 @@
 <template>
 <div class="hello">
-     <el-row :gutter="24">
-          <el-col :span="14" :offset="4">
-               <img src="../../assets/S1.png" width="100%" style="text-align: center;">
+     <el-row>
+          <el-col :span="24">
+               <img src="../../assets/S1.png" width="100%" style="text-align: center; margin-top: -20px;">
           </el-col>
      </el-row>
+
     <h1>{{wordCatagory}} Vocabulary Sets </h1>
    
     <el-row :gutter="20">
