@@ -21,6 +21,8 @@ import Test from '@/screen/wordlearn/test'
 import Topic from '@/screen/wordlearn/topic'
 import Favorite from "../screen/Favorite"
 
+import NotFoundComponent from '@/screen/NotFoundComponent'
+
 Vue.use(Router)
 
 let router = new Router({
@@ -168,6 +170,8 @@ let router = new Router({
         requiresAuth: true
       }
     },
+    { path: '*', component: NotFoundComponent },
+
   ]
 })
 
