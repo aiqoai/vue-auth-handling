@@ -53,7 +53,7 @@
                     <div v-if="msg.length > 0">{{msg}}</div>
                     
                  <el-button type="danger" round  @click="submit" class="sub-button">Upload Word </el-button>
-                 <el-button type="info" @click="checkWords"> Word Collection</el-button>
+                 <el-button type="primary" round @click="checkWords" class="sub-button"> Word Collection</el-button>
                 </el-card>
         </el-col>
     </el-row>
@@ -101,7 +101,7 @@ input, textarea, select, button {
 
 .box-card{
     width: 65%;
-    margin-top: 3%;
+    margin-top: 2%;
 
 }
 .build-header{

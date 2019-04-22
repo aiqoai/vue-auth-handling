@@ -56,7 +56,7 @@
             <el-card :body-style="{ padding: '0px' }">
                 <img src="../assets/usercreat5.png" width="100%">
                     <div style="padding: 14px;">
-                      <p>Word set by Linda</p>
+                      <p>My word list</p>
                       <div class="bottom clearfix">
                         
                         <el-button type="danger" round class="button" v-on:click="$router.push('/learning/mywords/1');">Learn vocabularies</el-button>
