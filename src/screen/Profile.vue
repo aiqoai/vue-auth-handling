@@ -15,33 +15,33 @@
                       
                       <tr>
                         <td><h2>My Name:</h2></td>
-                        <td>{{currentUser.name}}</td>
+                        <td>{{currentProfile.name}}</td>
                         <td><input v-model="form_name"></td>
                       </tr>
                       <tr>
                         <td><h2>Email:</h2></td>
-                        <td>{{profile.email}}</td>
+                        <td>{{currentProfile.email}}</td>
                         <td></td>
                       </tr>
                       <tr>
                         <td><h2>About Me:</h2></td>
-                        <td>{{profile.description}}</td>
+                        <td>{{currentProfile.description}}</td>
                         <td><input v-model="form_description"></td>
                       </tr>
                       <tr>
                       <tr>
                         <td><h2>Current Level:</h2></td>
-                        <td>{{profile.current_level}}</td>
+                        <td>{{currentProfile.current_level}}</td>
                         <td></td>
                       </tr>
                       <tr>
                         <td><h2>Current Category:</h2></td>
-                        <td>{{profile.current_category}}</td>
+                        <td>{{currentProfile.current_category}}</td>
                         <td></td>
                       </tr>
                       <tr>
                         <td><h2>Member Since: </h2></td>
-                        <td>{{profile.registration_datetime}}</td>
+                        <td>{{currentProfile.registration_datetime}}</td>
                         <td></td>
                       </tr>
                       <tr>
@@ -62,7 +62,7 @@
         </el-col>    
     </el-row>
   </el-tab-pane>
-  <el-tab-pane label="Pregress">
+  <el-tab-pane label="Progress">
     <el-col :span="4" v-for="p in this.progress" :key="p.category + p.level + p.task">
     <el-progress v-if="p.progress < 25"
       type="circle" :percentage="parseInt(p.progress)" status="text" color="red">
@@ -196,19 +196,22 @@ export default {
       return {
         form_name: "",
         form_description: "",
-        progress: []
+        progress: [],
+        profile_updates: {}
       }
     }
   ,
   mounted: function(){
-    console.log(" profile created:")
-    HTTP.get('/api/profile'
-
-    ).then(response => {
+    console.log("Getting Profile")
+    HTTP.get('/api/profile')
+      .then(response => {
       // data.profile = response.data.user
+        console.log("response", response)
       this.setUserProfile(response.data.user)
 
       // console.log("profile return",response.data)
+    }).catch(err => {
+      console.log(err)
     });
     console.log("Before progress");
     HTTP.get('/api/progress')
@@ -222,8 +225,8 @@ export default {
   computed:{
     ...mapGetters({
         currentUser: 'currentUser',
-        profile:'currentProfile'
-      }
+      currentProfile:'currentProfile'
+      },
 
     ),
 
@@ -235,25 +238,25 @@ export default {
     logout(e){
       e.preventDefault();
       console.log(" logout")
-      localStorage.removeItem("user");
+      this.setCurrentUserData({})
       localStorage.removeItem("jwt");
-      this.$router.push('/login')
+      localStorage.removeItem("user");
+      this.$router.push('/login');
     },
 
     update(e){
       if(this.form_name != ''){
-        data.profile.name = data.form_name;
+        this.profile_updates.name = this.form_name;
 
       }
       if(this.form_description != ''){
-        data.profile.description = data.form_description;
+        this.profile_updates.description = this.form_description;
       }
-      HTTP.patch('/api/profile', data.profile).then(res => {
+      HTTP.patch('/api/profile', this.profile_updates).then(res => {
+        this.setUserProfile(res.data.data);
+        this.$forceUpdate();
         if(this.$route.params.nextUrl != null){
           this.$router.push(this.$route.params.nextUrl)
-        }
-        else{
-          this.$router.push('/profile')
         }
       }).catch(error => {
         console.error(error);

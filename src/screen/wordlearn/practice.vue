@@ -60,7 +60,7 @@
 
       <div v-else>
                 <h2>Congratulations! You have finished learning the wordset!</h2>
-                <h1 v-if="summary">The following words require your attention: </h1>
+                <h1 v-if="summary.length > 0">The following words require your attention: </h1>
                         <table style="margin: auto;">
                           <tr v-for="summ in summary" :key="summ.id">
                             <td>
@@ -185,11 +185,15 @@ export default {
       this.problems.forEach(p => {
         let fromSet = this.answerSet[p._id];
         let selected = p.data_item.find(d => { return d.key == fromSet.answer });
+        let correct_answer = selected && selected.answer? selected.answer.toLowerCase() == "yes" : false;
+        if (fromSet.retry || fromSet.hint) {
+          correct_answer = false;
+        }
         let ans = {
           "problem_id" : p._id,
           "problem_answer_phase": "learning",
           "problem_answer_retry": fromSet.retry ? true : false,
-          "problem_answer_correct": selected && selected.answer? selected.answer.toLowerCase() == "yes" : '',
+          "problem_answer_correct": correct_answer,
           "problem_answer_use_hint": fromSet.hint? true : false,
           "answer":{
             "key": fromSet.answer? fromSet.answer : '', 

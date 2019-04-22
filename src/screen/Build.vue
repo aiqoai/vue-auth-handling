@@ -53,6 +53,7 @@
                     <div v-if="msg.length > 0">{{msg}}</div>
                     
                  <el-button type="danger" round  @click="submit" class="sub-button">Upload Word </el-button>
+                 <el-button type="info" @click="checkWords"> Word Collection</el-button>
                 </el-card>
         </el-col>
     </el-row>
@@ -177,21 +178,24 @@ li {
         HTTP.post("/api/word", data)
           .then(response => {
             this.msg = 'Word Succesfully Uploaded';
-            this.sentence_tag = '';
-            this.sentence_tags = [];
+            this.sentence_tag = null;
+            this.sentence_tags = null;
             this.sentence_text = "add sentences here";
             this.encoding_tag = '';
-            this.encoding_tags = [];
+            this.encoding_tags = null;
             this.encoding_text = "add encodings here";
-            this.word = '';
-            this.definition =  '';
-            this.picture_url = '';
-            this.translation = '';
+            this.word = null;
+            this.definition =  null;
+            this.picture_url = null;
+            this.translation = null;
             console.log(response);
       }).catch(error => {
           this.msg = 'Upload was Unsuccessfully';
           console.log(error);
         });
+      },
+      checkWords(path) {
+        this.$router.push('/learning/mywords/1')
       },
     },
 }
