@@ -1,6 +1,6 @@
 <template>
   <div >
-    <el-alert class="home-alert" :key="problems.length" 
+    <el-alert v-if="currentUser.name" class="home-alert" :key="problems.length" 
       :title="'Welcome ' + currentUser.name + '!'"
       close-text="Close"
       type="success" show-icon 
