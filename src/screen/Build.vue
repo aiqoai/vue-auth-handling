@@ -42,7 +42,7 @@
     </table>
     <div v-if="msg.length > 0">{{msg}}</div>
     <button @click="submit"> Upload Word</button>
-    <button @click="checkWords"> Checkout my Words</button>
+    <button @click="checkWords"> Word Collection</button>
 
   </div>
 
