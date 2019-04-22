@@ -1,2 +1,2 @@
 #!/bin/bash
- docker run -p 8080:8080 -it aiqolearn:0.1.1
+ docker run -d -p 8080:80 -it aiqolearn:0.1.2

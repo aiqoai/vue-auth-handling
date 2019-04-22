@@ -34,7 +34,7 @@
         </el-dropdown>
 
       </el-menu-item>
-      <div v-if="currentUser.email">
+      <div v-if="currentUser.name">
         <router-link to="/login" class="nav-item" >
           <button class="button" type="submit" @click="logout" >
             Logout
@@ -133,6 +133,8 @@ export default {
       e.preventDefault();
       console.log(" logout")
       this.setCurrentUserData({})
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("user");
       this.$router.push('/login');
     },
     handleSubmit(path){
