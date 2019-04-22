@@ -75,12 +75,12 @@
                       
                           <div v-for="p in selectedWord.part_of_speech" :key="p.type" >                                          
                                               <h3>Definition:</h3>
-                                                   <h3>{{p.definition}}</h3>
+                                                   {{p.definition}}
                                       
                                       <div v-for="t in p.translation" :key="t.zh">{{t.zh}}</div>
                                       
-
-                                      <li v-for="s in p.sentence" :key="s">{{s}}</li>
+                                      <h3>Usage:</h3>
+                                      <div v-for="s in p.sentence" :key="s">{{s}}</div>
 
                                       <div v-if="p.synonyms"><h3>Synonyms: </h3>
 
@@ -93,7 +93,7 @@
 
                                       </div>
 
-                                      <h3 v-if="selectedWord.root">Roots</h3>
+                                      <h3 v-if="selectedWord.root">Roots:</h3>
 
 
                                       <div v-for="r in selectedWord.root" :key="r.origin">
@@ -278,9 +278,12 @@ export default {
       this.query.level = this.$route.params.level;
     }
     this.loading = false;
-    console.log("Query", this.query);
+    if (this.query.wordset == "mywords") {
+      this.setWordCategory('My Words');
+    }
 
-    if (!this.wordList || this.wordList.length == 0) {
+    if (!this.wordList || this.wordList.length == 0 || this.query.wordset == "mywords") {
+      this.setWordList([]);
       let api_path = '/api/word/query_words';
       let api_query = {
         category: this.query.wordset,
