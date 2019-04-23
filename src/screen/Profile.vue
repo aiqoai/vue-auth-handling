@@ -10,50 +10,42 @@
                       <div class="user-img">
                             <img src="../assets/user.png" width="45%">
                         </div>
-
-                    <table>
+                    <table style="table-layout: fixed; width:100%;">
                       
                       <tr>
-                        <td><h2>My Name:</h2></td>
-                        <td>{{currentProfile.name}}</td>
-                        <td><input v-model="form_name"></td>
+                        <td style="width:50%;"><h2>My Name:</h2></td>
+                        <td style="width:50%;"><label v-show="!editing"> {{currentProfile.name}}</label><input v-show="editing" v-model="form_name">
+                        </td>
                       </tr>
                       <tr>
                         <td><h2>Email:</h2></td>
                         <td>{{currentProfile.email}}</td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td><h2>About Me:</h2></td>
-                        <td>{{currentProfile.description}}</td>
-                        <td><input v-model="form_description"></td>
+                        <td><label v-show="!editing">{{currentProfile.description}}</label><input v-show="editing" v-model="form_description"></td>
                       </tr>
                       <tr>
                       <tr>
                         <td><h2>Current Level:</h2></td>
                         <td>{{currentProfile.current_level}}</td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td><h2>Current Category:</h2></td>
                         <td>{{currentProfile.current_category}}</td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td><h2>Member Since: </h2></td>
                         <td>{{currentProfile.registration_datetime}}</td>
-                        <td></td>
                       </tr>
                       <tr>
-                        <el-row>
-                            <el-col :span="12">
-                                <td><button @click="update" class="update-button">Update</button></td>
-                            </el-col>
-
-                            <el-col :span="12">
-                                <td><button @click="logout" class="logout-button">Logout</button></td>
-                            </el-col>
-                        </el-row>
+                        <td>
+                          <el-button @click="logout" type="primary" plain>Logout</el-button>
+                        </td>
+                        <td>
+                          <el-button style="width:100px;" v-if="!editing" @click="handleEditClick" type="success" plain>Edit</el-button>
+                          <el-button style="width:100px;" v-if="editing" @click="update" type="info" plain>Update</el-button>
+                        </td>
                       </tr>
                     </table>
 
@@ -107,7 +99,7 @@ border-radius: 10px;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
-  margin: 15px 2px;
+  margin: 15px;
   cursor: pointer;
 }
 .logout-button{
@@ -120,7 +112,6 @@ border-radius: 10px;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
- margin-left: 40%;
  margin-top: 15px;
   cursor: pointer;
 
@@ -135,8 +126,7 @@ border-radius: 10px;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
- margin-left: 40%;
- margin-top: 15px;
+ margin: 15px;
   cursor: pointer;
 }
 .update-button:hover {
@@ -149,7 +139,7 @@ border-radius: 10px;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
-  margin: 15px 2px;
+  margin: 15px;
   cursor: pointer;
 }
 
@@ -197,7 +187,8 @@ export default {
         form_name: "",
         form_description: "",
         progress: [],
-        profile_updates: {}
+        profile_updates: {},
+        editing: false
       }
     }
   ,
@@ -243,7 +234,11 @@ export default {
       localStorage.removeItem("user");
       this.$router.push('/login');
     },
-
+    handleEditClick() {
+      this.form_name = this.currentProfile.name;
+      this.form_description = this.currentProfile.description;
+      this.editing = true;
+    },
     update(e){
       if(this.form_name != ''){
         this.profile_updates.name = this.form_name;
@@ -261,6 +256,7 @@ export default {
       }).catch(error => {
         console.error(error);
       });
+      this.editing = false;
     }
 
   }
