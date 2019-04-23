@@ -8,7 +8,7 @@
             <h1>My profile</h1>
                 <el-card class="box-card">
                       <div class="user-img">
-                            <img src="../assets/user.png" width="45%">
+                            <img src="../assets/user.png" width="42%">
                         </div>
                     <table style="table-layout: fixed; width:100%;">
                       
@@ -145,8 +145,8 @@ border-radius: 10px;
 
 .user-img{
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    
+    margin-bottom: 5px;
 
 }
 
@@ -162,7 +162,7 @@ color:#06597D;
 h2{
     font-size: 15px;
     color:#06597D;
-    line-height: 0.6;
+    line-height: 0.4;
 }
 ul {
   list-style-type: none;
