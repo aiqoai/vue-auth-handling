@@ -2,7 +2,9 @@
 <div class="hello">
      <el-row>
           <el-col :span="24">
-               <img src="../../assets/S1.png" width="100%" style="text-align: center; margin-top: -20px;">
+               <img v-if="$route.params.wordset == 'SAT'" src="../../assets/S1.SAT.png" width="100%" style="text-align: center; margin-top: -20px;">
+               <img v-if="$route.params.wordset == 'GRE'" src="../../assets/S1.GRE.png" width="100%" style="text-align: center; margin-top: -20px;">
+               <img v-if="$route.params.wordset == 'TOEFL'" src="../../assets/S1.TOEFL.png" width="100%" style="text-align: center; margin-top: -20px;">
           </el-col>
      </el-row>
 
