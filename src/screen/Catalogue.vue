@@ -204,7 +204,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 
 /* This is fixed for viewing. Neeeded to be changed. */
 
