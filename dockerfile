@@ -20,10 +20,6 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-FROM nginx
-RUN mkdir /app
-COPY --from=0 /app/dist /app
-COPY nginx/nginx-prd.conf /etc/nginx/nginx.conf
-
-#EXPOSE 8080
-#CMD [ "http-server", "dist" ]
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
+#CMD [ "node", "./live.js" ]
