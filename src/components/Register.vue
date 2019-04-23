@@ -55,7 +55,7 @@
        
     </div>
 </template>
-<style>
+<style scoped>
 
 .box-card-2{
     max-width: 70%;

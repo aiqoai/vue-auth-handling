@@ -112,7 +112,7 @@
   
 </template>
 
-<style>
+<style scoped>
 .definition-content{
      padding-top: 3%;
      padding: 20px;
