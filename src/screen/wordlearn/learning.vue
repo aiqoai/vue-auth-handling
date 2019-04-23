@@ -112,15 +112,15 @@
   
 </template>
 
-<style scoped>
+<style>
 .definition-content{
      padding-top: 3%;
      padding: 20px;
 
 }
 .image{
-    max-width:100%;
-    max-height:100%;
+    width:100%;
+    height:100%;
 }
 .picture{
    
@@ -132,6 +132,7 @@ p{font-size: 16px;
 color:#090218;
 
 }
+
 h1{font-size: 25px;
 color:#06597D;}
 h2{font-size: 18px;
