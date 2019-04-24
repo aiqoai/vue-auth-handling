@@ -3,19 +3,27 @@
     <h1>Play word game</h1>
 <!--    <h2>{{msg}}</h2>-->
     <audio-recorder
-      upload-url="http://localhost:4000/api/pronunciation"
+      :upload-url="sendURL"
       :attempts="3"
       :time="2"
       :headers="headers"
       :before-recording="callback"
       :pause-recording="callback"
       :after-recording="callback"
-      :select-record="callback"
-      :before-upload="callback"
+      :select-record="prepareURL"
+      :before-upload="prepareURL"
       :successful-upload="callback"
       :failed-upload="callback"/>
     <div>
-
+      <br/>
+      <div>
+        <Label>Enter Text to Compare to:</Label>
+        <input v-model="text_to_compare"></input>
+        <br/>
+        <br/>
+        <div>{{text_to_compare}}</div>
+        <br/>
+      </div>
       <label>Score:</label>
       <div>{{ JSON.stringify(scoringdata) }}</div>
       <div>{{JSON.stringify(wordsscore[0])}}</div>
@@ -27,10 +35,13 @@
 export default {
   data () {
     return {
+      text_to_compare: "",
       msg: 'Hello World!',
       scoringdata:{},
       wordsscore:[],
-      headers:{}
+      headers:{},
+      baseURL: process.env.APP_API_PATH + "api/pronunciation?text=",
+      sendURL: process.env.APP_API_PATH
     }
   },
   methods: {
@@ -39,9 +50,13 @@ export default {
       if(data.data){
 
         this.scoringdata=data.data.text_score.quality_score;
-        this.wordsscore=data.data.text_score.word_score_list
+        this.wordsscore=data.data.text_score.word_score_list;
       }
+    },
+    prepareURL (data) {
+      this.sendURL = this.baseURL + this.text_to_compare
     }
+
   }
 }
 </script>
