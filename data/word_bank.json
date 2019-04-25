@@ -1,0 +1,785 @@
+[
+  {
+    "word": "aAccessible",
+    "category": "life science",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3.us-east-2.amazonaws.com/aiqo-dev/vocabulary/word-1.jpg",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "bAccessible",
+    "category": "life science",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3.us-east-2.amazonaws.com/aiqo-dev/vocabulary/word-2.jpg",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "cAccessible",
+    "category": "life science",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3.us-east-2.amazonaws.com/aiqo-dev/vocabulary/word-4.jpg",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "dAccessible",
+    "category": "life science",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "eAccessible",
+    "category": "life science",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "fAccessible",
+    "category": "life science",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "gAccessible",
+    "category": "life science",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "hAccessible",
+    "category": "life science",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "iAccessible",
+    "category": "life science",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "jAccessible",
+    "category": "physics",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "kAccessible",
+    "category": "physics",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "lAccessible",
+    "category": "physics",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "mAccessible",
+    "category": "physics",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "nAccessible",
+    "category": "physics",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "oAccessible",
+    "category": "physics",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "pAccessible",
+    "category": "physics",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "qAccessible",
+    "category": "physics",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "rAccessible",
+    "category": "physics",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "sAccessible",
+    "category": "travel",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "tAccessible",
+    "category": "travel",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "uAccessible",
+    "category": "travel",
+    "level": "1",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "vAccessible",
+    "category": "travel",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "wAccessible",
+    "category": "travel",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "xAccessible",
+    "category": "travel",
+    "level": "2",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "yAccessible",
+    "category": "travel",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "zAccessible",
+    "category": "travel",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  },
+  {
+    "word": "1Accessible",
+    "category": "travel",
+    "level": "3",
+    "sound_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.m4a",
+    "picture_url": "https://s3-us-west-1.amazonaws.com/aiqolearn-dev/accessible.png",
+    "owner": "aiqo",
+    "pronunciation": "Acce-ssi-ble",
+    "root": [{ "type": "latin", "root": "acce" },{ "type": "greek", "root": "ac" }],
+    "part_of_speech":[
+      {
+        "type": "adj",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      },
+      {
+        "type": "noun",
+        "definition": "Easy to reach or to approach",
+        "translation":[{"zh": "无障碍的"}],
+        "sentence": ["The introduction to the complex novel was, thankfully, written in clear accessible language."],
+        "synonyms": ["approachable", "attainable"],
+        "encoding": ["to be encoded"]
+      }
+    ]
+ 
+  }
+ ] 

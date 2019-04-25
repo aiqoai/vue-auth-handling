@@ -1,12 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import UserBoard from '@/components/UserBoard'
 import Admin from '@/components/Admin'
 import Products from '@/components/Products'
 import Cart from '@/components/Cart'
+import Carousel from '@/components/Carousel'
+
+import Home from '@/screen/Home'
+import Catelogue from '@/screen/Catalogue'
+import Build from '@/screen/Build'
+import Play from '@/screen/Play'
+import Profile from '@/screen/Profile'
+
+import Learning from '@/screen/wordlearn/learning'
+import Practice from '@/screen/wordlearn/practice'
+import Test from '@/screen/wordlearn/test'
+import Topic from '@/screen/wordlearn/topic'
+import Favorite from "../screen/Favorite"
+
+import NotFoundComponent from '@/screen/NotFoundComponent'
+
 Vue.use(Router)
 
 let router = new Router({
@@ -14,8 +30,49 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'home',
+      component: Home,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/catalogue',
+      name: 'catalogue',
+      component: Catelogue,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
+
+    {
+      path: '/build',
+      name: 'build',
+      component: Build,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/play',
+      name: 'play',
+      component: Play,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        guest: true,
+        requiresAuth: false
+      }
     },
     {
       path: '/products',
@@ -33,14 +90,7 @@ let router = new Router({
         requiresAuth: false
       }
     },
-    {
-        path: '/login',
-        name: 'login',
-        component: Login,
-        meta: { 
-            guest: true
-        }
-    },
+
     {
         path: '/register',
         name: 'register',
@@ -51,9 +101,17 @@ let router = new Router({
         }
     },
     {
-        path: '/dashboard',
-        name: 'userboard',
-        component: UserBoard,
+        path: '/profile',
+        name: 'profile',
+        component: Profile,
+        meta: { 
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/carousel',
+        name: 'carousel',
+        component: Carousel,
         meta: { 
             requiresAuth: false
         }
@@ -67,40 +125,95 @@ let router = new Router({
             is_admin : true
         }
     },
+    {
+      path: '/learning/:wordset/:level',
+      name: 'learning',
+      component: Learning,
+      props: true,
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/topic/:wordset',
+      name: 'topic',
+      component: Topic,
+      props: true,
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/practice/:wordset/:level',
+      name: 'practice',
+      component: Practice,
+      props: true,
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/test/:wordset/:level',
+      name: 'test',
+      component: Test,
+      props: true,
+      meta: { 
+          requiresAuth: false
+      }
+    },
+    {
+      path: '/favorite',
+      name: 'favorite',
+      component: Favorite,
+      props: true,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    { path: '*', component: NotFoundComponent },
+
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem('jwt') == null) {
-      next({
-        path: '/login',
-        params: { nextUrl: to.fullPath }
-      })
-    } else {
-      let user = JSON.parse(localStorage.getItem('user'))
-      if(to.matched.some(record => record.meta.is_admin)) {
-        if(user.is_admin == 1){
-            next()
-        }
-        else{
-            next({ name: 'userboard'})
-        }
-      }
-      else {
-      	next()
-      }
-    }
-  } else if(to.matched.some(record => record.meta.guest)) {
-	    if(localStorage.getItem('jwt') == null){
-	        next()
-	    }
-	    else{
-	        next({ name: 'userboard'})
-	    }
-    }else {
-    next() 
-  }
+  next()
+
+  // if(to.matched.some(record => record.meta.requiresAuth)) {
+  //   // console.log("requiresAuth: ",record.meta)
+  //   console.log(" JWT: ",localStorage.getItem('jwt') )
+  //
+  //   if (localStorage.getItem('jwt') == null)
+  //   {
+  //     next({
+  //       path: '/login',
+  //       params: { nextUrl: to.fullPath }
+  //     })
+  //   } else {
+  //     let user = JSON.parse(localStorage.getItem('user'))
+  //     if(to.matched.some(record => record.meta.is_admin)) {
+  //       if(user.is_admin == 1){
+  //           next()
+  //       }
+  //       else{
+  //           next({ name: 'userboard'})
+  //       }
+  //     }
+  //     else {
+  //     	next()
+  //     }
+  //   }
+  // }
+  // else if(to.matched.some(record => record.meta.guest)) {
+  //   // console.log("guest: ", record.meta.guest)
+	//     if(localStorage.getItem('jwt') == null){
+	//         next()
+	//     }
+	//     else{
+	//         next({ name: 'userboard'})
+	//     }
+  //   }else {
+  //   next()
+  // }
 })
 
 export default router

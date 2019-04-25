@@ -29,6 +29,27 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true,
+
+
+    // contentBase: path.join(__dirname, 'dist'),
+    // compress: true,
+    host: '0.0.0.0',
+    disableHostCheck:true,
+    inline:true,
+    port: 8080,
+    proxy: [
+      {
+        path: '/api/',
+        target: 'http://127.0.0.1:4000/',
+        secure: false,
+        pathRewrite: { '^/api': '' },
+      },
+    ],
+
+  },
   module: {
     rules: [
       {

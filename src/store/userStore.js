@@ -2,12 +2,14 @@ import {fetchLoggedInUserData} from './Util';
 
 // initial state
 export const state = {
-    currentUser:fetchLoggedInUserData()
+    currentUser:{},
+    currentProfile:{}
 };
 
 // getters
 export const getters = {
-    currentUser: state => state.currentUser
+    currentUser: state => state.currentUser,
+    currentProfile: state => state.currentProfile
 };
 
 // actions
@@ -18,7 +20,9 @@ export const mutations = {
         console.log("[Profile] setCurrentUserData : ", payload);
         state.currentUser = payload;
     },
-    updateUserData (state, payload){
+    setUserProfile (state, payload){
         //update user data
-    }
+      console.log(" set profile",payload)
+      state.currentProfile=payload
+    },
 };

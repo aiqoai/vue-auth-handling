@@ -63,14 +63,7 @@ const appendRefreshTokenHeader = ((header = defaultHeaders)=> {
 });
 
 export const refreshToken = (self, callback, header) =>
-  this.$http.post
-  // (url, {
-  //   name: this.name,
-  //   email: this.email,
-  //   password: this.password,
-  //   is_admin: this.is_admin
-  // })
-  ("/api/auth/refresh",{
+  this.$http.post("/api/auth/refresh",{
         method: 'POST',
         headers: appendRefreshTokenHeader(header)
     }).then((res) => {

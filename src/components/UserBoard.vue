@@ -1,8 +1,10 @@
 <template>
-  <div class="hello">
-    <h1>Welcome to regular user's page</h1>
-    <h2>{{msg}}</h2>
+  <div>
+    <h1>User  Board</h1>
+    <button @click="logout">Logout</button>
   </div>
+
+
 </template>
 
 <script>
@@ -11,6 +13,16 @@ export default {
     return {
       msg: 'The commoners'
     }
+  },
+  methods:{
+    logout(e){
+      e.preventDefault();
+      console.log(" logout")
+      localStorage.removeItem("user");
+      localStorage.removeItem("jwt");
+      this.$router.push('/login')
+    }
+
   }
 }
 </script>
