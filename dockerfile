@@ -21,5 +21,5 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8080
-CMD [ "http-server", "dist" ]
-#CMD [ "node", "./live.js" ]
+#CMD [ "http-server", "dist" ]
+CMD [ "node", "live.js" ]
