@@ -10,13 +10,15 @@
             :attempts="3"
             :time="2"
             :headers="headers"
+            :pause-recording="prepareURL"
             :select-record="prepareURL"
             :before-upload="prepareURL"
             :successful-upload="callback"
             :failed-upload="callback"/>
-          <!--      :before-recording="callback"-->
-          <!--      :pause-recording="callback"-->
-          <!--      :after-recording="callback"-->
+
+<!--          :before-recording="prepareURL"-->
+
+<!--          :after-recording="callback"-->
         </td>
         <td v-bind:style="{padding: '2em'}"></td>
         <td>
@@ -52,17 +54,17 @@
                   <template v-slot:body>
                     <table>
                       <tr>
-                        <th>Sound</th>
-                        <th>Rating</th>
-                        <th>Score</th>
+                        <th class="vtd">Sound</th>
+                        <th class="vtd">Rating</th>
+                        <th class="vtd">Score</th>
                       </tr>
                       <tr v-for="phoneme in WordToCheck.phone_score_list">
-                        <td>{{phoneme.phone}}</td>
-                        <td v-if="phoneme.quality_score > 70" v-bind:style="{color: 'green'}"> GOOD</td>
-                        <td v-else-if="phoneme.quality_score > 40" v-bind:style="{color: '#CCCC00'}"> OKAY</td>
-                        <td v-else-if="phoneme.sound_most_like == null" v-bind:style="{color: 'red'}">No Input</td>
-                        <td v-else v-bind:style="{color: 'red'}">Sounds Like {{phoneme.sound_most_like}}</td>
-                        <td>{{phoneme.quality_score}} </td>
+                        <td class="vtd">{{phoneme.phone}}</td>
+                        <td class="vtd" v-if="phoneme.quality_score > 70" v-bind:style="{color: 'green'}"> GOOD</td>
+                        <td class="vtd" v-else-if="phoneme.quality_score > 40" v-bind:style="{color: '#CCCC00'}"> OKAY</td>
+                        <td class="vtd" v-else-if="phoneme.sound_most_like == null" v-bind:style="{color: 'red'}">No Input</td>
+                        <td class="vtd" v-else v-bind:style="{color: 'red'}">Sounds Like {{phoneme.sound_most_like}}</td>
+                        <td class="vtd" >{{Math.round(phoneme.quality_score)}} </td>
                       </tr>
                     </table>
                   </template>
@@ -108,14 +110,14 @@ export default {
       }
     },
     prepareURL (data) {
-      console.log(this.headers)
-      this.sendURL = this.baseURL + this.text_to_compare
+      console.log(this.headers);
+      this.sendURL = this.baseURL + this.text_to_compare;
     },
     showModal(data) {
       this.WordToCheck = data;
       this.isModalVisible = true;
-      console.log(this.WordToCheck)
-      console.log(data)
+      // console.log(this.WordToCheck);
+      // console.log(data);
     },
     closeModal() {
       this.isModalVisible = false;
@@ -141,4 +143,9 @@ li {
 a {
   color: #42b983;
 }
+  .vtd {
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: left;
+  }
 </style>
