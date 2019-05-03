@@ -7,6 +7,7 @@ import router from './router'
 import AudioRecorder from 'vue-audio-recorder'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/display.css';
 
 import Axios from 'axios'
 import store from './store/index.js'
@@ -16,6 +17,7 @@ Vue.prototype.$http = Axios;
 Vue.config.productionTip = false
 Vue.use(ElementUI);//{ size: 'small', zIndex: 3000 }
 Vue.use(AudioRecorder)
+
 
 /* eslint-disable no-new */
 new Vue({
