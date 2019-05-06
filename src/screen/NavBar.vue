@@ -45,14 +45,14 @@
       </el-menu-item>
       <el-menu-item v-if="!currentUser.name" index="11">
         <router-link to="/login" class="nav-item" >
-          <button class="button" type="submit" @click.prevent="handleSubmit('/login')" >
+          <button class="button"> <!-- type="submit" @click="handleSubmit('/login')" > -->
             Login
           </button>
         </router-link>
       </el-menu-item>
       <el-menu-item v-if="!currentUser.name" index="12">
         <router-link to="/register" class="nav-item">
-          <button class="button" type="submit" @click.prevent="handleSubmit('/register')" >
+          <button class="button" > <!--type="submit" @click="handleSubmit('/register')" > -->
             Sign Up
 
           </button>
