@@ -174,15 +174,14 @@ export default {
         })
       });
       let percent_val = parseInt((correct / answers.length) * 100);
+      console.log("posting course progress...");
       let progress = {
-          "category": this.query.wordset,
-          "level": String(this.query.level),
-          "task": "test",
+          "course_name": this.query.wordset,
           "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
           "last_access": new Date().toISOString().split('T')[0] + 'UTC',
-          "progress": percent_val
+          "course_score": percent_val
         }
-      HTTP.post('/api/progress', progress).then(response => {
+      HTTP.post('/api/courseProgress', progress).then(response => {
         console.log("Received from server: ", response.data);
       });
     },
@@ -254,8 +253,8 @@ export default {
 
     if (this.problems.length == 0) {
       HTTP.post('/api/problem/query_problems', {
-        problem_category: this.query.wordset,
-        problem_grade_level: this.query.level,
+        problem_course_name: this.query.wordset,
+        problem_lesson_name: this.query.level,
         num_problems: 5
       }).then(response => {
         console.log("Received from server: ", response.data);

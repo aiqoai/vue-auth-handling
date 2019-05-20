@@ -162,11 +162,11 @@ export default {
     ...mapActions([
 
     ]),
-    redirectToLearn(level) {
-      var path = { name: 'learning', params: { wordset: this.wordCatagory, level: level } };
+    redirectToLearn(lesson) {
+      var path = { name: 'learning', params: { wordset: this.wordCatagory, lesson: lesson } };
       HTTP.post('/api/word/query_words', {
-        category: this.wordCatagory,
-        level: String(level)
+        course: this.wordCatagory,
+        lesson: String(lesson)
       }).then(response => {
         console.log("Received from server: ", response.data);
         this.setWordList(
@@ -175,11 +175,11 @@ export default {
         this.$router.push(path);
       })
     },
-    redirectToPractice(level) {
-      var path = { name: 'practice', params: { wordset: this.wordCatagory, level: level } };
+    redirectToPractice(lesson) {
+      var path = { name: 'practice', params: { wordset: this.wordCatagory, lesson: lesson } };
       HTTP.post('/api/problem/query_problems', {
-        problem_category: this.wordCatagory,
-        problem_grade_level: String(level),
+        problem_course_name: this.wordCatagory,
+        problem_lesson_name: String(lesson),
         num_problems: 5
       }).then(response => {
         console.log("Received from server: ", response.data);
@@ -192,8 +192,8 @@ export default {
     redirectToTest(level) {
       var path = { name: 'test', params: { wordset: this.wordCatagory, level: level } };
       HTTP.post('/api/problem/query_problems', {
-        problem_category: this.wordCatagory,
-        problem_grade_level: String(level),
+        problem_course_name: this.wordCatagory,
+        problem_lesson_name: String(level),
         num_problems: 5
       }).then(response => {
         console.log("Received from server: ", response.data);

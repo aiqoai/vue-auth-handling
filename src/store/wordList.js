@@ -1,5 +1,5 @@
 import { stat } from "fs";
-import {HTTP} from '../store/httpcommon';
+import { HTTP } from '../store/httpcommon';
 
 // import {fetchLoggedInUserData} from './Util';
 
@@ -38,9 +38,9 @@ export const mutations = {
         console.log("[Word] setWordCategory : ", payload);
         state.wordCatagory = payload;
     },
-    setWordList(state, payload){
+    setWordList(state, payload) {
         console.log("[Word] setWordList : ", payload);
-        state.wordList = payload;   
+        state.wordList = payload;
     },
     setProblems(state, payload) {
         console.log("[Word] setProblems : ", payload);

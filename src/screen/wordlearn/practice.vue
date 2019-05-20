@@ -17,7 +17,7 @@
       <el-button type="success" plain icon="el-icon-back" @click="$router.push('/catalogue')">Back to Catalogue</el-button>
     </div>
     <div v-if="totalPages > 0">
-      <el-progress :percentage="parseInt((currentPage / totalPages) * 100)" color="green"></el-progress>
+      <el-progress :="parseInt((currentPage / totalPages) * 100)" color="green"></el-progress>
       <el-row v-if="currProb && currentPage < totalPages">
       <el-button type="success" icon="el-icon-arrow-left" @click="handlePrevClick" :disabled="currentPage == 0"
         style="margin-top: 20px;">Previous</el-button>
@@ -222,16 +222,15 @@ export default {
         })
       });
       if (this.query.wordset !== 'review') {
+        console.log("logging test result...");
         let percent_val = parseInt((correct / answers.length) * 100);
         let progress = {
-            "category": this.query.wordset,
-            "level": String(this.query.level),
-            "task": "practice",
+            "course_name": this.query.wordset,
             "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
             "last_access": new Date().toISOString().split('T')[0] + 'UTC',
-            "progress": percent_val
+            "course_score": percent_val
           }
-        HTTP.post('/api/progress', progress).then(response => {
+        HTTP.post('/api/courseProgress', progress).then(response => {
           console.log("Received from server: ", response.data);
         });
       }
@@ -320,10 +319,11 @@ export default {
     }
 
     if (this.problems.length == 0) {
+      console.log("Here to post");
       let post_path = '/api/problem/query_problems';
       let query_string = {
-        problem_category: this.query.wordset,
-        problem_grade_level: this.query.level,
+        problem_course_name: this.query.wordset,
+        problem_lesson_name: this.query.level,
         num_problems: 5
       };
       if (this.query.wordset == 'review') {

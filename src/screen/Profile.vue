@@ -54,32 +54,27 @@
         </el-col>    
     </el-row>
   </el-tab-pane>
-  <el-tab-pane label="Progress">
-    <el-col :span="4" v-for="p in this.progress" :key="p.category + p.level + p.task">
-    <el-progress v-if="p.progress < 25"
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="red">
-      <el-row>{{p.category}}-{{p.level}}</el-row>
-      <el-row>{{p.task}}</el-row>
+  <el-tab-pane label="Course Progress">
+    <el-col :span="4" v-for="p in this.progress" :key="p.course_name">
+    <el-progress v-if="p.course_score < 25"
+      type="circle" :percentage="parseInt(p.course_score)" status="text" color="red">
+      <el-row>{{p.course_name}}</el-row>
     </el-progress>
-    <el-progress v-else-if="p.progress < 50"
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="orange">
-      <el-row>{{p.category}}-{{p.level}}</el-row>
-      <el-row>{{p.task}}</el-row>
+    <el-progress v-else-if="p.course_score < 50"
+      type="circle" :percentage="parseInt(p.course_score)" status="text" color="orange">
+      <el-row>{{p.course_name}}</el-row>
     </el-progress>
-    <el-progress v-else-if="p.progress < 75"
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="gold">
-      <el-row>{{p.category}}-{{p.level}}</el-row>
-      <el-row>{{p.task}}</el-row>
+    <el-progress v-else-if="p.course_score < 75"
+      type="circle" :percentage="parseInt(p.course_score)" status="text" color="gold">
+      <el-row>{{p.course_name}}</el-row>
     </el-progress>
-    <el-progress v-else-if="p.progress < 95"
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="limegreen">
-      <el-row>{{p.category}}-{{p.level}}</el-row>
-      <el-row>{{p.task}}</el-row>
+    <el-progress v-else-if="p.course_score < 95"
+      type="circle" :percentage="parseInt(p.course_score)" status="text" color="limegreen">
+      <el-row>{{p.course_name}}</el-row>
     </el-progress>
     <el-progress v-else
-      type="circle" :percentage="parseInt(p.progress)" status="text" color="green">
-      <el-row>{{p.category}}-{{p.level}}</el-row>
-      <el-row>{{p.task}}</el-row>
+      type="circle" :percentage="parseInt(p.course_score)" status="text" color="green">
+      <el-row>{{p.category}}</el-row>
     </el-progress>
     </el-col>
   </el-tab-pane>
@@ -205,7 +200,7 @@ export default {
       console.log(err)
     });
     console.log("Before progress");
-    HTTP.get('/api/progress')
+    HTTP.get('/api/courseProgress')
       .then(response => {
         console.log(response.data[0].data);
         this.progress = response.data[0].data; 

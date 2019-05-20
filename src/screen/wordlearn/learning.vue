@@ -12,7 +12,7 @@
 
                            <el-button v-show="!selectedWord"
                            style="float:right; margin: 20px;" icon="el-icon-d-arrow-right" 
-                           type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.level)">
+                           type="warning" @click="$router.push('/practice/' + query.wordset + '/' + query.lesson)">
                            Go to Practice</el-button>
                                
                      </el-row>
@@ -181,7 +181,7 @@ export default {
       selectedWord: '',
       query: {
         'wordset': '',
-        'level': ''
+        'lesson': ''
       },
       viewedWords: new Set(),
       reportSubmitted: false,
@@ -202,14 +202,12 @@ export default {
       if (this.viewedWords.size == this.wordList.length) {
         console.log("All words are viewed!!", this.query);
         let progress = {
-          "category": this.query.wordset,
-          "level": String(this.query.level),
-          "task": "learning",
+          "course_name": this.query.wordset,
           "completion_date": new Date().toISOString().split('T')[0] + 'UTC',
           "last_access": new Date().toISOString().split('T')[0] + 'UTC',
-          "progress": 100
+          "course_score": 100
         };
-        HTTP.post('/api/progress', progress).then(response => {
+        HTTP.post('', progress).then(response => {
           console.log("Received from server: ", response.data);
         });
         this.reportSubmitted = true;
@@ -275,8 +273,8 @@ export default {
     if(this.$route.params.hasOwnProperty('wordset') && this.$route.params.wordset) {
       this.query.wordset = this.$route.params.wordset;
     }
-    if(this.$route.params.hasOwnProperty('level') && this.$route.params.level) {
-      this.query.level = this.$route.params.level;
+    if(this.$route.params.hasOwnProperty('lesson') && this.$route.params.lesson) {
+      this.query.lesson = this.$route.params.lesson;
     }
     this.loading = false;
     if (this.query.wordset == "mywords") {
@@ -285,10 +283,11 @@ export default {
 
     if (!this.wordList || this.wordList.length == 0 || this.query.wordset == "mywords") {
       this.setWordList([]);
+      console.log("Here to post");
       let api_path = '/api/word/query_words';
       let api_query = {
-        category: this.query.wordset,
-        level: String(this.query.level)
+        course: this.query.wordset,
+        lesson: String(this.query.lesson)
       };
       if (this.query.wordset == "mywords"){
         api_path = '/api/word/my_words',
